@@ -1,25 +1,25 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
-interface HomeStaticProps {
+interface TermsOfUseStaticProps {
     props: {};
     revalidate: number;
 };
 
-export async function getStaticProps(): Promise<HomeStaticProps> {
+export async function getStaticProps(): Promise<TermsOfUseStaticProps> {
     return { props: {}, revalidate: 60 };
 }
 
-function Home(): JSX.Element {
+function TermsOfUse(): JSX.Element {
     return (
         <>
-            <Header/>
+            <Header title="Terms Of Use - Debt Advisors"/>
             <main>
-                <h1>Hello World!</h1>
+                <h1>Terms Of Use</h1>
             </main>
             <Footer/>
         </>
     );
 }
 
-export default Home;
+export default TermsOfUse;

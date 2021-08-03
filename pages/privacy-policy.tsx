@@ -1,25 +1,25 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
-interface HomeStaticProps {
+interface PrivacyPolicyStaticProps {
     props: {};
     revalidate: number;
 };
 
-export async function getStaticProps(): Promise<HomeStaticProps> {
+export async function getStaticProps(): Promise<PrivacyPolicyStaticProps> {
     return { props: {}, revalidate: 60 };
 }
 
-function Home(): JSX.Element {
+function PrivacyPolicy(): JSX.Element {
     return (
         <>
-            <Header/>
+            <Header title="Privacy Policy - Debt Advisors"/>
             <main>
-                <h1>Hello World!</h1>
+                <h1>Privacy Policy</h1>
             </main>
             <Footer/>
         </>
     );
 }
 
-export default Home;
+export default PrivacyPolicy;

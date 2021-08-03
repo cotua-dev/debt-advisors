@@ -1,25 +1,25 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
-interface HomeStaticProps {
+interface ContactUsStaticProps {
     props: {};
     revalidate: number;
 };
 
-export async function getStaticProps(): Promise<HomeStaticProps> {
+export async function getStaticProps(): Promise<ContactUsStaticProps> {
     return { props: {}, revalidate: 60 };
 }
 
-function Home(): JSX.Element {
+function ContactUs(): JSX.Element {
     return (
         <>
-            <Header/>
+            <Header title="Contact Us - Debt Advisors"/>
             <main>
-                <h1>Hello World!</h1>
+                <h1>Contact Us</h1>
             </main>
             <Footer/>
         </>
     );
 }
 
-export default Home;
+export default ContactUs;
