@@ -7,6 +7,7 @@ specifiers:
   '@testing-library/react': ^12.0.0
   '@testing-library/react-hooks': ^7.0.1
   '@types/jest': ^26.0.24
+  '@types/node': ^16.4.12
   '@types/react': 17.0.15
   babel-jest: ^27.0.6
   cypress: ^8.1.0
@@ -33,6 +34,7 @@ devDependencies:
   '@testing-library/react': 12.0.0_react-dom@17.0.2+react@17.0.2
   '@testing-library/react-hooks': 7.0.1_react-dom@17.0.2+react@17.0.2
   '@types/jest': 26.0.24
+  '@types/node': 16.4.12
   '@types/react': 17.0.15
   babel-jest: 27.0.6_@babel+core@7.14.8
   cypress: 8.1.0
@@ -41,7 +43,7 @@ devDependencies:
   identity-obj-proxy: 3.0.0
   jest: 27.0.6_ts-node@10.1.0
   ts-jest: 27.0.4_ee7f086b1d1f88c81b98196bb34f34db
-  ts-node: 10.1.0_typescript@4.3.5
+  ts-node: 10.1.0_7f6f678fc559032ea568b444ed44ca56
   typescript: 4.3.5
 
 packages:
@@ -1005,6 +1007,10 @@ packages:
 
   /@types/node/16.4.10:
     resolution: {integrity: sha512-TmVHsm43br64js9BqHWqiDZA+xMtbUpI1MBIA0EyiBmoV9pcEYFOSdj5fr6enZNfh4fChh+AGOLIzGwJnkshyQ==}
+
+  /@types/node/16.4.12:
+    resolution: {integrity: sha512-zxrTNFl9Z8boMJXs6ieqZP0wAhvkdzmHSxTlJabM16cf5G9xBc1uPRH5Bbv2omEDDiM8MzTfqTJXBf0Ba4xFWA==}
+    dev: true
 
   /@types/prettier/2.3.2:
     resolution: {integrity: sha512-eI5Yrz3Qv4KPUa/nSIAi0h+qX0XyewOliug5F2QAtuRg6Kjg6jfmxe1GIwoIRhZspD1A0RP8ANrPwvEXXtRFog==}
@@ -3495,7 +3501,7 @@ packages:
       jest-validate: 27.0.6
       micromatch: 4.0.4
       pretty-format: 27.0.6
-      ts-node: 10.1.0_typescript@4.3.5
+      ts-node: 10.1.0_7f6f678fc559032ea568b444ed44ca56
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -5649,7 +5655,7 @@ packages:
       yargs-parser: 20.2.9
     dev: true
 
-  /ts-node/10.1.0_typescript@4.3.5:
+  /ts-node/10.1.0_7f6f678fc559032ea568b444ed44ca56:
     resolution: {integrity: sha512-6szn3+J9WyG2hE+5W8e0ruZrzyk1uFLYye6IGMBadnOzDh8aP7t8CbFpsfCiEx2+wMixAhjFt7lOZC4+l+WbEA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
@@ -5668,6 +5674,7 @@ packages:
       '@tsconfig/node12': 1.0.9
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
+      '@types/node': 16.4.12
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
