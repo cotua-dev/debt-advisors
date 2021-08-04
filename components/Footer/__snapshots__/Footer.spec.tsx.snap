@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component renders 1`] = `
+<footer
+  class="debt-advisors-footer"
+>
+  <strong>
+    Footer :)
+  </strong>
+</footer>
+`;
