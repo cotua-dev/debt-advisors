@@ -22,6 +22,7 @@ export default {
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
     "**/*.{ts,tsx}",
+    "!**/*.spec.{ts,tsx}",
     "!**/node_modules/**",
     "!**/vendor/**",
   ],
@@ -160,7 +161,8 @@ export default {
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: [
-    "\\\\node_modules\\\\"
+    "\\\\node_modules\\\\",
+    "<rootDir>/cypress/"
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
