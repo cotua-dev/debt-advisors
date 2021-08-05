@@ -11,23 +11,19 @@ exports[`Footer Component renders 1`] = `
       class="logo-text"
     >
       <picture>
-        <source
-          srcset="/images/debt-advisors-white-logo.png"
-        />
+        <source />
         <img
           alt="Debt Advisors Of America White Logo"
           class="white-logo"
+          data-testid="white-logo"
           loading="lazy"
-          src="/images/debt-advisors-white-logo.png"
         />
       </picture>
       <p
         class="footer-text"
+        data-testid="footer-text"
       >
-        
-                            We would be delighted to answer any inquiry you might have about
-                            your debt and how we can help!
-                        
+        We would be delighted to answer any inquiry you might have about your debt and how we can help!
       </p>
     </div>
     <div
@@ -40,11 +36,13 @@ exports[`Footer Component renders 1`] = `
       </strong>
       <p
         class="content"
+        data-testid="monday-to-friday"
       >
         Monday to Friday 6:00 am to 7:00 pm PST
       </p>
       <p
         class="content"
+        data-testid="saturday"
       >
         Saturday 7:00 am to 2:00 pm PST
       </p>
@@ -62,6 +60,7 @@ exports[`Footer Component renders 1`] = `
       >
         <a
           class="info"
+          data-testid="phone"
           href="tel:+18006320437"
         >
           800-632-0437
@@ -72,12 +71,34 @@ exports[`Footer Component renders 1`] = `
       >
         <a
           class="info"
+          data-testid="email"
           href="mailto:info@contactdaa.com"
         >
           info@contactdaa.com
         </a>
       </div>
     </div>
+  </div>
+  <div
+    class="legal-wrapper"
+  >
+    <a
+      class="legal-link"
+      data-testid="terms-of-use"
+      href="/terms-of-use"
+    >
+      Terms of Use
+    </a>
+    <span>
+       / 
+    </span>
+    <a
+      class="legal-link"
+      data-testid="privacy-policy"
+      href="/privacy-policy"
+    >
+      Privacy Policy
+    </a>
   </div>
 </footer>
 `;
