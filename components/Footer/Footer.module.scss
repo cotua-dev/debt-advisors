@@ -1,0 +1,152 @@
+@import '../../styles/variables';
+
+footer.debt-advisors-footer {
+    background-color: $primary-color;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 60px 10px;
+
+    div.footer-content-wrapper {
+        max-width: $max-width;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: row;
+
+        @media screen and (max-width: 930px) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        div.logo-text {
+            width: 390px;
+
+            @media screen and (max-width: 400px) {
+                width: 100%;
+            }
+
+            picture img.white-logo {
+                width: 240px;
+                height: 80px;
+
+                @media screen and (max-width: 260px) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            p.footer-text {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 24px;
+            }
+        }
+
+        div.contact-us,
+        div.phone-email-submit {
+            strong.title {
+                font-size: 18px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+
+        div.contact-us {
+            @media screen and (max-width: 930px) {
+                margin: 20px 0;
+            }
+
+            p.content {
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+
+        div.phone-email-submit {
+            div.contact-info {
+                margin: 20px 0;
+
+                @media screen and (max-width: 930px) {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    text-align: center;
+                    margin: 10px 0;
+                }
+
+                p.title,
+                a.info {
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+
+                p.title {
+                    display: flex;
+                    align-items: center;
+                    margin: 0;
+
+                    .icon {
+                        height: 12px;
+                        width: 12px;
+                        margin-right: 5px;
+                    }
+                }
+
+                a.info {
+                    font-size: 14px;
+                    font-weight: 700;
+                    transition: color 250ms;
+
+                    &:hover {
+                        color: $secondary-color;
+                    }
+                }
+            }
+
+            // div.email-submit {
+            //     margin-top: auto;
+
+            //     input.email-field,
+            //     button.submit-button {
+            //         padding: 10px;
+            //         border-radius: 10px;
+            //         border: 0;
+            //     }
+
+            //     input.email-field {
+                    
+            //     }
+
+            //     button.submit-button {
+            //         background-color: $primary-color;
+            //         color: #FFFFFF;
+            //     }
+            // }
+        }
+    }
+
+    div.legal-wrapper {
+        text-align: center;
+
+        @media screen and (max-width: 930px) {
+            margin-top: 20px;
+        }
+
+        a.legal-link {
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 250ms;
+
+            &:hover {
+                color: $secondary-color;
+            }
+        }
+    }
+}

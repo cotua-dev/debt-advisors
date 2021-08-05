@@ -4,8 +4,80 @@ exports[`Footer Component renders 1`] = `
 <footer
   class="debt-advisors-footer"
 >
-  <strong>
-    Footer :)
-  </strong>
+  <div
+    class="footer-content-wrapper"
+  >
+    <div
+      class="logo-text"
+    >
+      <picture>
+        <source
+          srcset="/images/debt-advisors-white-logo.png"
+        />
+        <img
+          alt="Debt Advisors Of America White Logo"
+          class="white-logo"
+          loading="lazy"
+          src="/images/debt-advisors-white-logo.png"
+        />
+      </picture>
+      <p
+        class="footer-text"
+      >
+        
+                            We would be delighted to answer any inquiry you might have about
+                            your debt and how we can help!
+                        
+      </p>
+    </div>
+    <div
+      class="contact-us"
+    >
+      <strong
+        class="title"
+      >
+        Office Hours
+      </strong>
+      <p
+        class="content"
+      >
+        Monday to Friday 6:00 am to 7:00 pm PST
+      </p>
+      <p
+        class="content"
+      >
+        Saturday 7:00 am to 2:00 pm PST
+      </p>
+    </div>
+    <div
+      class="phone-email-submit"
+    >
+      <strong
+        class="title"
+      >
+        Contact Us
+      </strong>
+      <div
+        class="contact-info"
+      >
+        <a
+          class="info"
+          href="tel:+18006320437"
+        >
+          800-632-0437
+        </a>
+      </div>
+      <div
+        class="contact-info"
+      >
+        <a
+          class="info"
+          href="mailto:info@contactdaa.com"
+        >
+          info@contactdaa.com
+        </a>
+      </div>
+    </div>
+  </div>
 </footer>
 `;
