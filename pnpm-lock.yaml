@@ -15,7 +15,7 @@ specifiers:
   '@types/node': ^16.4.12
   '@types/react': 17.0.15
   babel-jest: ^27.0.6
-  cypress: ^8.1.0
+  cypress: 8.2.0
   eslint: 7.32.0
   eslint-config-next: 11.0.1
   html-webpack-plugin: '5'
@@ -42,7 +42,7 @@ dependencies:
 devDependencies:
   '@babel/core': 7.14.8
   '@babel/preset-typescript': 7.14.5_@babel+core@7.14.8
-  '@cypress/react': 5.9.3_b6b2ea432fdc7b7b3b6df1549b5722d0
+  '@cypress/react': 5.9.3_ab06e3df98c6926d59372cf4b54df3ca
   '@cypress/webpack-dev-server': 1.4.0_381f990d5a144674c93ca4bb853f1872
   '@testing-library/jest-dom': 5.14.1
   '@testing-library/react': 12.0.0_react-dom@17.0.2+react@17.0.2
@@ -51,7 +51,7 @@ devDependencies:
   '@types/node': 16.4.12
   '@types/react': 17.0.15
   babel-jest: 27.0.6_@babel+core@7.14.8
-  cypress: 8.1.0
+  cypress: 8.2.0
   eslint: 7.32.0
   eslint-config-next: 11.0.1_364f6739f1a077bdf2998405af31cd57
   html-webpack-plugin: 5.3.2_webpack@5.48.0
@@ -494,7 +494,7 @@ packages:
     resolution: {integrity: sha512-Fn3fdTiyayHoy8Ol0RSu4MlBH2maQ2ZEXeEVKl/zHHXEQpld5HX3vdNLhK5YLij8cLynA4DxOT/nO9iEnIiOXw==}
     dev: true
 
-  /@cypress/react/5.9.3_b6b2ea432fdc7b7b3b6df1549b5722d0:
+  /@cypress/react/5.9.3_ab06e3df98c6926d59372cf4b54df3ca:
     resolution: {integrity: sha512-dsjlzicxSO239cOg4XWUIvlyXM2bKMnIps2l3DXU5KM/kpldddGh+KTh2OwwIYfDdWUioi6apBDKl+0Opk+k1A==}
     peerDependencies:
       '@babel/core': '>=7'
@@ -527,7 +527,7 @@ packages:
       '@cypress/mount-utils': 1.0.2
       '@cypress/webpack-dev-server': 1.4.0_381f990d5a144674c93ca4bb853f1872
       '@types/react': 17.0.15
-      cypress: 8.1.0
+      cypress: 8.2.0
       debug: 4.3.2
       find-webpack: 2.2.1
       find-yarn-workspace-root: 2.0.0
@@ -1236,7 +1236,7 @@ packages:
   /@types/yauzl/2.9.2:
     resolution: {integrity: sha512-8uALY5LTvSuHgloDVUvWP3pIauILm+8/0pDMokuDYIoNsOkSwd5AiHBTSEJjKTDcZr5z8UpgOWZkxBF4iJftoA==}
     dependencies:
-      '@types/node': 16.4.10
+      '@types/node': 16.4.12
     dev: true
     optional: true
 
@@ -2643,8 +2643,8 @@ packages:
     resolution: {integrity: sha512-jXKhWqXPmlUeoQnF/EhTtTl4C9SnrxSH/jZUih3jmO6lBKr99rP3/+FmrMj4EFpOXzMtXHAZkd3x0E6h6Fgflw==}
     dev: true
 
-  /cypress/8.1.0:
-    resolution: {integrity: sha512-GXjlqPjY/6HPbQwAp3AvlA1Mk/NoJTAmqVSUhQsuM/1xDpd/FQHkxVuq5h6O6RrAoCXSgpZPXFsVtdqE+FwEJw==}
+  /cypress/8.2.0:
+    resolution: {integrity: sha512-jg7S5VxxslwsgEyAkCE9ZCkFADxOUY1bSWScp1cWnga88K0TZgFQ0zdxyG9Mw/4spLGuvkriIZ62am+TR6C04w==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     requiresBuild: true

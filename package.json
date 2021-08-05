@@ -11,7 +11,8 @@
         "test": "jest",
         "update-snapshots": "npm run test -- -u",
         "coverage": "jest --coverage",
-        "cypress:open": "cypress open"
+        "cypress:open": "cypress open",
+        "cypress:open-component": "npx cypress open-ct"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -33,7 +34,7 @@
         "@types/node": "^16.4.12",
         "@types/react": "17.0.15",
         "babel-jest": "^27.0.6",
-        "cypress": "^8.1.0",
+        "cypress": "8.2.0",
         "eslint": "7.32.0",
         "eslint-config-next": "11.0.1",
         "html-webpack-plugin": "5",
