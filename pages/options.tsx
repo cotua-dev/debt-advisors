@@ -1,5 +1,6 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Navigation } from '../components/Navigation';
 
 interface OptionsStaticProps {
     props: {};
@@ -14,6 +15,7 @@ function Options(): JSX.Element {
     return (
         <>
             <Header title="Options - Debt Advisors"/>
+            <Navigation/>
             <main>
                 <h1>Options</h1>
             </main>
