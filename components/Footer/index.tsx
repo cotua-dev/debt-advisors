@@ -9,24 +9,20 @@ export function Footer(): JSX.Element {
         <footer className={styles['debt-advisors-footer']}>
             <div className={styles['footer-content-wrapper']}>
                 <div className={styles['logo-text']}>
-                    <picture>
-                        <source srcSet={whiteLogo.src}/>
-                        <img
-                            data-testid="white-logo"
-                            className={styles['white-logo']}
-                            src={whiteLogo.src}
-                            alt="Debt Advisors Of America White Logo"
-                            loading="lazy"
-                        />
-                        {/* <source srcSet="/images/debt-advisors-white-logo.png"/>
-                        <img
-                            data-testid="white-logo"
-                            className={styles['white-logo']}
-                            src="/images/debt-advisors-white-logo.png"
-                            alt="Debt Advisors Of America White Logo"
-                            loading="lazy"
-                        /> */}
-                    </picture>
+                    <Link href="/">
+                        <a aria-label="Home Page Link">
+                            <picture>
+                                <source srcSet={whiteLogo.src}/>
+                                <img
+                                    data-testid="white-logo"
+                                    className={styles['white-logo']}
+                                    src={whiteLogo.src}
+                                    alt="Debt Advisors Of America White Logo"
+                                    loading="lazy"
+                                />
+                            </picture>
+                        </a>
+                    </Link>
                     <p
                         data-testid="footer-text"
                         className={styles['footer-text']}
