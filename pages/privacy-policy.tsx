@@ -1,5 +1,6 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Navigation } from '../components/Navigation';
 
 interface PrivacyPolicyStaticProps {
     props: {};
@@ -14,6 +15,7 @@ function PrivacyPolicy(): JSX.Element {
     return (
         <>
             <Header title="Privacy Policy - Debt Advisors"/>
+            <Navigation/>
             <main>
                 <h1>Privacy Policy</h1>
             </main>

@@ -1,5 +1,6 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Navigation } from '../components/Navigation';
 
 interface DebtCalculatorStaticProps {
     props: {};
@@ -14,6 +15,7 @@ function DebtCalculator(): JSX.Element {
     return (
         <>
             <Header title="Debt Calculator - Debt Advisors"/>
+            <Navigation/>
             <main>
                 <h1>Debt Calculator</h1>
             </main>

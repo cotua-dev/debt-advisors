@@ -23,6 +23,7 @@ export default {
   collectCoverageFrom: [
     "**/*.{ts,tsx}",
     "!**/*.spec.{ts,tsx}",
+    "!**/*.interfaces.ts",
     "!**/node_modules/**",
     "!**/vendor/**",
   ],

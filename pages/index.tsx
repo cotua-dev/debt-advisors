@@ -1,5 +1,6 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Navigation } from '../components/Navigation';
 
 interface HomeStaticProps {
     props: {};
@@ -14,6 +15,7 @@ function Home(): JSX.Element {
     return (
         <>
             <Header/>
+            <Navigation/>
             <main>
                 <h1>Hello World!</h1>
             </main>
