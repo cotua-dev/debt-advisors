@@ -1,18 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CallUsNow Component renders 1`] = `
-<section>
-  <div>
-    <h3>
+<section
+  class="debt-advisors-call-us-now"
+>
+  <div
+    class="content-wrapper"
+  >
+    <strong
+      class="content-text"
+    >
       For expert debt resolution advice you can trust Debt Advisors of America
-    </h3>
+    </strong>
     <a
+      class="phone-link"
       href="tel:+18006320437"
     >
-      <span>
+      <span
+        class="number"
+      >
         800-632-0437
       </span>
-      <span>
+      <span
+        class="text"
+      >
         CALL US NOW
       </span>
     </a>
