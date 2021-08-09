@@ -1,0 +1,136 @@
+@import '../../../styles/variables';
+
+section.debt-advisors-scenarios {
+    max-width: $max-width;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 50px 10px;
+
+    @media screen and (max-width: $mobile-cut-off) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    details {
+        width: 400px;
+
+        @media screen and (max-width: 420px) {
+            width: 100%;
+        }
+
+        &:nth-child(2) {
+            margin: 0 20px;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                margin: 20px 0;
+            }
+        }
+
+        &:nth-child(3) {
+            div.pros-cons-wrapper div.pros-wrapper {
+                margin-bottom: 24px;
+
+                @media screen and (max-width: $mobile-cut-off) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 40px 20px;
+            transition: 250ms;
+
+            &:hover {
+                background-color: $primary-color;
+
+                strong.summary-title,
+                p.summary-content {
+                    color: #FFFFFF;
+                }
+            }
+
+            &::marker {
+                display: none;
+            }
+
+            @media screen and (max-width: $mobile-cut-off) {
+                padding: 20px 10px;
+            }
+
+            strong.summary-title {
+                font-size: 30px;
+                font-weight: 700;
+                color: $primary-color;
+
+                @media screen and (max-width: $mobile-cut-off) {
+                    font-size: 24px;
+                }
+            }
+
+            p.summary-content {
+                font-size: 14px;
+                font-weight: 300;
+                line-height: 24px;
+
+                @media screen and (max-width: $mobile-cut-off) {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        div.pros-cons-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+            height: 350px;
+
+            div.pros-wrapper div.pros-header,
+            div.cons-wrapper div.cons-header {
+                padding: 15px 10px;
+
+                @media screen and (max-width: $mobile-cut-off) {
+                    padding: 5px 0;
+                }
+            }
+
+            div.pros-wrapper div.pros-header strong.header-title,
+            div.cons-wrapper div.cons-header strong.header-title {
+                font-size: 32px;
+                font-weight: 700;
+                color: #FFFFFF;
+
+                @media screen and (max-width: $mobile-cut-off) {
+                    font-size: 28px
+                }
+            }
+
+            div.pros-wrapper p.pros-content,
+            div.cons-wrapper p.cons-content {
+                font-size: 12px;
+                font-weight: 300;
+                line-height: 24px;
+            }
+
+            div.pros-wrapper {
+                div.pros-header {
+                    background-color: $primary-color;
+                }
+            }
+
+            div.cons-wrapper {
+                div.cons-header {
+                    background-color: $secondary-color;
+                }
+            }
+        }
+    }
+}

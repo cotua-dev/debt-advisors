@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jumbotron Component renders 1`] = `
+<section
+  class="debt-advisors-options-jumbotron"
+>
+  <h1
+    class="options-title"
+  >
+    Options
+  </h1>
+  <picture>
+    <source />
+    <img
+      alt="Options Jumbotron Image"
+      class="options-jumbotron-image"
+      loading="lazy"
+    />
+  </picture>
+</section>
+`;
