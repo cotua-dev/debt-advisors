@@ -14,7 +14,7 @@ export async function getStaticProps(): Promise<TermsOfUseStaticProps> {
 function TermsOfUse(): JSX.Element {
     return (
         <>
-            <Header title="Terms Of Use - Debt Advisors"/>
+            <Header title="Terms Of Use – Debt Advisors"/>
             <Navigation/>
             <main>
                 <h1>Terms Of Use</h1>

@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WhatWeDo Component renders 1`] = `
+<section
+  class="what-we-do"
+>
+  <h2
+    class="what-we-do-title"
+  >
+    What We Do
+  </h2>
+  <p
+    class="what-we-do-content"
+  >
+    Debt Advisors of America helps individuals across the U.S. by creating personalized debt relief programs that work. Our service is a form of debt consolidation without a loan. Our customized plans aim to help you reduce what you owe, avoid filing for bankruptcy, and finally overcome overwhelming debt.
+  </p>
+  <div
+    class="actions-wrapper"
+  >
+    <div
+      class="action"
+    >
+      <picture>
+        <source />
+        <img
+          alt="You Tell Us About Your Financial Situation Logo"
+          class="action-image"
+          loading="lazy"
+        />
+      </picture>
+      <strong
+        class="action-title"
+      >
+        You Tell Us About Your Financial Situation
+      </strong>
+      <p
+        class="action-description"
+      >
+        Call us or fill out our online form to receive a free, no obligation consultation
+      </p>
+    </div>
+    <div
+      class="action"
+    >
+      <picture>
+        <source />
+        <img
+          alt="We Tailor a Debt Relief Program That is Right For You Logo"
+          class="action-image"
+          loading="lazy"
+        />
+      </picture>
+      <strong
+        class="action-title"
+      >
+        We Tailor a Debt Relief Program That is Right For You
+      </strong>
+      <p
+        class="action-description"
+      >
+        Programs can be modified to fit your specific needs
+      </p>
+    </div>
+    <div
+      class="action"
+    >
+      <picture>
+        <source />
+        <img
+          alt="You Tell Us About Your Financial Situation Logo"
+          class="action-image"
+          loading="lazy"
+        />
+      </picture>
+      <strong
+        class="action-title"
+      >
+        You Tell Us About Your Financial Situation
+      </strong>
+      <p
+        class="action-description"
+      >
+        Call us or fill out our online form to receive a free, no obligation consultation
+      </p>
+    </div>
+  </div>
+  <a
+    class="free-debt-consultation"
+    href="/"
+  >
+    Get a Free Debt Consultation Now
+  </a>
+  <p
+    class="details"
+  >
+    For more details 
+    <a
+      class="how-it-works"
+      href="https://www.accrediteddebtrelief.com/how-it-works/"
+      rel="noreferrer"
+      target="_blank"
+    >
+      visit our How it Works page
+    </a>
+  </p>
+</section>
+`;

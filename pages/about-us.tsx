@@ -14,7 +14,7 @@ export async function getStaticProps(): Promise<AboutUsStaticProps> {
 function AboutUs(): JSX.Element {
     return (
         <>
-            <Header title="About Us - Debt Advisors"/>
+            <Header title="About Us – Debt Advisors"/>
             <Navigation/>
             <main>
                 <h1>About Us</h1>

@@ -14,7 +14,7 @@ export async function getStaticProps(): Promise<DebtCalculatorStaticProps> {
 function DebtCalculator(): JSX.Element {
     return (
         <>
-            <Header title="Debt Calculator - Debt Advisors"/>
+            <Header title="Debt Calculator – Debt Advisors"/>
             <Navigation/>
             <main>
                 <h1>Debt Calculator</h1>

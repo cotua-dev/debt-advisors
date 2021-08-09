@@ -1,0 +1,58 @@
+@import '../../../styles/variables';
+
+section.reviews {
+    background-color: $primary-color;
+    border-bottom: 5px solid $secondary-color;
+
+    div.content-wrapper {
+        max-width: $max-width;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        h2.review-title {
+            color: #FFFFFF;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        div.initial-stars-wrapper {
+            .star {
+                height: 50px;
+                width: 50px;
+                color: $star-color;
+            }
+        }
+
+        /*
+        div.reviews-wrapper {
+            div.review {
+                div.review-header {
+                    picture img.reviewer-image {
+
+                    }
+
+                    strong.reviewer-name {
+
+                    }
+                }
+
+                div.review-stars {
+                    .star {
+
+                    }
+                }
+
+                div.review-content-wrapper {
+                    p.review-content {
+
+                    }
+                }
+            }
+        }
+        */
+    }
+}

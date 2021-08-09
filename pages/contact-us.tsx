@@ -14,7 +14,7 @@ export async function getStaticProps(): Promise<ContactUsStaticProps> {
 function ContactUs(): JSX.Element {
     return (
         <>
-            <Header title="Contact Us - Debt Advisors"/>
+            <Header title="Contact Us – Debt Advisors"/>
             <Navigation/>
             <main>
                 <h1>Contact Us</h1>

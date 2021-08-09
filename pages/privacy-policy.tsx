@@ -14,7 +14,7 @@ export async function getStaticProps(): Promise<PrivacyPolicyStaticProps> {
 function PrivacyPolicy(): JSX.Element {
     return (
         <>
-            <Header title="Privacy Policy - Debt Advisors"/>
+            <Header title="Privacy Policy – Debt Advisors"/>
             <Navigation/>
             <main>
                 <h1>Privacy Policy</h1>

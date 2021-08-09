@@ -1,0 +1,87 @@
+@import '../../../styles/variables';
+
+section.debt-advisors-steps {
+    max-width: $max-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 10px;
+
+    div.step-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 50px 0;
+
+        @media screen and (max-width: $mobile-cut-off) {
+            flex-direction: column-reverse;
+
+            &:nth-child(2) {
+                flex-direction: column;
+            }
+        }
+
+        div.step-content {
+            width: 500px;
+
+            @media screen and (max-width: 520px) {
+                width: 100%;
+            }
+
+            h3.step-content-title,
+            p.step-content-text {
+                @media screen and (max-width: $mobile-cut-off) {
+                    text-align: center;
+                }
+            }
+
+            h3.step-content-title {
+                color: $primary-color;
+                font-size: 32px;
+                font-weight: 700;
+
+                @media screen and (max-width: $mobile-cut-off) {
+                    font-size: 24px;
+                }
+            }
+
+            p.step-content-text {
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 24px;
+            }
+        }
+
+        picture img.step-image {
+            &.step-one {
+                width: 328px;
+                height: 210px;
+
+                @media screen and (max-width: 348px) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            &.step-two {
+                width: 377px;
+                height: 228px;
+
+                @media screen and (max-width: 407px) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            &.step-three {
+                width: 418px;
+                height: 253px;
+
+                @media screen and (max-width: 458px) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

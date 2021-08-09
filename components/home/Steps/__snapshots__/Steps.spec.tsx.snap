@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Steps Component renders 1`] = `
+<section
+  class="debt-advisors-steps"
+>
+  <div
+    class="step-wrapper"
+  >
+    <div
+      class="step-content"
+    >
+      <h3
+        class="step-content-title"
+      >
+        1. Free Consultation
+      </h3>
+      <p
+        class="step-content-text"
+      >
+        Take a few minutes to talk with our team. Ask questions. Learn about us. Have a certified debt consultant explain debt restructure program. Together, we can discuss whether a debt restructure program works for you.
+      </p>
+    </div>
+    <picture>
+      <source />
+      <img
+        alt="Free Consultation Image"
+        class="step-image step-one"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+  <div
+    class="step-wrapper"
+  >
+    <picture>
+      <source />
+      <img
+        alt="Consider Your Options Image"
+        class="step-image step-two"
+        loading="lazy"
+      />
+    </picture>
+    <div
+      class="step-content"
+    >
+      <h3
+        class="step-content-title"
+      >
+        2. Consider Your Options
+      </h3>
+      <p
+        class="step-content-text"
+      >
+        If you are qualified, our team provides you with an estimate of how much you can save by enrolling into a debt restructure program. Once you decide to move forward, a certified debt consultant works to tailor a program specific to you.
+      </p>
+    </div>
+  </div>
+  <div
+    class="step-wrapper"
+  >
+    <div
+      class="step-content"
+    >
+      <h3
+        class="step-content-title"
+      >
+        3. Get To Work
+      </h3>
+      <p
+        class="step-content-text"
+      >
+        Our licensed partners have decades of experience negotiating with creditors. They put this experience to work for you, all with the goal of obtaining the best possible resolutions from your creditors.
+      </p>
+    </div>
+    <picture>
+      <source />
+      <img
+        alt="Get To Work Image"
+        class="step-image step-three"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+</section>
+`;

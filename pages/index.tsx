@@ -1,6 +1,13 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Navigation } from '../components/Navigation';
+import { Jumbotron } from '../components/home/Jumbotron';
+import { Reviews } from '../components/home/Reviews';
+import { Benefit } from '../components/home/Benefit';
+import { WhatWeDo } from '../components/home/WhatWeDo';
+import { DoIQualify } from '../components/home/DoIQualify';
+import { Steps } from '../components/home/Steps';
+import { CallUsNow } from '../components/home/CallUsNow';
 
 interface HomeStaticProps {
     props: {};
@@ -17,7 +24,12 @@ function Home(): JSX.Element {
             <Header/>
             <Navigation/>
             <main>
-                <h1>Hello World!</h1>
+                <Jumbotron/>
+                <Benefit/>
+                <WhatWeDo/>
+                <DoIQualify/>
+                <Steps/>
+                <CallUsNow/>
             </main>
             <Footer/>
         </>

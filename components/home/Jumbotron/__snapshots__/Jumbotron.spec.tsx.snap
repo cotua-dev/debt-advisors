@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jumbotron Component renders 1`] = `
+<section
+  class="debt-advisors-jumbotron"
+>
+  <picture>
+    <source />
+    <img
+      alt="Home Page Jumbotron Image"
+      class="jumbotron-image"
+      loading="lazy"
+    />
+  </picture>
+  <div
+    class="jumbotron-content-wrapper"
+  >
+    <h1
+      class="jumbotron-title"
+    >
+      Reduce Your Monthly Payments Today!
+    </h1>
+    <p
+      class="jumbotron-content"
+    >
+      Have more than $10,000 of debt ? See how much you can save with our debt calculator.
+    </p>
+    <a
+      class="start-button"
+      href="/"
+    >
+      Start - it's free!
+    </a>
+    <div
+      class="jumbotron-logos-wrapper"
+    >
+      <a
+        href="https://www.bbb.org/us/ca/san-diego/profile/debt-relief-services/debt-advisors-of-america-1126-1000064078"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <picture>
+          <source />
+          <img
+            alt="Better Business Bureau Logo"
+            class="bbb-logo"
+            loading="lazy"
+          />
+        </picture>
+      </a>
+      <a
+        href="https://americanfaircreditcouncil.org/view-members/debt-advisors-of-america/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <picture>
+          <source />
+          <img
+            alt="American Fair Credit Council Logo"
+            class="afcc-logo"
+            loading="lazy"
+          />
+        </picture>
+      </a>
+    </div>
+  </div>
+</section>
+`;

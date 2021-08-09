@@ -1,0 +1,119 @@
+@import '../../../styles/variables';
+
+section.debt-advisors-jumbotron {
+    max-width: $max-width;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 50px 10px;
+
+    @media screen and (max-width: $mobile-cut-off) {
+        flex-direction: column;
+        padding: 0 10px 50px;
+    }
+
+    picture img.jumbotron-image {
+        width: 620px;
+        height: 450px;
+
+        @media screen and (max-width: 1110px) {
+            width: 100%;
+            height: auto;
+        }
+
+        @media screen and (max-width: $mobile-cut-off) {
+            width: 500px;
+        }
+
+        @media screen and (max-width: 530px) {
+            width: 100%;
+        }
+    }
+
+    div.jumbotron-content-wrapper {
+        width: 450px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+
+        @media screen and (max-width: $mobile-cut-off) {
+            width: 100%;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1.jumbotron-title,
+        p.jumbotron-content {
+            margin: 20px 0;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                margin: 10px 0;
+            }
+        }
+
+        h1.jumbotron-title {
+            color: $primary-color;
+            font-size: 46px;
+            font-weight: 700;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                font-size: 30px;
+            }
+        }
+
+        p.jumbotron-content {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 24px;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                font-size: 14px;
+            }
+        }
+
+        a.start-button {
+            border: 0;
+            border-radius: 20px;
+            background-color: $secondary-color;
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFFFFF;
+            padding: 10px 40px;
+            margin: 10px 0;
+            transition: 250ms;
+
+            &:hover {
+                background-color: $primary-color;
+            }
+        }
+
+        div.jumbotron-logos-wrapper {
+            margin-top: 20px;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            a picture img.bbb-logo,
+            a picture img.afcc-logo {
+                width: 115px;
+                height: 55px;
+            }
+
+            a picture img.bbb-logo {
+                margin-right: 20px;
+
+                @media screen and (max-width: $mobile-cut-off) {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
