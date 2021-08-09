@@ -26,6 +26,9 @@ export default {
     "!**/*.interfaces.ts",
     "!**/node_modules/**",
     "!**/vendor/**",
+    "!**/cypress/**",
+    "!jest.config.ts",
+    "!next-env.d.ts"
   ],
 
   // The directory where Jest should output its coverage files
