@@ -1,0 +1,54 @@
+@import '../../../styles/variables';
+
+section.debt-advisors-call-us-now {
+    background-color: $primary-color;
+
+    div.content-wrapper {
+        max-width: $max-width;
+        width: 100%;
+        margin: 0 auto;
+        padding: 150px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+
+        strong.content-text,
+        a.phone-link {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        strong.content-text {
+            font-size: 30px;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                font-size: 24px;
+            }
+        }
+
+        a.phone-link {
+            border: 0;
+            border-radius: 40px;
+            background-color: $secondary-color;
+            padding: 15px 60px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            transition: 250ms;
+
+            &:hover {
+                background-color: $primary-color;
+            }
+
+            span.number {
+                font-size: 24px;
+            }
+
+            span.text {
+                font-size: 14px;
+            }
+        }
+    }
+}
