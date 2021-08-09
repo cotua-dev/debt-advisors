@@ -83,7 +83,7 @@ section.what-we-do {
         border-radius: 20px;
         padding: 10px 40px;
         color: #FFFFFF;
-        background-color: $secondary-color;
+        background-color: $secondary-dark-color;
         transition: background-color 250ms;
 
         &:hover {
@@ -96,7 +96,7 @@ section.what-we-do {
             transition: color 250ms;
 
             &:hover {
-                color: $secondary-color;
+                color: $secondary-dark-color;
             }
         }
     }

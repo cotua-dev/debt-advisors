@@ -112,7 +112,7 @@ section.benefit {
             transition: color 250ms;
 
             &:hover {
-                color: $secondary-color;
+                color: $secondary-dark-color;
             }
         }
     }
@@ -125,7 +125,7 @@ section.benefit {
     a.start-reducing-payments-link {
         font-size: 18px;
         font-weight: 700;
-        background-color: $secondary-color;
+        background-color: $secondary-dark-color;
         border: 0;
         border-radius: 20px;
         padding: 10px 40px;
