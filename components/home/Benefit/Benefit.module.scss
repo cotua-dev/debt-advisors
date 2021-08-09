@@ -1,0 +1,139 @@
+@import '../../../styles/variables';
+
+section.benefit {
+    max-width: $max-width;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 10px;
+
+    h2.benefit-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: $primary-color;
+
+        @media screen and (max-width: $mobile-cut-off) {
+            font-size: 30px;
+        }
+    }
+
+    div.benefit-table-wrapper {
+        overflow-x: auto;
+        width: 100%;
+
+        table.benefit-table {
+            width: 100%;
+            height: 70px;
+            border-collapse: collapse;
+
+            caption.benefit-table-caption {
+                background-color: $primary-color;
+                padding: 20px 0;
+
+                strong.benefit-table-caption-text {
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #FFFFFF;
+
+                    &:nth-child(3) {
+                        font-size: 32px;
+                        line-height: 50px;
+                    }
+                }
+            }
+
+            thead tr th,
+            tbody tr td {
+                padding: 10px;
+            }
+
+            thead tr th {
+                border: 1px solid #EFEFEF;
+
+                strong.benefit-table-head-text {
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: lighten(#000000, 30%);
+                }
+            }
+
+            tbody tr td {
+                border: 1px solid #EFEFEF;
+
+                picture img.regular-logo {
+                    width: 150px;
+                    height: 50px;
+                }
+
+                strong.debt-advisors-data {
+                    font-weight: 700;
+                }
+
+                strong.debt-advisors-row-label {
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: $primary-color;
+                }
+
+                .check,
+                .times {
+                    height: 25px;
+                    width: 25px;
+                }
+
+                .check {
+                    color: $correct-color;
+                }
+
+                .times {
+                    color: $wrong-color;
+                }
+            }
+        }
+    }
+
+    p.benefit-content,
+    strong.benefit-content {
+        line-height: 24px;
+        margin: 20px 0;
+    }
+
+    p.benefit-content {
+        font-size: 16px;
+        font-weight: 300;
+
+        a.content-link {
+            transition: color 250ms;
+
+            &:hover {
+                color: $secondary-color;
+            }
+        }
+    }
+
+    strong.benefit-content {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    a.start-reducing-payments-link {
+        font-size: 18px;
+        font-weight: 700;
+        background-color: $secondary-color;
+        border: 0;
+        border-radius: 20px;
+        padding: 10px 40px;
+        color: #FFFFFF;
+        transition: background-color 250ms;
+
+        &:hover {
+            background-color: $primary-color;
+        }
+    }
+}
