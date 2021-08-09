@@ -51,8 +51,7 @@ nav.debt-advisors-navigation {
             display: block;
             border: 0;
             background-color: transparent;
-            height: 28px;
-            width: 28px;
+            font-size: 28px;
             cursor: pointer;
             color: $primary-color;
         }
@@ -75,8 +74,7 @@ aside.debt-advisors-mobile-navigation {
         justify-content: flex-end;
 
         button.close-mobile-navigation {
-            height: 28px;
-            width: 28px;
+            font-size: 28px;
             cursor: pointer;
             color: #FFFFFF;
             border: 0;
