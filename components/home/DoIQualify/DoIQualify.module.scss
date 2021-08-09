@@ -1,0 +1,50 @@
+@import '../../../styles/variables';
+
+section.do-i-qualify {
+    background-color: $primary-color;
+    padding: 50px 10px;
+
+    div.qualify-content {
+        max-width: $max-width;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+
+        @media screen and (max-width: $mobile-cut-off) {
+            align-items: center;
+            text-align: center;
+        }
+
+        h2.qualify-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-align: center;
+            width: 100%;
+            margin: 0 0 20px 0;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                font-size: 30px;
+            }
+        }
+
+        strong.qualify-upper,
+        p.qualify-lower {
+            color: #FFFFFF;
+        }
+
+        strong.qualify-upper {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        p.qualify-lower {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 24px;
+        }
+    }
+}
