@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calculator Component renders 1`] = `
+<section
+  class="debt-calculator"
+>
+  <h2
+    class="debt-calculator-title"
+  >
+    Your Financial Situation
+  </h2>
+  <div
+    class="calculator-form-wrapper"
+  >
+    <form
+      class="calculator-form"
+    >
+      <div
+        class="fields-wrapper"
+      >
+        <div
+          class="field-wrapper"
+        >
+          <label
+            class="field-label"
+            for="total-unsecured-debt"
+          >
+            Total Unsecured Debt
+            <span
+              class="required"
+            >
+               *
+            </span>
+          </label>
+          <input
+            class="field"
+            id="total-unsecured-debt"
+            name="total-unsecured-debt"
+            required=""
+            type="number"
+          />
+        </div>
+        <div
+          class="field-wrapper"
+        >
+          <label
+            class="field-label"
+            for="months-to-pay-off"
+          >
+            Months To Pay Off
+          </label>
+          <select
+            class="field"
+            id="months-to-pay-off"
+            name="months-to-pay-off"
+          >
+            <option />
+            <option
+              value="24"
+            >
+              24 months
+            </option>
+            <option
+              value="36"
+            >
+              36 months
+            </option>
+            <option
+              value="48"
+            >
+              48 months
+            </option>
+          </select>
+        </div>
+        <div
+          class="field-wrapper"
+        >
+          <label
+            class="field-label"
+            for="average-interest-rate"
+          >
+            Average Interest Rate
+          </label>
+          <input
+            class="field"
+            id="average-interest-rate"
+            name="average-interest-rate"
+            type="number"
+          />
+        </div>
+      </div>
+      <div
+        class="submit-wrapper"
+      >
+        <p
+          class="required"
+        >
+          * Required
+        </p>
+        <button
+          class="submit-button"
+          type="submit"
+        >
+          CALCULATE
+        </button>
+      </div>
+    </form>
+  </div>
+  <div
+    class="calculations-table-wrapper"
+  >
+    <table
+      class="calculations-table"
+    >
+      <thead>
+        <tr>
+          <th />
+          <th>
+            Credit Counseling
+          </th>
+          <th>
+            Do Nothing (Pay Minimum)
+          </th>
+          <th
+            class="debt-advisors"
+          >
+            <picture>
+              <source />
+              <img
+                alt="Debt Advisors Regular Logo"
+                class="regular-logo"
+                loading="lazy"
+              />
+            </picture>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Total Unsecured Debt
+          </td>
+          <td />
+          <td />
+          <td
+            class="debt-advisors"
+          />
+        </tr>
+        <tr>
+          <td>
+            Months To Pay Off
+          </td>
+          <td />
+          <td />
+          <td
+            class="debt-advisors"
+          />
+        </tr>
+        <tr>
+          <td>
+            Interest Rate
+          </td>
+          <td />
+          <td />
+          <td
+            class="debt-advisors"
+          />
+        </tr>
+        <tr>
+          <td>
+            Extra Interest Paid
+          </td>
+          <td />
+          <td />
+          <td
+            class="debt-advisors"
+          />
+        </tr>
+        <tr>
+          <td>
+            Monthly Payment
+          </td>
+          <td />
+          <td />
+          <td
+            class="debt-advisors"
+          />
+        </tr>
+        <tr>
+          <td>
+            Your Total Cost
+          </td>
+          <td />
+          <td />
+          <td
+            class="debt-advisors"
+          />
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+`;
