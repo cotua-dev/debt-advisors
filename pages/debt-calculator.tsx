@@ -1,6 +1,8 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Navigation } from '../components/Navigation';
+import { Jumbotron } from '../components/debt-calculator/Jumbotron';
+import { Calculator } from '../components/debt-calculator/Calculator';
 
 interface DebtCalculatorStaticProps {
     props: {};
@@ -17,7 +19,8 @@ function DebtCalculator(): JSX.Element {
             <Header title="Debt Calculator – Debt Advisors"/>
             <Navigation/>
             <main>
-                <h1>Debt Calculator</h1>
+                <Jumbotron/>
+                <Calculator/>
             </main>
             <Footer/>
         </>
