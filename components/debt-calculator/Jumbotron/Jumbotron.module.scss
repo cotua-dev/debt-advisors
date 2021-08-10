@@ -1,0 +1,58 @@
+@import '../../../styles/variables';
+
+section.debt-calculator-jumbotron {
+    max-width: $max-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    @media screen and (max-width: $mobile-cut-off) {
+        flex-direction: column-reverse;
+        padding: 10px;
+    }
+
+    div.jumbotron-content {
+        @media screen and (max-width: $mobile-cut-off) {
+            text-align: center;
+        }
+
+        h1.jumbotron-title {
+            color: $primary-color;
+            font-size: 42px;
+            font-weight: 700;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                font-size: 28px;
+            }
+        }
+
+        p.jumbotron-content {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 24px;
+            width: 345px;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                font-size: 12px;
+            }
+
+            @media screen and (max-width: 365px) {
+                width: 100%;
+            }
+        }
+    }
+
+    picture img.jumbotron-image {
+        width: 565px;
+        height: 432px;
+
+        @media screen and (max-width: 585px) {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
