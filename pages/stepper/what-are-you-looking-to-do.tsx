@@ -1,4 +1,7 @@
 import { Header } from '../../components/Header';
+import { Navigation } from '../../components/Navigation';
+import { Footer } from '../../components/Footer';
+import { Stepper } from '../../components/Stepper';
 
 interface WhatAreYouLookingToDoStaticProps {
     props: {};
@@ -13,9 +16,11 @@ function WhatAreYouLookingToDo(): JSX.Element {
     return (
         <>
             <Header title="Stepper - Debt Advisors"/>
+            <Navigation/>
             <main>
-                <h1>What Are You Looking To Do</h1>
+                <Stepper/>
             </main>
+            <Footer/>
         </>
     );
 }
