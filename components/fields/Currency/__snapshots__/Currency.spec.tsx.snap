@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Currency Component renders 1`] = `
+<div>
+  <strong>
+    Currency
+  </strong>
+</div>
+`;
