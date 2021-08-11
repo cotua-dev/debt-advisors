@@ -1,4 +1,7 @@
 import { Header } from '../../components/Header';
+import { Navigation } from '../../components/Navigation';
+import { Footer } from '../../components/Footer';
+import { Stepper } from '../../components/Stepper';
 
 interface WhatKindOfDebtsDoYouHaveStaticProps {
     props: {};
@@ -13,9 +16,11 @@ function WhatKindOfDebtsDoYouHave(): JSX.Element {
     return (
         <>
             <Header title="Stepper - Debt Advisors"/>
+            <Navigation/>
             <main>
-                <h1>What Kind Of Debts Do You Have</h1>
+                <Stepper/>
             </main>
+            <Footer/>
         </>
     );
 }
