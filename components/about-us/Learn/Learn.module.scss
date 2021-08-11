@@ -1,0 +1,79 @@
+@import '../../../styles/variables';
+
+section.learn-about-us {
+    max-width: $max-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    h2.section-title,
+    p.section-content {
+        text-align: center;
+    }
+
+    h2.section-title {
+        color: $primary-color;
+        font-size: 38px;
+        font-weight: 700;
+
+        @media screen and (max-width: $mobile-cut-off) {
+            font-size: 28px;
+        }
+    }
+
+    details p.content,
+    p.section-content {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 24px;
+
+        @media screen and (max-width: $mobile-cut-off) {
+            font-size: 14px;
+        }
+    }
+
+    details {
+        width: 100%;
+        margin: 20px 0;
+
+        &[open] {
+            summary.title {
+                box-shadow: 0 25px 25px 10px #e8e8e8;
+            }
+        }
+
+        @media screen and (max-width: $mobile-cut-off) {
+            margin: 10px 0;
+        }
+
+        summary.title {
+            color: $primary-color;
+            font-size: 32px;
+            font-weight: 700;
+            border: 0;
+            padding: 50px 20px;
+            cursor: pointer;
+            transition: box-shadow 250ms;
+
+            &:hover {
+                box-shadow: 0 25px 25px 10px #e8e8e8;
+            }
+
+            @media screen and (max-width: $mobile-cut-off) {
+                font-size: 20px;
+                padding: 20px;
+            }
+        }
+
+        p.content {
+            margin-top: 40px;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                text-align: center;
+            }
+        }
+    }
+}
