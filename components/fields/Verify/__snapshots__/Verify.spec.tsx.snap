@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Verify Component renders 1`] = `
+<div>
+  <strong>
+    Verify
+  </strong>
+</div>
+`;
