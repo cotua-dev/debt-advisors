@@ -39,28 +39,12 @@ exports[`Navigation Component renders 1`] = `
       Options
     </a>
     <a
-      aria-label="Debt Calculator Page Link"
-      class="link"
-      data-testid="debt-calculator"
-      href="/debt-calculator"
-    >
-      Debt Calculator
-    </a>
-    <a
       aria-label="About Us Page Link"
       class="link"
       data-testid="about-us"
       href="/about-us"
     >
       About Us
-    </a>
-    <a
-      aria-label="Contact Us Page Link"
-      class="link"
-      data-testid="contact-us"
-      href="/contact-us"
-    >
-      Contact Us
     </a>
   </div>
   <button

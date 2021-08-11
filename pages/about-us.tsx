@@ -1,6 +1,8 @@
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Navigation } from '../components/Navigation';
+import { Jumbotron } from '../components/about-us/Jumbotron';
+import { Learn } from '../components/about-us/Learn';
 
 interface AboutUsStaticProps {
     props: {};
@@ -17,7 +19,8 @@ function AboutUs(): JSX.Element {
             <Header title="About Us – Debt Advisors"/>
             <Navigation/>
             <main>
-                <h1>About Us</h1>
+                <Jumbotron/>
+                <Learn/>
             </main>
             <Footer/>
         </>
