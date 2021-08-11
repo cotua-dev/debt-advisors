@@ -11,7 +11,7 @@ export function Navigation(): JSX.Element {
         { key: 'home', label: 'Home', url: '/', aria: 'Home Page Link' },
         { key: 'options', label: 'Options', url: '/options', aria: 'Options Page Link' },
         // { key: 'debt-calculator', label: 'Debt Calculator', url: '/debt-calculator', aria: 'Debt Calculator Page Link' },
-        // { key: 'about-us', label: 'About Us', url: '/about-us', aria: 'About Us Page Link' },
+        { key: 'about-us', label: 'About Us', url: '/about-us', aria: 'About Us Page Link' },
         // { key: 'contact-us', label: 'Contact Us', url: '/contact-us', aria: 'Contact Us Page Link' },
     ];
     const [navToggle, setNavToggle] = useState(false);
