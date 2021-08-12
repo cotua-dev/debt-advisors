@@ -11,8 +11,20 @@ section.debt-advisors-stepper {
     justify-content: center;
     flex-direction: column;
 
+    @media screen and (max-width: $mobile-cut-off) {
+        height: 100%;
+        padding: 0 10px 50px;
+    }
+
     div.steps-wrapper {
         div.step {
+            text-align: center;
+            margin: 50px 10px;
+
+            @media screen and (max-width: 767px) {
+                margin: 20px 10px;
+            }
+
             &.hidden {
                 display: none;
             }
@@ -21,6 +33,10 @@ section.debt-advisors-stepper {
                 color: $primary-color;
                 font-size: 42px;
                 font-weight: 700;
+
+                @media screen and (max-width: $mobile-cut-off) {
+                    font-size: 24px;
+                }
             }
         }
     }
@@ -29,6 +45,10 @@ section.debt-advisors-stepper {
         margin-top: 20px;
         display: flex;
         flex-direction: row;
+
+        @media screen and (max-width: $mobile-cut-off) {
+            width: 100%;
+        }
 
         button.previous-button,
         button.next-button {
@@ -70,6 +90,10 @@ section.debt-advisors-stepper {
 
             &:disabled {
                 background-color: lighten($primary-color, 20%);
+            }
+
+            @media screen and (max-width: $mobile-cut-off) {
+                width: 100%;
             }
 
             .caret {
