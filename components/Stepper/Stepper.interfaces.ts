@@ -28,6 +28,7 @@ export interface Step {
     property: (keyof StepperModel)[];
     stepType: StepTypes;
     choices?: MultipleChoice[];
+    value: { [StepperModelKey in keyof StepperModel]?: null | string | number; };
 };
 
 export const initialStepperModel: StepperModel = {
@@ -57,6 +58,7 @@ export const initialSteps: Step[] = [
             { label: 'Reduce your interest rates', value: 2 },
             { label: 'All of the above', value: 3 },
         ],
+        value: {},
     },
     {
         question: 'What kind of debts do you have?',
@@ -69,6 +71,7 @@ export const initialSteps: Step[] = [
             { label: 'Medical bills', value: 2 },
             { label: 'All of the above', value: 3 },
         ],
+        value: {},
     },
     {
         question: 'Are you behind on your payments?',
@@ -80,6 +83,7 @@ export const initialSteps: Step[] = [
             { label: 'Yes - more than 30 days', value: 1 },
             { label: 'No', value: 2 },
         ],
+        value: {},
     },
     {
         question: 'What made you fall behind?',
@@ -92,47 +96,55 @@ export const initialSteps: Step[] = [
             { label: 'Unexpected expenses', value: 2 },
             { label: 'Medical hardship', value: 3 },
         ],
+        value: {},
     },
     {
         question: 'What is your monthly income?',
         validity: false,
         property: ['monthlyIncomeAmount'],
         stepType: 'currency',
+        value: {},
     },
     {
         question: 'What is the total amount of your unsecured debt?',
         validity: false,
         property: ['unsecuredDebtAmount'],
         stepType: 'currency',
+        value: {},
     },
     {
         question: 'What city are you in?',
         validity: false,
         property: ['zipCode'],
         stepType: 'location',
+        value: {},
     },
     {
         question: 'What is your name?',
         validity: false,
         property: ['firstName', 'lastName'],
         stepType: 'name',
+        value: {},
     },
     {
         question: 'What is your email?',
         validity: false,
         property: ['email'],
         stepType: 'email',
+        value: {},
     },
     {
         question: 'Please provide your mobile number for verification',
         validity: false,
         property: ['phone'],
         stepType: 'phone',
+        value: {},
     },
     {
         question: 'Please verify the code sent to your mobile number',
         validity: false,
         property: ['code'],
         stepType: 'verify',
+        value: {},
     },
 ];
