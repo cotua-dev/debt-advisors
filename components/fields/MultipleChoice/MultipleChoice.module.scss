@@ -1,0 +1,52 @@
+@import '../../../styles/variables';
+
+div.multiple-choice-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 20px 0;
+
+    @media screen and (max-width: $mobile-cut-off) {
+        flex-direction: column;
+    }
+
+    button.choice-button {
+        background-color: #FFFFFF;
+        width: 250px;
+        border: 0;
+        border-radius: 10px;
+        padding: 30px 0;
+        margin: 10px;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 250ms;
+
+        &:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+        &.active {
+            background-color: $primary-color;
+            
+            strong.choice-text {
+                color: #FFFFFF;
+            }
+        }
+
+        @media screen and (max-width: $mobile-cut-off) {
+            width: 100%;
+            margin: 10px 0;
+            padding: 20px;
+        }
+
+        strong.choice-text {
+            color: $primary-color;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+}
