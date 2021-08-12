@@ -7,13 +7,4 @@ module.exports = withPWA({
         dest: 'public',
         runtimeCaching,
     },
-    async redirects() {
-        return [
-            {
-                source: '/stepper',
-                destination: '/stepper/what-are-you-looking-to-do',
-                permanent: true,
-            },
-        ];
-    },
 });
