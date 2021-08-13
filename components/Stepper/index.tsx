@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from './Stepper.module.scss';
-import { initialStepperModel, initialSteps, Step, StepperModel } from './Stepper.interfaces';
+import { initialStepperModel, initialSteps, MultipleChoiceValues, Step, StepperModel } from './Stepper.interfaces';
 import { MultipleChoiceField } from '../fields/MultipleChoice';
+import { Currency } from '../fields/Currency';
+import { Location } from '../fields/Location';
 
 export function Stepper(): JSX.Element {
     const [model, setModel] = useState(initialStepperModel);
@@ -11,6 +13,9 @@ export function Stepper(): JSX.Element {
     const [steps, setSteps] = useState(initialSteps);
     const [disableNextButton, setDisableNextButton] = useState(true);
     const [disablePreviousButton, setDisablePreviousButton] = useState(true);
+    
+    // Zip code field
+    const [zipCode, setZipCode] = useState('');
 
     /**
      * Initialize the values of every step
@@ -136,6 +141,27 @@ export function Stepper(): JSX.Element {
                                         nextStep={nextStep}
                                         steps={steps}
                                         currentStep={currentStep}
+                                    />
+                            }
+                            {
+                                step.stepType === 'currency' &&
+                                    <Currency
+                                        field={step.property}
+                                        setModel={setModel}
+                                        model={model}
+                                        steps={steps}
+                                        currentStep={currentStep}
+                                        setDisableNextButton={setDisableNextButton}
+                                    />
+                            }
+                            {
+                                step.stepType === 'location' &&
+                                    <Location
+                                        steps={steps}
+                                        currentStep={currentStep}
+                                        setDisableNextButton={setDisableNextButton}
+                                        zipCode={zipCode}
+                                        setZipCode={setZipCode}
                                     />
                             }
                         </div>
