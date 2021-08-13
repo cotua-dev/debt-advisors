@@ -7,4 +7,5 @@ export interface SharedFieldProps {
     model: StepperModel;
     steps: Step[];
     currentStep: number;
+    setDisableNextButton?: Dispatch<SetStateAction<boolean>>;
 };
