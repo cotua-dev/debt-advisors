@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import styles from './MultipleChoice.module.scss';
 import { MultipleChoiceFieldProps } from './MultipleChoice.interfaces';
 import { MultipleChoice, MultipleChoiceValues, StepperModel } from '../../Stepper/Stepper.interfaces';
@@ -12,13 +11,16 @@ export function MultipleChoiceField(props: MultipleChoiceFieldProps): JSX.Elemen
     // Grab what we need from props
     const { model, field, setModel, nextStep, choices, steps, currentStep } = props;
 
+    // We know there will only ever be one field for multiple choice
+    const fieldName: keyof StepperModel = field[0];
+
     /**
      * Set the value in the model
      * @param value Number between 0 and 3 inclusive
      */
-    const setValue = (value: MultipleChoiceValues): void => {
+    function setValue(value: MultipleChoiceValues): void {
         // Build the new model using the first passed field
-        const newModel: StepperModel = { ...model, [field[0]]: value };
+        const newModel: StepperModel = { ...model, [fieldName]: value };
 
         // Set the new model
         setModel(newModel);
@@ -37,7 +39,7 @@ export function MultipleChoiceField(props: MultipleChoiceFieldProps): JSX.Elemen
         <div className={styles['multiple-choice-wrapper']}>
             {choices.map((choice: MultipleChoice) => (
                 <button
-                    className={`${styles['choice-button']} ${model[field[0]] === choice.value ? styles['active'] : ''}`}
+                    className={`${styles['choice-button']} ${model[fieldName] === choice.value ? styles['active'] : ''}`}
                     key={choice.value}
                     type="button"
                     onClick={() => setValue(choice.value)}
