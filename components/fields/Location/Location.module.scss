@@ -1,0 +1,25 @@
+@import '../../../styles/variables';
+
+div.location-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    input.location-field {
+        font-size: 18px;
+        margin-top: 20px;
+        width: 300px;
+        padding: 10px 15px;
+        border: 1px solid #E8E8E8;
+        border-radius: 5px;
+
+        @media screen and (max-width: $mobile-cut-off) {
+            width: 100%;
+        }
+    }
+
+    picture img.powered-by-google-logo {
+        margin-top: 20px;
+    }
+}
