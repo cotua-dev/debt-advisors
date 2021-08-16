@@ -19,7 +19,7 @@ export function Jumbotron(): JSX.Element {
             <div className={styles['jumbotron-content-wrapper']}>
                 <h1 className={styles['jumbotron-title']}>{`Reduce Your Monthly Payments Today!`}</h1>
                 <p className={styles['jumbotron-content']}>{`Have more than $10,000 of debt ? See how much you can save with our debt calculator.`}</p>
-                <Link href="/">
+                <Link href="/stepper">
                     <a className={styles['start-button']}>{`Start - it's free!`}</a>
                 </Link>
                 <div className={styles['jumbotron-logos-wrapper']}>
