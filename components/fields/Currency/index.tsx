@@ -1,4 +1,5 @@
-import { useState, FormEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
+import NumberFormat from 'react-number-format';
 import styles from './Currency.module.scss';
 import { SharedFieldProps } from '../shared.interfaces';
 import { StepperModel } from '../../Stepper/Stepper.interfaces';
@@ -10,21 +11,21 @@ export function Currency(props: SharedFieldProps): JSX.Element {
     const [showError, setShowError] = useState(false);
     const [error, setError] = useState('');
 
-    function handleInputListenerEvent(event: FormEvent<HTMLInputElement>, fieldName: keyof StepperModel): void {
+    function handleInputListenerEvent(event: ChangeEvent<HTMLInputElement>, fieldName: keyof StepperModel): void {
         // Grab the input element from target
         const inputEl = event.target as HTMLInputElement;
 
-        // Check to see if the value is a number
-        if (inputEl.valueAsNumber) {
+        // Create a new model with the updated value
+        const updatedModel: StepperModel = {...model, [fieldName]: inputEl.value};
+
+        // Set the model
+        setModel(updatedModel);
+
+        // Check to see if we have a value
+        if (inputEl.value !== '') {
             // Remove any errors should they exist
             setShowError(false);
             setError('');
-
-            // Create a new model with the updated value
-            const updatedModel: StepperModel = {...model, [fieldName]: inputEl.valueAsNumber};
-
-            // Set the model
-            setModel(updatedModel);
 
             // Make the current step valid
             steps[currentStep].validity = true;
@@ -34,7 +35,7 @@ export function Currency(props: SharedFieldProps): JSX.Element {
         } else {
             // If not, show an error
             setShowError(true);
-            setError('Need to pass a number');
+            setError('Need to provide a value');
 
             // Make the current step invalid
             steps[currentStep].validity = false;
@@ -47,16 +48,17 @@ export function Currency(props: SharedFieldProps): JSX.Element {
     return (
         <div className={styles['currency-field-wrapper']}>
             {field.map((singleField: keyof StepperModel) => (
-                <input
+                <NumberFormat
                     key={singleField}
-                    id={singleField}
-                    name={singleField}
                     className={styles['currency-field']}
-                    type="number"
-                    min="0"
-                    pattern="[0-9]*"
-                    onInput={(event: FormEvent<HTMLInputElement>) => handleInputListenerEvent(event, singleField)}
-                    value={(model[singleField] as number)}
+                    thousandsGroupStyle="thousand"
+                    type="text"
+                    value={(model[singleField] as string)}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputListenerEvent(event, singleField)}
+                    prefix="$"
+                    decimalSeparator="."
+                    allowNegative={false}
+                    thousandSeparator={true}
                 />
             ))}
             {
