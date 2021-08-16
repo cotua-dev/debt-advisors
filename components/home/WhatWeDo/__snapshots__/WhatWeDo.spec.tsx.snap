@@ -86,7 +86,7 @@ exports[`WhatWeDo Component renders 1`] = `
   </div>
   <a
     class="free-debt-consultation"
-    href="/"
+    href="/stepper"
   >
     Get a Free Debt Consultation Now
   </a>
