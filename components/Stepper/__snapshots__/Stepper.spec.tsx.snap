@@ -4,6 +4,11 @@ exports[`Stepper Component renders 1`] = `
 <section
   class="debt-advisors-stepper"
 >
+  <div>
+    <small>
+      1 of 11
+    </small>
+  </div>
   <div
     class="steps-wrapper"
   >
@@ -15,6 +20,50 @@ exports[`Stepper Component renders 1`] = `
       >
         What are you looking to do?
       </strong>
+      <div
+        class="multiple-choice-wrapper"
+      >
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Reduce your monthly payments
+          </strong>
+        </button>
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Consolidate your payments
+          </strong>
+        </button>
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Reduce your interest rates
+          </strong>
+        </button>
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            All of the above
+          </strong>
+        </button>
+      </div>
     </div>
     <div
       class="step hidden"
@@ -24,6 +73,50 @@ exports[`Stepper Component renders 1`] = `
       >
         What kind of debts do you have?
       </strong>
+      <div
+        class="multiple-choice-wrapper"
+      >
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Credit cards
+          </strong>
+        </button>
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Personal loans
+          </strong>
+        </button>
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Medical bills
+          </strong>
+        </button>
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            All of the above
+          </strong>
+        </button>
+      </div>
     </div>
     <div
       class="step hidden"
@@ -33,6 +126,40 @@ exports[`Stepper Component renders 1`] = `
       >
         Are you behind on your payments?
       </strong>
+      <div
+        class="multiple-choice-wrapper"
+      >
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Yes - more than 60 days
+          </strong>
+        </button>
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Yes - more than 30 days
+          </strong>
+        </button>
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            No
+          </strong>
+        </button>
+      </div>
     </div>
     <div
       class="step hidden"
@@ -42,6 +169,50 @@ exports[`Stepper Component renders 1`] = `
       >
         What made you fall behind?
       </strong>
+      <div
+        class="multiple-choice-wrapper"
+      >
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Loss of income
+          </strong>
+        </button>
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Increase in cost of living
+          </strong>
+        </button>
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Unexpected expenses
+          </strong>
+        </button>
+        <button
+          class="choice-button "
+          type="button"
+        >
+          <strong
+            class="choice-text"
+          >
+            Medical hardship
+          </strong>
+        </button>
+      </div>
     </div>
     <div
       class="step hidden"
@@ -51,6 +222,16 @@ exports[`Stepper Component renders 1`] = `
       >
         What is your monthly income?
       </strong>
+      <div
+        class="currency-field-wrapper"
+      >
+        <input
+          class="currency-field"
+          inputmode="numeric"
+          type="text"
+          value=""
+        />
+      </div>
     </div>
     <div
       class="step hidden"
@@ -60,6 +241,16 @@ exports[`Stepper Component renders 1`] = `
       >
         What is the total amount of your unsecured debt?
       </strong>
+      <div
+        class="currency-field-wrapper"
+      >
+        <input
+          class="currency-field"
+          inputmode="numeric"
+          type="text"
+          value=""
+        />
+      </div>
     </div>
     <div
       class="step hidden"
@@ -69,6 +260,25 @@ exports[`Stepper Component renders 1`] = `
       >
         What city are you in?
       </strong>
+      <div
+        class="location-wrapper"
+      >
+        <input
+          class="location-field"
+          id="zip-code"
+          name="zip-code"
+          type="text"
+          value=""
+        />
+        <picture>
+          <source />
+          <img
+            alt="Powered By Google Logo"
+            class="powered-by-google-logo"
+            loading="lazy"
+          />
+        </picture>
+      </div>
     </div>
     <div
       class="step hidden"
@@ -78,6 +288,44 @@ exports[`Stepper Component renders 1`] = `
       >
         What is your name?
       </strong>
+      <div
+        class="name-fields-wrapper"
+      >
+        <div
+          class="name-field-wrapper"
+        >
+          <label
+            class="name-field-label"
+            for="firstName"
+          >
+            First Name
+          </label>
+          <input
+            class="name-field"
+            id="firstName"
+            name="firstName"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="name-field-wrapper"
+        >
+          <label
+            class="name-field-label"
+            for="lastName"
+          >
+            Last Name
+          </label>
+          <input
+            class="name-field"
+            id="lastName"
+            name="lastName"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
     </div>
     <div
       class="step hidden"
@@ -87,6 +335,17 @@ exports[`Stepper Component renders 1`] = `
       >
         What is your email?
       </strong>
+      <div
+        class="email-field-wrapper"
+      >
+        <input
+          class="email-field"
+          id="email"
+          name="email"
+          type="email"
+          value=""
+        />
+      </div>
     </div>
     <div
       class="step hidden"
@@ -94,8 +353,20 @@ exports[`Stepper Component renders 1`] = `
       <strong
         class="question"
       >
-        Please provide your mobile number for verification
+        Please provide your phone number for verification
       </strong>
+      <div
+        class="phone-field-wrapper"
+      >
+        <input
+          class="phone-field"
+          id="phone"
+          inputmode="numeric"
+          name="phone"
+          type="tel"
+          value=""
+        />
+      </div>
     </div>
     <div
       class="step hidden"
@@ -103,8 +374,20 @@ exports[`Stepper Component renders 1`] = `
       <strong
         class="question"
       >
-        Please verify the code sent to your mobile number
+        Please provide the code sent to your phone number
       </strong>
+      <div
+        class="code-field-wrapper"
+      >
+        <input
+          class="code-field"
+          id="code"
+          inputmode="numeric"
+          name="code"
+          type="text"
+          value=""
+        />
+      </div>
     </div>
   </div>
   <div
@@ -133,6 +416,7 @@ exports[`Stepper Component renders 1`] = `
     </button>
     <button
       class="next-button"
+      disabled=""
       type="button"
     >
       Next

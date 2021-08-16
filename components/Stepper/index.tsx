@@ -1,11 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from './Stepper.module.scss';
-import { initialStepperModel, initialSteps, MultipleChoiceValues, Step, StepperModel } from './Stepper.interfaces';
+import { initialStepperModel, initialSteps, Step } from './Stepper.interfaces';
 import { MultipleChoiceField } from '../fields/MultipleChoice';
 import { Currency } from '../fields/Currency';
 import { Location } from '../fields/Location';
+import { Name } from '../fields/Name';
+import { Email } from '../fields/Email';
+import { Phone } from '../fields/Phone';
+import { Verify } from '../fields/Verify';
 
 export function Stepper(): JSX.Element {
     const [model, setModel] = useState(initialStepperModel);
@@ -14,73 +18,13 @@ export function Stepper(): JSX.Element {
     const [disableNextButton, setDisableNextButton] = useState(true);
     const [disablePreviousButton, setDisablePreviousButton] = useState(true);
     
-    // Zip code field
+    // Fields
     const [zipCode, setZipCode] = useState('');
-
-    /**
-     * Initialize the values of every step
-     */
-    /*
-    const initializeStepValues = (): void => {
-        // Initialize variables
-        let step: Step;
-        let property: keyof StepperModel;
-        let updatedSteps: Step[] = [...steps];
-
-        // Loop through all initial steps
-        for (step of updatedSteps) {
-            // Loop through all the properties of each step
-            for (property of step.property) {
-                // Set the initial value to null
-                step.value[property] = null;
-            }
-        }
-
-        // Reset the steps
-        setSteps(updatedSteps);
-    }
-    */
-
-    /*
-    useEffect(() => {
-        // Initialize the step values
-        initializeStepValues();
-
-        // Get the current model from local storage
-        let localStorageModel: string | null = window.localStorage.getItem('model');
-
-        // Check to make sure we got something from local storage
-        if (localStorageModel === null) {
-            // If not, turn the current model into a string and set local storage
-            const stringifiedModel = JSON.stringify(model);
-            window.localStorage.setItem('model', stringifiedModel);
-            localStorageModel = stringifiedModel;
-        } else {
-            // Parse the local storage string into the model
-            const parsedLocalStorageModel: StepperModel = JSON.parse(localStorageModel);
-
-            // If we got something from local storage, reset the model with the value from local storage
-            setModel(parsedLocalStorageModel);
-
-            // Update steps using the updated model
-            steps.forEach((step: Step) => {
-                step.property.forEach((property: keyof StepperModel) => {
-                    if (
-                        parsedLocalStorageModel[property] !== null ||
-                        parsedLocalStorageModel[property] !== 0 ||
-                        parsedLocalStorageModel[property] !== ''
-                    ) {
-                        step.value[property] = parsedLocalStorageModel[property];
-                    } else {
-                        step.validity = false;
-                    }
-                });
-            });
-        }
-
-        console.info({steps});
-    }, []);
-    */
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [code, setCode] = useState('');
 
     /**
      * @todo Needs work
@@ -162,6 +106,48 @@ export function Stepper(): JSX.Element {
                                         setDisableNextButton={setDisableNextButton}
                                         zipCode={zipCode}
                                         setZipCode={setZipCode}
+                                    />
+                            }
+                            {
+                                step.stepType === 'name' &&
+                                    <Name
+                                        steps={steps}
+                                        currentStep={currentStep}
+                                        setDisableNextButton={setDisableNextButton}
+                                        firstName={firstName}
+                                        lastName={lastName}
+                                        setFirstName={setFirstName}
+                                        setLastName={setLastName}
+                                    />
+                            }
+                            {
+                                step.stepType === 'email' &&
+                                    <Email
+                                        steps={steps}
+                                        currentStep={currentStep}
+                                        setDisableNextButton={setDisableNextButton}
+                                        email={email}
+                                        setEmail={setEmail}
+                                    />
+                            }
+                            {
+                                step.stepType === 'phone' &&
+                                    <Phone
+                                        steps={steps}
+                                        currentStep={currentStep}
+                                        setDisableNextButton={setDisableNextButton}
+                                        phone={phone}
+                                        setPhone={setPhone}
+                                    />
+                            }
+                            {
+                                step.stepType === 'verify' &&
+                                    <Verify
+                                        steps={steps}
+                                        currentStep={currentStep}
+                                        setDisableNextButton={setDisableNextButton}
+                                        code={code}
+                                        setCode={setCode}
                                     />
                             }
                         </div>

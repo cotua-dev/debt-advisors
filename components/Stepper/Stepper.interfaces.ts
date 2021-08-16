@@ -12,8 +12,8 @@ export interface StepperModel {
     debtType: MultipleChoiceValues | null;
     behindPaymentsType: MultipleChoiceValues | null;
     fallBehindReason: MultipleChoiceValues | null;
-    monthlyIncomeAmount: number;
-    unsecuredDebtAmount: number;
+    monthlyIncomeAmount: string;
+    unsecuredDebtAmount: string;
     zipCode: string;
     firstName: string;
     lastName: string;
@@ -36,8 +36,8 @@ export const initialStepperModel: StepperModel = {
     debtType: null,
     behindPaymentsType: null,
     fallBehindReason: null,
-    monthlyIncomeAmount: 0,
-    unsecuredDebtAmount: 0,
+    monthlyIncomeAmount: '',
+    unsecuredDebtAmount: '',
     zipCode: '',
     firstName: '',
     lastName: '',
@@ -134,14 +134,14 @@ export const initialSteps: Step[] = [
         value: {},
     },
     {
-        question: 'Please provide your mobile number for verification',
+        question: 'Please provide your phone number for verification',
         validity: false,
         property: ['phone'],
         stepType: 'phone',
         value: {},
     },
     {
-        question: 'Please verify the code sent to your mobile number',
+        question: 'Please provide the code sent to your phone number',
         validity: false,
         property: ['code'],
         stepType: 'verify',
