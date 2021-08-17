@@ -1,6 +1,7 @@
 import styles from './MultipleChoice.module.scss';
 import { MultipleChoiceFieldProps } from './MultipleChoice.interfaces';
-import { MultipleChoice, MultipleChoiceValues, StepperModel } from '../../Stepper/Stepper.interfaces';
+import { MultipleChoice, StepperModel } from '../../Stepper/Stepper.interfaces';
+import { MultipleChoiceValues } from '../../Stepper/Stepper.types';
 
 /**
  * Component for handling multiple choice fields
