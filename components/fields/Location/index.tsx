@@ -8,7 +8,7 @@ import { LocationProps } from './Location.interfaces';
 
 export function Location(props: LocationProps): JSX.Element {
     // Grab what we need from props
-    const { zipCode, setZipCode, steps, currentStep, setDisableNextButton } = props;
+    const { zipCode, setZipCode, steps, currentStep, setDisableNextButton, setUSState } = props;
 
     // Create the google url and a reference to the autocomplete field
     const googleURL: string = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}&libraries=places`;
@@ -43,6 +43,36 @@ export function Location(props: LocationProps): JSX.Element {
         setModelProperty(inputEl.value);
     };
 
+    /**
+     * Parse the `address_components` of the `PlaceResult` and set the US State
+     * @param placeResult Object containing data related to the selected place
+     */
+    function parseAddressComponents(placeResult: google.maps.places.PlaceResult): void {
+        // Grab the needed property
+        const { address_components } = placeResult;
+
+        // Make sure it is not undefined
+        if (address_components !== undefined) {
+            // Filter through the address components to find the state
+            const usStateComponent: google.maps.GeocoderAddressComponent[] = address_components.filter((address_component: google.maps.GeocoderAddressComponent) => {
+                // Check if the type contains the `administrative_area_level_1` string
+                const adminAreaLvlOne: number = address_component.types.findIndex((addressType: string) => addressType === 'administrative_area_level_1');
+
+                // Make sure we have an index
+                if (adminAreaLvlOne !== -1) {
+                    // Return the address component since we now have the US State
+                    return address_component;
+                }
+            });
+
+            // Make sure we have the needed component (should only have 1)
+            if (usStateComponent.length >= 0) {
+                // Set the US State using its long name
+                setUSState(usStateComponent[0].long_name);
+            }
+        }
+    }
+
     useEffect(() => {
         // Load the google script
         const googleScript: HTMLScriptElement = loadGoogleScript(googleURL);
@@ -59,6 +89,9 @@ export function Location(props: LocationProps): JSX.Element {
                     // Get the formatted address from the PlaceResult
                     const placeResult = autocomplete.getPlace();
                     const formattedAddress = placeResult.formatted_address;
+
+                    // Parse and set the US State
+                    parseAddressComponents(placeResult);
 
                     // Make sure the formatted address is defined
                     if (formattedAddress !== undefined) {
