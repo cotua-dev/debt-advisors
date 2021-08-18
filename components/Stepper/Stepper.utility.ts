@@ -83,10 +83,22 @@ export function parseFallBehindReason(selection: MultipleChoiceValues | null): F
 /**
  * Remove the dollar sign and commas from currency value
  * @param unparsedCurrencyValue String containing a dollar amount (Ex: "$10,000,000.00")
- * @returns String minus commas and dollar sign (Ex: "10000000.00")
+ * @returns Number minus commas and dollar sign (Ex: "10000000.00")
  */
-export function parseCurrencyValue(unparsedCurrencyValue: string): string {
-    return (unparsedCurrencyValue.replace(',', '')).replace('$', '');
+export function parseCurrencyValue(unparsedCurrencyValue: string): number {
+    return Number((unparsedCurrencyValue.replace(',', '')).replace('$', ''));
+}
+
+/**
+ * Parse the phone number so it is acceptable for submission
+ * @param unparsedPhoneNumber String containing a phone number (Ex: "+1 234 567 8901")
+ * @returns Parsed string that is acceptable for submission (Ex: "+12345678901")
+ */
+export function parsePhoneNumber(unparsedPhoneNumber: string): string {
+    return unparsedPhoneNumber
+        .split('')
+        .filter((letter: string) => (letter !== ' '))
+        .join('');
 }
 
 /**
@@ -106,6 +118,90 @@ export function parseModel(unparsedModel: StepperModel): ParsedStepperModel {
         firstName: unparsedModel.firstName,
         lastName: unparsedModel.lastName,
         email: unparsedModel.email,
-        phone: unparsedModel.phone,
+        phone: parsePhoneNumber(unparsedModel.phone),
     };
+}
+
+/**
+ * Send a request containing a phone number to receive a code via SMS for verification
+ * @param phone String containing a phone number
+ * @returns Promise containing the response object or undefined
+ */
+export async function sendSMS(phone: string): Promise<Response | undefined> {
+    try {
+        // Make sure `phone` is not just an empty string
+        if (phone !== '') {
+            // Remove spaces from `phone` to make it E.164 compliant
+            const e164PhoneNumber: string = parsePhoneNumber(phone);
+
+            // Send a request with the E.164 phone number that will send an SMS to the provided phone number
+            // with a 6 digit code for verification
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/TwilioVerifyPhoneNumber`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phoneNumber: e164PhoneNumber }),
+            });
+
+            // Return the response
+            return response;
+        }
+    } catch(sendSMSError) {
+        console.error({ sendSMSError });
+        throw new Error(sendSMSError);
+    }
+}
+
+/**
+ * Send a request containing the phone number and code for verification
+ * @param phone String containing a phone number
+ * @param code String containing a code
+ * @returns Promise containing the response object or undefined
+ */
+export async function verifySMSCode(phone: string, code: string): Promise<Response | undefined> {
+    try {
+        // Make sure `phone` and `code` are not just empty strings
+        if (phone !== '' && code !== '') {
+            // Remove spaces from `phone` to make it E.164 compliant
+            const e164PhoneNumber: string = parsePhoneNumber(phone);
+
+            // Send a request with the E.164 phone number and code for verification
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/TwilioVerifyCode`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phoneNumber: e164PhoneNumber, code }),
+            });
+
+            // Return the response
+            return response;
+        }
+    } catch(verifySMSCodeError) {
+        console.error({ verifySMSCodeError });
+        throw new Error(verifySMSCodeError);
+    }
+}
+
+/**
+ * Send request to add a new contact and deal in Bitrix
+ * @param data Object containing already parsed data
+ * @returns Promise containing the response object or undefined
+ */
+export async function addBitrixContactDeal(data: ParsedStepperModel): Promise<Response | undefined> {
+    try {
+        // Kick off request using the passed data object
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/DAABitrix`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        });
+
+        // Return the response object
+        return response;
+    } catch(addBitrixContactDealError) {
+        console.error({ addBitrixContactDealError });
+        throw new Error(addBitrixContactDealError);
+    }
+}
+
+export function disqualifyCheck(): void {
+    
 }
