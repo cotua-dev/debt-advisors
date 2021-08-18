@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useRouter, NextRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import styles from './Stepper.module.scss';
@@ -16,7 +15,6 @@ import { Phone } from '../fields/Phone';
 import { Verify } from '../fields/Verify';
 
 export function Stepper(): JSX.Element {
-    const router: NextRouter = useRouter();
     const [model, setModel] = useState(initialStepperModel);
     const [currentStep, setCurrentStep] = useState(0);
     const [steps, setSteps] = useState(initialSteps);
@@ -83,8 +81,8 @@ export function Stepper(): JSX.Element {
 
                 // Make sure we have a response object and its status is 200
                 if (bitrixResponse !== undefined && bitrixResponse.status === 200) {
-                    // Send to thank you page
-                    router.push('/thank-you');
+                    // Send to thank you page with browser refresh (this way state is completely wiped in one go)
+                    window.location.href = `${window.location.origin}/thank-you`;
                 } else {
                     // Display error
                     setError('Something went wrong. Please try again');
@@ -131,8 +129,8 @@ export function Stepper(): JSX.Element {
 
             // Check if the debt is less than $7,500
             if (unsecuredDebtAmountNumber < 7500) {
-                // If so, disqualify
-                router.push('/dq');
+                // If so, send to disqualify page with browser refresh (this way state is completely wiped in one go)
+                window.location.href = `${window.location.origin}/dq`;
             }
         }
 
@@ -140,8 +138,8 @@ export function Stepper(): JSX.Element {
         if (question === Questions.ZipCode) {
             // Check to see if the city is in North Dakota or South Carolina
             if (usState === 'North Dakota' || usState === 'South Carolina') {
-                // If so, disqualify
-                router.push('/dq');
+                // If so, send to disqualify page with browser refresh (this way state is completely wiped in one go)
+                window.location.href = `${window.location.origin}/dq`;
             }
         }
 
