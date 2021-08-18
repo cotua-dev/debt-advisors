@@ -41,6 +41,17 @@ section.debt-advisors-stepper {
         }
     }
 
+    .loading-spinner {
+        font-size: 28px;
+        color: $primary-color;
+    }
+
+    small.error {
+        font-size: 14px;
+        font-weight: 700;
+        color: $secondary-color;
+    }
+
     div.stepper-controls-wrapper {
         margin-top: 20px;
         display: flex;
