@@ -1,4 +1,5 @@
 import { StepperModel, Step } from './Stepper.interfaces';
+import { Questions } from './Stepper.enums';
 
 export const initialStepperModel: StepperModel = {
     userPurpose: null,
@@ -17,7 +18,7 @@ export const initialStepperModel: StepperModel = {
 
 export const initialSteps: Step[] = [
     {
-        question: 'What are you looking to do?',
+        question: Questions.UserPurpose,
         validity: false,
         property: ['userPurpose'],
         stepType: 'multiple-choice',
@@ -30,7 +31,7 @@ export const initialSteps: Step[] = [
         value: {},
     },
     {
-        question: 'What kind of debts do you have?',
+        question: Questions.DebtType,
         validity: false,
         property: ['debtType'],
         stepType: 'multiple-choice',
@@ -43,7 +44,7 @@ export const initialSteps: Step[] = [
         value: {},
     },
     {
-        question: 'Are you behind on your payments?',
+        question: Questions.BehindPaymentsType,
         validity: false,
         property: ['behindPaymentsType'],
         stepType: 'multiple-choice',
@@ -55,7 +56,7 @@ export const initialSteps: Step[] = [
         value: {},
     },
     {
-        question: 'What made you fall behind?',
+        question: Questions.FallBehindReason,
         validity: false,
         property: ['fallBehindReason'],
         stepType: 'multiple-choice',
@@ -68,49 +69,49 @@ export const initialSteps: Step[] = [
         value: {},
     },
     {
-        question: 'What is your monthly income?',
+        question: Questions.MonthlyIncomeAmount,
         validity: false,
         property: ['monthlyIncomeAmount'],
         stepType: 'currency',
         value: {},
     },
     {
-        question: 'What is the total amount of your unsecured debt?',
+        question: Questions.UnsecuredDebtAmount,
         validity: false,
         property: ['unsecuredDebtAmount'],
         stepType: 'currency',
         value: {},
     },
     {
-        question: 'What city are you in?',
+        question: Questions.ZipCode,
         validity: false,
         property: ['zipCode'],
         stepType: 'location',
         value: {},
     },
     {
-        question: 'What is your name?',
+        question: Questions.Name,
         validity: false,
         property: ['firstName', 'lastName'],
         stepType: 'name',
         value: {},
     },
     {
-        question: 'What is your email?',
+        question: Questions.Email,
         validity: false,
         property: ['email'],
         stepType: 'email',
         value: {},
     },
     {
-        question: 'Please provide your phone number for verification',
+        question: Questions.Phone,
         validity: false,
         property: ['phone'],
         stepType: 'phone',
         value: {},
     },
     {
-        question: 'Please provide the code sent to your phone number',
+        question: Questions.Code,
         validity: false,
         property: ['code'],
         stepType: 'verify',
