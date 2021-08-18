@@ -7,4 +7,5 @@ export interface LocationProps {
     setDisableNextButton?: Dispatch<SetStateAction<boolean>>;
     zipCode: string;
     setZipCode: Dispatch<SetStateAction<string>>;
+    setUSState: Dispatch<SetStateAction<string>>;
 };
