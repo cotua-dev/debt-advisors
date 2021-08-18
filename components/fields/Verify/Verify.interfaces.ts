@@ -7,4 +7,5 @@ export interface VerifyProps {
     setDisableNextButton: Dispatch<SetStateAction<boolean>>;
     code: string;
     setCode: Dispatch<SetStateAction<string>>;
+    disableVerifyField: boolean;
 };
