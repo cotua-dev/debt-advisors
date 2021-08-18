@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Email Component renders 1`] = `
+<div
+  class="email-field-wrapper"
+>
+  <input
+    class="email-field"
+    id="email"
+    name="email"
+    type="email"
+    value=""
+  />
+</div>
+`;

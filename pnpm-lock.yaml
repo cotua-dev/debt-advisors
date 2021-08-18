@@ -11,6 +11,7 @@ specifiers:
   '@testing-library/jest-dom': ^5.14.1
   '@testing-library/react': ^12.0.0
   '@testing-library/react-hooks': ^7.0.1
+  '@types/google.maps': ^3.45.6
   '@types/jest': ^26.0.24
   '@types/node': ^16.4.12
   '@types/react': 17.0.15
@@ -25,6 +26,7 @@ specifiers:
   next-pwa: ^5.2.24
   react: 17.0.2
   react-dom: 17.0.2
+  react-number-format: ^4.7.3
   sass: ^1.37.5
   ts-jest: ^27.0.4
   ts-node: ^10.1.0
@@ -40,6 +42,7 @@ dependencies:
   next-pwa: 5.2.24_11f684cfe469a57397b2981b1fa557cb
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-number-format: 4.7.3_react-dom@17.0.2+react@17.0.2
 
 devDependencies:
   '@babel/core': 7.14.8
@@ -49,6 +52,7 @@ devDependencies:
   '@testing-library/jest-dom': 5.14.1
   '@testing-library/react': 12.0.0_react-dom@17.0.2+react@17.0.2
   '@testing-library/react-hooks': 7.0.1_react-dom@17.0.2+react@17.0.2
+  '@types/google.maps': 3.45.6
   '@types/jest': 26.0.24
   '@types/node': 16.4.12
   '@types/react': 17.0.15
@@ -2008,6 +2012,10 @@ packages:
     dependencies:
       '@types/minimatch': 3.0.5
       '@types/node': 16.4.12
+
+  /@types/google.maps/3.45.6:
+    resolution: {integrity: sha512-BzGzxs8UXFxeP8uN/0nRgGbsbpYQxSCKsv/7S8OitU7wwhfFcqQSm5aAcL1nbwueMiJ/VVmIZKPq69s0kX5W+Q==}
+    dev: true
 
   /@types/graceful-fs/4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
@@ -7817,6 +7825,17 @@ packages:
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
+
+  /react-number-format/4.7.3_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-4EvcANjstypQ5anhanmdEioGc49qbnErfS+yqbhatC0vzQ1okplkWNb0DIY7ABu4RhaxzttEz6pypEy8KsqgBQ==}
+    peerDependencies:
+      react: ^0.14 || ^15.0.0-0 || ^16.0.0-0 || ^17.0.0-0
+      react-dom: ^0.14 || ^15.0.0-0 || ^16.0.0-0 || ^17.0.0-0
+    dependencies:
+      prop-types: 15.7.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
 
   /react-refresh/0.8.3:
     resolution: {integrity: sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==}

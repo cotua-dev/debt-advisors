@@ -40,3 +40,6 @@ cypress/videos
 # pwa
 public/sw.js*
 public/workbox-*
+
+# environment variables
+.env

@@ -235,7 +235,7 @@ exports[`Benefit Component renders 1`] = `
   </strong>
   <a
     class="start-reducing-payments-link"
-    href="/"
+    href="/stepper"
   >
     Start Reducing Your Payments
   </a>
