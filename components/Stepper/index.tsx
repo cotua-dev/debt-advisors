@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight, faAngleLeft, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import styles from './Stepper.module.scss';
-import { Step } from './Stepper.interfaces';
+import { ParsedStepperModel, Step, StepperModel } from './Stepper.interfaces';
 import { initialStepperModel, initialSteps } from './Stepper.initial';
+import { addBitrixContactDeal, parseModel, sendSMS, verifySMSCode } from './Stepper.utility';
+import { Questions } from './Stepper.enums';
 import { MultipleChoiceField } from '../fields/MultipleChoice';
 import { Currency } from '../fields/Currency';
 import { Location } from '../fields/Location';
@@ -20,6 +22,7 @@ export function Stepper(): JSX.Element {
     const [disablePreviousButton, setDisablePreviousButton] = useState(true);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [disableVerifyField, setDisableVerifyField] = useState(true);
     
     // Fields
     const [zipCode, setZipCode] = useState('');
@@ -28,36 +31,32 @@ export function Stepper(): JSX.Element {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [code, setCode] = useState('');
+    const [usState, setUSState] = useState('');
 
     /**
      * Send a SMS to the provided phone number to verify the user owns the number
      */
-    async function sendSMS(): Promise<void> {
-        // Show a loading spinner
+    async function kickOffSMS(): Promise<void> {
+        // Show a loading spinner, disable verify field, and reset error
         setLoading(true);
+        setDisableVerifyField(true);
+        setError('');
 
-        try {
-            // Make sure `phone` is not just an empty string
-            if (phone !== '') {
-                // Remove spaces from `phone` to make it E.164 compliant
-                const e164PhoneNumber: string = phone.replace(' ', '');
+        // Make sure the phone is not an empty string
+        if (phone !== '') {
+            const smsResponse: Response | undefined = await sendSMS(phone);
 
-                // Send a request with the E.164 phone number that will send an SMS to the provided phone number
-                // with a 6 digit code for verification
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/TwilioVerifyPhoneNumber`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ phoneNumber: e164PhoneNumber }),
-                });
-
-                // Check to see if we get a 200 status code
-                if (response.status === 200) {
-                    setDisableNextButton(false);
-                }
+            // Make sure we have a response object and its status is 200
+            if (smsResponse !== undefined && smsResponse.status === 200) {
+                // Enable verify field
+                setDisableVerifyField(false);
+            } else {
+                // Display error
+                setError('Something went wrong. Please try again');
             }
-        } catch(sendSMSError) {
-            console.error({ sendSMSError });
-            throw new Error(sendSMSError);
+        } else {
+            // Display error
+            setError('Please provide a valid phone number');
         }
 
         // Hide the loading spinner
@@ -67,34 +66,33 @@ export function Stepper(): JSX.Element {
     /**
      * Verify the user provided code with their phone number
      */
-    async function verifySMSCode(): Promise<void> {
-        // Show a loading spinner
+    async function submission(data: ParsedStepperModel): Promise<void> {
+        // Show a loading spinner and reset error
         setLoading(true);
+        setError('');
 
-        try {
-            // Make sure `phone` is not just an empty string
-            if (phone !== '') {
-                // Remove spaces from `phone` to make it E.164 compliant and get Pilu bitrix API URL
-                const e164PhoneNumber: string = phone.replace(' ', '');
-                const piluURL = `${process.env.NEXT_PUBLIC_API_URL}/DAABitrix`;
+        // Make sure we have a `phone` and `code`
+        if (phone !== '' && code !== '') {
+            const verifyResponse: Response | undefined = await verifySMSCode(phone, code);
 
-                // Send a request with the E.164 phone number and code for verification
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/TwilioVerifyPhoneNumber`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ phoneNumber: e164PhoneNumber, code }),
-                });
+            // Make sure we have a response object and its status is 200
+            if (verifyResponse !== undefined && verifyResponse.status === 200) {
+                const bitrixResponse: Response | undefined = await addBitrixContactDeal(data);
 
-                // Check to see if we get a 200 status code
-                if (response.status === 200) {
-                    // Add lead to Pilu Bitrix
-
-                    // Make sure it worked
+                // Make sure we have a response object and its status is 200
+                if (bitrixResponse !== undefined && bitrixResponse.status === 200) {
+                    // Send to thank you page
+                } else {
+                    // Display error
+                    setError('Something went wrong. Please try again');
                 }
+            } else {
+                // Display error
+                setError('Something went wrong. Please try again');
             }
-        } catch(sendSMSError) {
-            console.error({ sendSMSError });
-            throw new Error(sendSMSError);
+        } else {
+            // Display error
+            setError('Please provide a valid phone number and code for verification');
         }
 
         // Hide the loading spinner
@@ -120,21 +118,62 @@ export function Stepper(): JSX.Element {
      * @todo Needs work
      */
     function nextStep() {
-        if (steps[currentStep].validity) {
+        // Grab needed properties from the current step
+        const { validity, question } = steps[currentStep];
+
+        // Check the current step's validity
+        if (validity) {
+            // If valid, enable the next button
             setDisableNextButton(false);
 
+            // Check if we are on the last step
             if (currentStep >= steps.length - 1) {
+                // Disable the next button and set the current step to the last step
+                // since we should not go any further
                 setDisableNextButton(true);
                 setCurrentStep(steps.length - 1);
             } else {
-                // setDisableNextButton(false);
+                // Otherwise, go to the next step
                 setCurrentStep(currentStep + 1);
             }
         } else {
+            // If currently invalid, disable the next button
             setDisableNextButton(true);
         }
 
+        // Enable the previous button since we are moving forward
         setDisablePreviousButton(false);
+
+        // Check if we passed the zip code field
+        if (question === Questions.ZipCode) {
+            console.info({usState});
+        }
+
+        // Check if we passed the phone number field
+        if (question === Questions.Phone) {
+            // We should have a phone number at this point which means we can send
+            // a SMS message to verify the phone number
+            kickOffSMS();
+        }
+    }
+
+    /**
+     * Handle the submit button click event
+     */
+    function onSubmit(): void {
+        // Get the unparsed model and parse it for submission
+        const unparsedModel: StepperModel = {
+            ...model,
+            email,
+            firstName,
+            lastName,
+            phone,
+            zipCode,
+        };
+        const parsedModel: ParsedStepperModel = parseModel(unparsedModel);
+
+        // Run submission
+        submission(parsedModel);
     }
 
     return (
@@ -181,6 +220,7 @@ export function Stepper(): JSX.Element {
                                         setDisableNextButton={setDisableNextButton}
                                         zipCode={zipCode}
                                         setZipCode={setZipCode}
+                                        setUSState={setUSState}
                                     />
                             }
                             {
@@ -223,12 +263,15 @@ export function Stepper(): JSX.Element {
                                         setDisableNextButton={setDisableNextButton}
                                         code={code}
                                         setCode={setCode}
+                                        disableVerifyField={disableVerifyField}
                                     />
                             }
                         </div>
                     );
                 })}
             </div>
+            {loading && <FontAwesomeIcon className={styles['loading-spinner']} icon={faCircleNotch} spin/>}
+            {error !== '' && <small className={styles['error']}>{error}</small>}
             <div className={styles['stepper-controls-wrapper']}>
                 <button
                     className={styles['previous-button']}
@@ -250,6 +293,7 @@ export function Stepper(): JSX.Element {
                     <button
                         className={styles['next-button']}
                         type="button"
+                        onClick={() => onSubmit()}
                         disabled={disableNextButton}
                     >{`Submit`}</button>
                 }
