@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import { useRouter, NextRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import styles from './Stepper.module.scss';
 import { ParsedStepperModel, Step, StepperModel } from './Stepper.interfaces';
 import { initialStepperModel, initialSteps } from './Stepper.initial';
-import { addBitrixContactDeal, parseModel, sendSMS, verifySMSCode } from './Stepper.utility';
+import { addBitrixContactDeal, parseCurrencyValue, parseModel, sendSMS, verifySMSCode } from './Stepper.utility';
 import { Questions } from './Stepper.enums';
 import { MultipleChoiceField } from '../fields/MultipleChoice';
 import { Currency } from '../fields/Currency';
@@ -15,6 +16,7 @@ import { Phone } from '../fields/Phone';
 import { Verify } from '../fields/Verify';
 
 export function Stepper(): JSX.Element {
+    const router: NextRouter = useRouter();
     const [model, setModel] = useState(initialStepperModel);
     const [currentStep, setCurrentStep] = useState(0);
     const [steps, setSteps] = useState(initialSteps);
@@ -82,6 +84,7 @@ export function Stepper(): JSX.Element {
                 // Make sure we have a response object and its status is 200
                 if (bitrixResponse !== undefined && bitrixResponse.status === 200) {
                     // Send to thank you page
+                    router.push('/thank-you');
                 } else {
                     // Display error
                     setError('Something went wrong. Please try again');
@@ -121,6 +124,34 @@ export function Stepper(): JSX.Element {
         // Grab needed properties from the current step
         const { validity, question } = steps[currentStep];
 
+        // Check if we passed the unsecured debt field
+        if (question === Questions.UnsecuredDebtAmount) {
+            // Parse the unsecured debt amount into a number
+            const unsecuredDebtAmountNumber: number = parseCurrencyValue(model.unsecuredDebtAmount);
+
+            // Check if the debt is less than $7,500
+            if (unsecuredDebtAmountNumber < 7500) {
+                // If so, disqualify
+                router.push('/dq');
+            }
+        }
+
+        // Check if we passed the zip code field
+        if (question === Questions.ZipCode) {
+            // Check to see if the city is in North Dakota or South Carolina
+            if (usState === 'North Dakota' || usState === 'South Carolina') {
+                // If so, disqualify
+                router.push('/dq');
+            }
+        }
+
+        // Check if we passed the phone number field
+        if (question === Questions.Phone) {
+            // We should have a phone number at this point which means we can send
+            // a SMS message to verify the phone number
+            kickOffSMS();
+        }
+
         // Check the current step's validity
         if (validity) {
             // If valid, enable the next button
@@ -143,18 +174,6 @@ export function Stepper(): JSX.Element {
 
         // Enable the previous button since we are moving forward
         setDisablePreviousButton(false);
-
-        // Check if we passed the zip code field
-        if (question === Questions.ZipCode) {
-            console.info({usState});
-        }
-
-        // Check if we passed the phone number field
-        if (question === Questions.Phone) {
-            // We should have a phone number at this point which means we can send
-            // a SMS message to verify the phone number
-            kickOffSMS();
-        }
     }
 
     /**
