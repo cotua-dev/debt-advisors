@@ -1,4 +1,4 @@
-import { UserPurpose, DebtType, BehindPaymentsType, FallBehindReason } from './Stepper.enums';
+import { UserPurpose, DebtType, BehindPaymentsType, FallBehindReason, Questions } from './Stepper.enums';
 import { ParsedStepperModel, StepperModel } from './Stepper.interfaces';
 import { MultipleChoiceValues } from './Stepper.types';
 
@@ -200,8 +200,4 @@ export async function addBitrixContactDeal(data: ParsedStepperModel): Promise<Re
         console.error({ addBitrixContactDealError });
         throw new Error(addBitrixContactDealError);
     }
-}
-
-export function disqualifyCheck(): void {
-    
 }
