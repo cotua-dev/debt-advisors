@@ -1,5 +1,5 @@
 import { MultipleChoiceValues, StepTypes } from './Stepper.types';
-import { UserPurpose, DebtType, BehindPaymentsType, FallBehindReason } from './Stepper.enums';
+import { UserPurpose, DebtType, BehindPaymentsType, FallBehindReason, Questions } from './Stepper.enums';
 
 export interface MultipleChoice {
     label: string;
@@ -26,8 +26,8 @@ export interface ParsedStepperModel {
     debtType: DebtType;
     behindPaymentsType: BehindPaymentsType;
     fallBehindReason: FallBehindReason;
-    monthlyIncomeAmount: string;
-    unsecuredDebtAmount: string;
+    monthlyIncomeAmount: number;
+    unsecuredDebtAmount: number;
     zipCode: string;
     firstName: string;
     lastName: string;
@@ -36,7 +36,7 @@ export interface ParsedStepperModel {
 };
 
 export interface Step {
-    question: string;
+    question: Questions;
     validity: boolean;
     property: (keyof StepperModel)[];
     stepType: StepTypes;
