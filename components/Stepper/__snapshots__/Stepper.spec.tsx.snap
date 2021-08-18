@@ -381,6 +381,7 @@ exports[`Stepper Component renders 1`] = `
       >
         <input
           class="code-field"
+          disabled=""
           id="code"
           inputmode="numeric"
           name="code"
