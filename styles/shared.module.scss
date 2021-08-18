@@ -1,0 +1,62 @@
+@import './variables';
+
+section.dq,
+section.thank-you {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div.content-wrapper {
+        max-width: 600px;
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+
+        @media screen and (max-width: $mobile-cut-off) {
+            text-align: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 32px;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                font-size: 24px;
+            }
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 24px;
+
+            @media screen and (max-width: $mobile-cut-off) {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+section.thank-you {
+    div.content-wrapper {
+        align-items: center;
+        text-align: center;
+
+        a {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            background-color: $primary-color;
+            color: #FFFFFF;
+            transition: 250ms;
+
+            &:hover {
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+                scale: 1.05;
+            }
+        }
+    }
+}
