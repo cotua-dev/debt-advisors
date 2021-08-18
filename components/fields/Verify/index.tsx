@@ -4,7 +4,7 @@ import { VerifyProps } from './Verify.interfaces';
 import styles from './Verify.module.scss';
 
 export function Verify(props: VerifyProps): JSX.Element {
-    const { steps, currentStep, setDisableNextButton, code, setCode } = props;
+    const { steps, currentStep, setDisableNextButton, code, setCode, disableVerifyField } = props;
 
     // Should match a code of exactly 6 numbers between 0 and 9
     const codeRegex: RegExp = new RegExp(/^[0-9]{6}$/);
@@ -54,6 +54,7 @@ export function Verify(props: VerifyProps): JSX.Element {
                 name="code"
                 value={code}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => handleCodeSetting(event.target.value)}
+                disabled={disableVerifyField}
             />
             {
                 showError &&
