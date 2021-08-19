@@ -100,11 +100,16 @@ export function Location(props: LocationProps): JSX.Element {
                     }
                 });
 
-                // Remove the listener when the component is destroyed
-                return () => googlePlacesEventListener.remove();
+                // Remove the listeners when the component is destroyed
+                return () => {
+                    google.maps.event.removeListener(googlePlacesEventListener);
+                    google.maps.event.clearInstanceListeners(autocomplete);
+                    autocompleteRef.current?.remove();
+                    document.getElementById('debt-advisors-google')?.remove();
+                };
             }
         }
-    }, []);
+    });
 
     return (
         <div className={styles['location-wrapper']}>
