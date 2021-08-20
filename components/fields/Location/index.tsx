@@ -1,4 +1,5 @@
 import { useEffect, useRef, MutableRefObject, ChangeEvent } from 'react';
+import AutoComplete from 'react-google-autocomplete';
 import styles from './Location.module.scss';
 import { loadGoogleScript, handleGoogleScriptLoad } from './google-places';
 import poweredByGoogleImage from '../../../public/images/powered_by_google_on_white.png';
@@ -73,6 +74,21 @@ export function Location(props: LocationProps): JSX.Element {
         }
     }
 
+    function handlePlaceSelectEvent(place: google.maps.places.PlaceResult): void {
+        // Get the formatted address
+        const formattedAddress = place.formatted_address;
+
+        // Parse the US State
+        parseAddressComponents(place);
+
+        // Make sure the formatted address is not undefined
+        if (formattedAddress !== undefined) {
+            // Set the location
+            setModelProperty(formattedAddress);
+        }
+    }
+
+    /*
     useEffect(() => {
         // Load the google script
         const googleScript: HTMLScriptElement = loadGoogleScript(googleURL);
@@ -110,10 +126,19 @@ export function Location(props: LocationProps): JSX.Element {
             }
         }
     });
+    */
 
     return (
         <div className={styles['location-wrapper']}>
-            <input
+            <AutoComplete
+                className={styles['location-field']}
+                apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
+                onPlaceSelected={(place: google.maps.places.PlaceResult) => handlePlaceSelectEvent(place)}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputListenerEvent(event)}
+                options={{ types: ['(cities)'], componentRestrictions: { country: 'us' } }}
+                value={zipCode}
+            />
+            {/* <input
                 className={styles['location-field']}
                 ref={autocompleteRef}
                 type="text"
@@ -121,7 +146,7 @@ export function Location(props: LocationProps): JSX.Element {
                 name="zip-code"
                 onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputListenerEvent(event)}
                 value={zipCode}
-            />
+            /> */}
             <picture>
                 <source srcSet={poweredByGoogleImage.src}/>
                 <img
