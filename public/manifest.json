@@ -2,7 +2,7 @@
     "name": "Debt Advisors of America",
     "short_name": "Debt Advisors",
     "theme_color": "#2B2F73",
-    "background_color": "#FFFFFF",
+    "background_color": "#C00A0F",
     "display": "fullscreen",
     "orientation": "portrait",
     "scope": "/",
