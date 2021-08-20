@@ -120,17 +120,17 @@ export function Calculator(): JSX.Element {
 
 /**
  * Calculations
- * 
+ *
  * What we have:
  * - total unsecured debt (TUD)
  * - months to pay off (M)
  * - average interest rate (IR)
- * 
- * 
+ *
+ *
  * Do Nothing (Pay Minimum)
- * 
+ *
  * Debt Advisors
  * - monthly payment = (TUD / M) * 0.7036
  * - total cost = (monthly payment) * M
- * 
+ *
  */
