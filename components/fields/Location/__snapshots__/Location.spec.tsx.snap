@@ -6,9 +6,6 @@ exports[`Location Component renders 1`] = `
 >
   <input
     class="location-field"
-    id="zip-code"
-    name="zip-code"
-    type="text"
     value=""
   />
   <picture>
