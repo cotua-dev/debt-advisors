@@ -1,0 +1,119 @@
+@import '../../../styles/variables';
+
+section.debt-calculator {
+    max-width: $max-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h2.debt-calculator-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: $primary-color;
+    }
+
+    div.calculator-form-wrapper {
+        form.calculator-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            div.fields-wrapper {
+                display: flex;
+                flex-direction: row;
+
+                div.field-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    margin: 0 10px;
+
+                    label.field-label {
+                        font-size: 14px;
+                        font-weight: 300;
+
+                        span.required {
+                            color: $secondary-color;
+                        }
+                    }
+
+                    input.field,
+                    select.field {
+                        padding: 15px 20px;
+                        margin: 10px 0;
+                        border: 1px solid #EFEFEF;
+                        border-radius: 20px;
+                        width: 200px;
+                        font-size: 18px;
+                        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+                    }
+                }
+            }
+
+            div.submit-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+
+                p.required {
+                    color: $secondary-color;
+                }
+
+                button.submit-button {
+                    padding: 10px 20px;
+                    border-radius: 10px;
+                    border: 0;
+                    background-color: $primary-color;
+                    color: #FFFFFF;
+                    margin-left: 10px;
+                    font-size: 14px;
+                    font-weight: 700;
+                    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+                }
+            }
+        }
+    }
+
+    div.calculations-table-wrapper {
+        overflow-x: auto;
+        width: 100%;
+        margin-top: 50px;
+
+        table.calculations-table {
+            width: 100%;
+            border-collapse: collapse;
+
+            thead tr th,
+            tbody tr td {
+                border: 1px solid #EFEFEF;
+                padding: 20px 10px;
+            }
+
+            thead tr th {
+                color: $primary-color;
+                font-weight: 700;
+
+                picture img.regular-logo {
+                    width: 150px;
+                    height: 50px;
+                }
+            }
+
+            tbody tr td {
+                font-weight: 300;
+
+                &.debt-advisors {
+                    background-color: $primary-color;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}

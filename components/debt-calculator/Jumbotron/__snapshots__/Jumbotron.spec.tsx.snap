@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jumbotron Component renders 1`] = `
+<section
+  class="debt-calculator-jumbotron"
+>
+  <div
+    class="jumbotron-content"
+  >
+    <h1
+      class="jumbotron-title"
+    >
+      Debt Calculator
+    </h1>
+    <p
+      class="jumbotron-content"
+    >
+      This calculator will estimate the amount of time it will take to pay off a given debt if you are paying a monthly minimum payment. Plus, it will also tell you the “Approximate Total” you will pay between now and when the debt is paid off
+    </p>
+  </div>
+  <picture>
+    <source />
+    <img
+      alt="Debt Calculator Jumbotron Image"
+      class="jumbotron-image"
+      loading="lazy"
+    />
+  </picture>
+</section>
+`;
