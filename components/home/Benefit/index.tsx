@@ -69,7 +69,7 @@ export function Benefit(): JSX.Element {
             <strong className={styles['benefit-content']}>
                 {`Our goals are to help you resolve your enrolled debts as quickly as possible and to negotiate settlements for less than what you owe`}
             </strong>
-            <Link href="/">
+            <Link href="/stepper">
                 <a className={styles['start-reducing-payments-link']}>
                     {`Start Reducing Your Payments`}
                 </a>

@@ -53,7 +53,7 @@ export function WhatWeDo(): JSX.Element {
                     </div>
                 ))}
             </div>
-            <Link href="/">
+            <Link href="/stepper">
                 <a className={styles['free-debt-consultation']}>{`Get a Free Debt Consultation Now`}</a>
             </Link>
             <p className={styles['details']}>

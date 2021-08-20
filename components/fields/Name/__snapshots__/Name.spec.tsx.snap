@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Name Component renders 1`] = `
+<div
+  class="name-fields-wrapper"
+>
+  <div
+    class="name-field-wrapper"
+  >
+    <label
+      class="name-field-label"
+      for="firstName"
+    >
+      First Name
+    </label>
+    <input
+      class="name-field"
+      id="firstName"
+      name="firstName"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="name-field-wrapper"
+  >
+    <label
+      class="name-field-label"
+      for="lastName"
+    >
+      Last Name
+    </label>
+    <input
+      class="name-field"
+      id="lastName"
+      name="lastName"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;

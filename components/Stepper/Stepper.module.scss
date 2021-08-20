@@ -1,0 +1,115 @@
+@import '../../styles/variables';
+
+section.debt-advisors-stepper {
+    max-width: $max-width;
+    width: 100%;
+    height: 550px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @media screen and (max-width: $mobile-cut-off) {
+        height: 100%;
+        padding: 0 10px 50px;
+    }
+
+    div.steps-wrapper {
+        div.step {
+            text-align: center;
+            margin: 50px 10px;
+
+            @media screen and (max-width: 767px) {
+                margin: 20px 10px;
+            }
+
+            &.hidden {
+                display: none;
+            }
+
+            strong.question {
+                color: $primary-color;
+                font-size: 42px;
+                font-weight: 700;
+
+                @media screen and (max-width: $mobile-cut-off) {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+
+    .loading-spinner {
+        font-size: 28px;
+        color: $primary-color;
+    }
+
+    small.error {
+        font-size: 14px;
+        font-weight: 700;
+        color: $secondary-color;
+    }
+
+    div.stepper-controls-wrapper {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+
+        @media screen and (max-width: $mobile-cut-off) {
+            width: 100%;
+        }
+
+        button.previous-button,
+        button.next-button {
+            cursor: pointer;
+            border: 0;
+            border-radius: 10px;
+            padding: 10px 0;
+            color: #FFFFFF;
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+
+            &:disabled {
+                cursor: not-allowed;
+            }
+
+            .caret {
+                font-size: 24px;
+            }
+        }
+
+        button.previous-button {
+            width: 80px;
+            background-color: $secondary-color;
+
+            &:disabled {
+                background-color: lighten($secondary-color, 20%);
+            }
+        }
+
+        button.next-button {
+            width: 300px;
+            background-color: $primary-color;
+            margin-left: 20px;
+
+            &:disabled {
+                background-color: lighten($primary-color, 20%);
+            }
+
+            @media screen and (max-width: $mobile-cut-off) {
+                width: 100%;
+            }
+
+            .caret {
+                margin-left: 10px;
+            }
+        }
+    }
+}

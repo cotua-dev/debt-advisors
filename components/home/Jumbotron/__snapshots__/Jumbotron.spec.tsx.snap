@@ -27,7 +27,7 @@ exports[`Jumbotron Component renders 1`] = `
     </p>
     <a
       class="start-button"
-      href="/"
+      href="/stepper"
     >
       Start - it's free!
     </a>

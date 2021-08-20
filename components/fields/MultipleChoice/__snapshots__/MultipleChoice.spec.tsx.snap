@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultipleChoiceField Component renders 1`] = `
+<div
+  class="multiple-choice-wrapper"
+/>
+`;
