@@ -1,14 +1,15 @@
-@import '../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 section.privacy-policy {
-    max-width: $max-width;
+    max-width: variables.$max-width;
     width: 100%;
     margin: 0 auto;
     padding: 10px;
 
     h1,
     h2 {
-        color: $primary-color;
+        color: variables.$primary-color;
         margin: 40px 0;
     }
 
@@ -16,7 +17,7 @@ section.privacy-policy {
         font-size: 46px;
         text-align: center;
 
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             font-size: 32px;
         }
     }
@@ -24,7 +25,7 @@ section.privacy-policy {
     h2 {
         font-size: 40px;
         
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             font-size: 26px;
         }
     }
@@ -33,13 +34,13 @@ section.privacy-policy {
         font-size: 16px;
         line-height: 24px;
 
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             font-size: 14px;
             line-height: 28px;
         }
 
         a {
-            color: $link-color;
+            color: variables.$link-color;
         }
     }
 
@@ -49,7 +50,7 @@ section.privacy-policy {
         li {
             margin: 10px 0;
 
-            @media screen and (max-width: $mobile-cut-off) {
+            @include mixins.mobile {
                 font-size: 14px;
             }
         }

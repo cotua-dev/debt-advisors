@@ -1,17 +1,13 @@
-@import '../../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 section.reviews {
-    background-color: $primary-color;
-    border-bottom: 5px solid $secondary-dark-color;
+    background-color: variables.$primary-color;
+    border-bottom: 5px solid variables.$secondary-dark-color;
 
     div.content-wrapper {
-        max-width: $max-width;
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        @include mixins.base-section;
+        @include mixins.flexify(center, center, column);
 
         h2.review-title {
             color: #FFFFFF;
@@ -23,7 +19,7 @@ section.reviews {
             .star {
                 height: 50px;
                 width: 50px;
-                color: $star-color;
+                color: variables.$star-color;
             }
         }
 

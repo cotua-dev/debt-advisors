@@ -1,26 +1,16 @@
-@import '../../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 section.debt-advisors-options-jumbotron {
-    max-width: $max-width;
-    width: 100%;
-    margin: 0 auto;
-    padding: 50px 10px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: row;
+    @include mixins.base-section;
+    @include mixins.flexify(flex-start, space-between, row);
 
-    @media screen and (max-width: $mobile-cut-off) {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
+    @include mixins.mobile {
+        @include mixins.flexify(center, center, column);
     }
 
     h1.options-title {
-        color: $primary-color;
-        font-size: 42px;
-        font-weight: 700;
+        @include mixins.main-heading;
         margin-top: 0;
     }
 
@@ -28,9 +18,8 @@ section.debt-advisors-options-jumbotron {
         width: 377px;
         height: 282px;
 
-        @media screen and (max-width: 420px) {
-            width: 100%;
-            height: auto;
+        @include mixins.custom(420px) {
+            @include mixins.responsive-image;
         }
     }
 }

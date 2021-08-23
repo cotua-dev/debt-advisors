@@ -1,32 +1,22 @@
-@import '../../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 div.name-fields-wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    @include mixins.flexify(center, false, column);
 
     div.name-field-wrapper {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
+        @include mixins.flexify(flex-start, false, column);
         margin: 20px 0;
 
         label.name-field-label {
-            color: $primary-color;
+            color: variables.$primary-color;
             font-size: 18px;
             font-weight: 700;
         }
 
         input.name-field {
-            font-size: 18px;
-            width: 300px;
-            padding: 10px 15px;
-            border: 1px solid #E8E8E8;
-            border-radius: 5px;
-
-            @media screen and (max-width: $mobile-cut-off) {
-                width: 100%;
-            }
+            @include mixins.base-field;
+            margin: 0;
         }
     }
 }
