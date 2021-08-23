@@ -1,13 +1,12 @@
-@import '../../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 section.learn-about-us {
-    max-width: $max-width;
+    max-width: variables.$max-width;
     width: 100%;
     margin: 0 auto;
     padding: 50px 10px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    @include mixins.flexify(false, center, column);
 
     h2.section-title,
     p.section-content {
@@ -15,22 +14,19 @@ section.learn-about-us {
     }
 
     h2.section-title {
-        color: $primary-color;
-        font-size: 38px;
-        font-weight: 700;
+        @include mixins.sub-heading;
 
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             font-size: 28px;
         }
     }
 
     details p.content,
     p.section-content {
+        @include mixins.general-content;
         font-size: 18px;
-        font-weight: 300;
-        line-height: 24px;
-
-        @media screen and (max-width: $mobile-cut-off) {
+        
+        @include mixins.mobile {
             font-size: 14px;
         }
     }
@@ -45,24 +41,24 @@ section.learn-about-us {
             }
         }
 
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             margin: 10px 0;
         }
 
         summary.title {
-            color: $primary-color;
+            color: variables.$primary-color;
             font-size: 32px;
             font-weight: 700;
             border: 0;
             padding: 50px 20px;
             cursor: pointer;
-            transition: box-shadow 250ms;
+            transition: box-shadow variables.$transition-timing;
 
             &:hover {
                 box-shadow: 0 25px 25px 10px #e8e8e8;
             }
 
-            @media screen and (max-width: $mobile-cut-off) {
+            @include mixins.mobile {
                 font-size: 20px;
                 padding: 20px;
             }
@@ -71,7 +67,7 @@ section.learn-about-us {
         p.content {
             margin-top: 40px;
 
-            @media screen and (max-width: $mobile-cut-off) {
+            @include mixins.mobile {
                 text-align: center;
             }
         }

@@ -1,33 +1,26 @@
-@import '../../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 section.debt-advisors-scenarios {
-    max-width: $max-width;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: row;
-    padding: 50px 10px;
+    @include mixins.base-section;
+    @include mixins.flexify(flex-start, space-between, row);
 
-    @media screen and (max-width: $mobile-cut-off) {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    @include mixins.mobile {
+        @include mixins.flexify(center, center, column);
         text-align: center;
     }
 
     details {
         width: 400px;
 
-        @media screen and (max-width: 420px) {
+        @include mixins.custom(420px) {
             width: 100%;
         }
 
         &:nth-child(2) {
             margin: 0 20px;
 
-            @media screen and (max-width: $mobile-cut-off) {
+            @include mixins.mobile {
                 margin: 20px 0;
             }
         }
@@ -36,7 +29,7 @@ section.debt-advisors-scenarios {
             div.pros-cons-wrapper div.pros-wrapper {
                 margin-bottom: 24px;
 
-                @media screen and (max-width: $mobile-cut-off) {
+                @include mixins.mobile {
                     margin-bottom: 0;
                 }
             }
@@ -49,7 +42,7 @@ section.debt-advisors-scenarios {
             transition: 250ms;
 
             &:hover {
-                background-color: $primary-color;
+                background-color: variables.$primary-color;
 
                 strong.summary-title,
                 p.summary-content {
@@ -61,43 +54,39 @@ section.debt-advisors-scenarios {
                 display: none;
             }
 
-            @media screen and (max-width: $mobile-cut-off) {
+            @include mixins.mobile {
                 padding: 20px 10px;
             }
 
             strong.summary-title {
                 font-size: 30px;
                 font-weight: 700;
-                color: $primary-color;
+                color: variables.$primary-color;
 
-                @media screen and (max-width: $mobile-cut-off) {
+                @include mixins.mobile {
                     font-size: 24px;
                 }
             }
 
             p.summary-content {
                 font-size: 14px;
-                font-weight: 300;
-                line-height: 24px;
+                @include mixins.general-content;
 
-                @media screen and (max-width: $mobile-cut-off) {
+                @include mixins.mobile {
                     font-size: 12px;
                 }
             }
         }
 
         div.pros-cons-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            flex-direction: column;
+            @include mixins.flexify(center, flex-start, column);
             height: 350px;
 
             div.pros-wrapper div.pros-header,
             div.cons-wrapper div.cons-header {
                 padding: 15px 10px;
 
-                @media screen and (max-width: $mobile-cut-off) {
+                @include mixins.mobile {
                     padding: 5px 0;
                 }
             }
@@ -108,27 +97,26 @@ section.debt-advisors-scenarios {
                 font-weight: 700;
                 color: #FFFFFF;
 
-                @media screen and (max-width: $mobile-cut-off) {
-                    font-size: 28px
+                @include mixins.mobile {
+                    font-size: 28px;
                 }
             }
 
             div.pros-wrapper p.pros-content,
             div.cons-wrapper p.cons-content {
                 font-size: 12px;
-                font-weight: 300;
-                line-height: 24px;
+                @include mixins.general-content;
             }
 
             div.pros-wrapper {
                 div.pros-header {
-                    background-color: $primary-color;
+                    background-color: variables.$primary-color;
                 }
             }
 
             div.cons-wrapper {
                 div.cons-header {
-                    background-color: $secondary-dark-color;
+                    background-color: variables.$secondary-dark-color;
                 }
             }
         }

@@ -1,22 +1,17 @@
-@import '../../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 section.benefit {
-    max-width: $max-width;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    @include mixins.base-section;
+    @include mixins.flexify(center, center, column);
     text-align: center;
-    padding: 50px 10px;
 
     h2.benefit-title {
         font-size: 36px;
         font-weight: 700;
-        color: $primary-color;
+        color: variables.$primary-color;
 
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             font-size: 30px;
         }
     }
@@ -31,7 +26,7 @@ section.benefit {
             border-collapse: collapse;
 
             caption.benefit-table-caption {
-                background-color: $primary-color;
+                background-color: variables.$primary-color;
                 padding: 20px 0;
 
                 strong.benefit-table-caption-text {
@@ -78,7 +73,7 @@ section.benefit {
                     font-size: 16px;
                     font-weight: 700;
                     text-transform: uppercase;
-                    color: $primary-color;
+                    color: variables.$primary-color;
                 }
 
                 .check,
@@ -88,11 +83,11 @@ section.benefit {
                 }
 
                 .check {
-                    color: $correct-color;
+                    color: variables.$correct-color;
                 }
 
                 .times {
-                    color: $wrong-color;
+                    color: variables.$wrong-color;
                 }
             }
         }
@@ -112,7 +107,7 @@ section.benefit {
             transition: color 250ms;
 
             &:hover {
-                color: $secondary-dark-color;
+                color: variables.$secondary-dark-color;
             }
         }
     }
@@ -125,7 +120,7 @@ section.benefit {
     a.start-reducing-payments-link {
         font-size: 18px;
         font-weight: 700;
-        background-color: $secondary-dark-color;
+        background-color: variables.$secondary-dark-color;
         border: 0;
         border-radius: 20px;
         padding: 10px 40px;
@@ -133,7 +128,7 @@ section.benefit {
         transition: background-color 250ms;
 
         &:hover {
-            background-color: $primary-color;
+            background-color: variables.$primary-color;
         }
     }
 }

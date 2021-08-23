@@ -1,21 +1,19 @@
-@import '../../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 section.do-i-qualify {
-    background-color: $primary-color;
+    background-color: variables.$primary-color;
     padding: 50px 10px;
 
     div.qualify-content {
-        max-width: $max-width;
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        flex-direction: column;
+        @include mixins.base-section;
+        @include mixins.flexify(flex-start, center, column);
+        padding: 0;
 
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             align-items: center;
             text-align: center;
+            padding: 0;
         }
 
         h2.qualify-title {
@@ -26,7 +24,7 @@ section.do-i-qualify {
             width: 100%;
             margin: 0 0 20px;
 
-            @media screen and (max-width: $mobile-cut-off) {
+            @include mixins.mobile {
                 font-size: 30px;
             }
         }
@@ -43,8 +41,7 @@ section.do-i-qualify {
 
         p.qualify-lower {
             font-size: 16px;
-            font-weight: 300;
-            line-height: 24px;
+            @include mixins.general-content;
         }
     }
 }

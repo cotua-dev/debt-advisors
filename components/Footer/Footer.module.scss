@@ -1,33 +1,26 @@
-@import '../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 footer.debt-advisors-footer {
-    background-color: $primary-color;
+    background-color: variables.$primary-color;
     color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    @include mixins.flexify(center, center, column);
     padding: 60px 10px;
 
     div.footer-content-wrapper {
-        max-width: $max-width;
+        max-width: variables.$max-width;
         width: 100%;
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        flex-direction: row;
+        @include mixins.flexify(flex-start, space-between, row);
 
-        @media screen and (max-width: 930px) {
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        @include mixins.custom(930px) {
+            @include mixins.flexify(center, center, column);
             text-align: center;
         }
 
         div.logo-text {
             width: 390px;
 
-            @media screen and (max-width: 420px) {
+            @include mixins.custom(420px) {
                 width: 100%;
             }
 
@@ -35,16 +28,14 @@ footer.debt-advisors-footer {
                 width: 240px;
                 height: 80px;
 
-                @media screen and (max-width: 260px) {
-                    width: 100%;
-                    height: auto;
+                @include mixins.custom(260px) {
+                    @include mixins.responsive-image;
                 }
             }
 
             p.footer-text {
                 font-size: 14px;
-                font-weight: 400;
-                line-height: 24px;
+                @include mixins.general-content;
             }
         }
 
@@ -58,13 +49,13 @@ footer.debt-advisors-footer {
         }
 
         div.contact-us {
-            @media screen and (max-width: 930px) {
+            @include mixins.custom(930px) {
                 margin: 20px 0;
             }
 
             p.content {
                 font-size: 14px;
-                font-weight: 400;
+                @include mixins.general-content;
             }
         }
 
@@ -72,19 +63,16 @@ footer.debt-advisors-footer {
             div.contact-info {
                 margin: 20px 0;
 
-                @media screen and (max-width: 930px) {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-direction: column;
+                @include mixins.custom(930px) {
+                    @include mixins.flexify(center, center, column);
                     text-align: center;
-                    margin: 10px 0;
+                    margin: 20px 0;
                 }
 
                 p.title,
                 a.info {
                     font-size: 14px;
-                    font-weight: 400;
+                    @include mixins.general-content;
                 }
 
                 p.title {
@@ -105,7 +93,7 @@ footer.debt-advisors-footer {
                     transition: color 250ms;
 
                     &:hover {
-                        color: $secondary-color;
+                        color: variables.$secondary-color;
                     }
                 }
             }
@@ -135,7 +123,7 @@ footer.debt-advisors-footer {
     div.legal-wrapper {
         text-align: center;
 
-        @media screen and (max-width: 930px) {
+        @include mixins.custom(930px) {
             margin-top: 20px;
         }
 
@@ -145,7 +133,7 @@ footer.debt-advisors-footer {
             transition: color 250ms;
 
             &:hover {
-                color: $secondary-color;
+                color: variables.$secondary-color;
             }
         }
     }

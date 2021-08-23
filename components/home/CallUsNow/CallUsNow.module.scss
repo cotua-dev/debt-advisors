@@ -1,18 +1,18 @@
-@import '../../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 section.debt-advisors-call-us-now {
-    background-color: $primary-color;
+    background-color: variables.$primary-color;
 
     div.content-wrapper {
-        max-width: $max-width;
-        width: 100%;
-        margin: 0 auto;
+        @include mixins.base-section;
+        @include mixins.flexify(center, center, column);
         padding: 150px 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
         text-align: center;
+
+        @include mixins.mobile {
+            padding: 150px 10px;
+        }
 
         strong.content-text,
         a.phone-link {
@@ -23,7 +23,7 @@ section.debt-advisors-call-us-now {
         strong.content-text {
             font-size: 30px;
 
-            @media screen and (max-width: $mobile-cut-off) {
+            @include mixins.mobile {
                 font-size: 24px;
             }
         }
@@ -31,7 +31,7 @@ section.debt-advisors-call-us-now {
         a.phone-link {
             border: 0;
             border-radius: 40px;
-            background-color: $secondary-dark-color;
+            background-color: variables.$secondary-dark-color;
             padding: 15px 60px;
             display: flex;
             flex-direction: column;
@@ -39,7 +39,7 @@ section.debt-advisors-call-us-now {
             transition: 250ms;
 
             &:hover {
-                background-color: $primary-color;
+                background-color: variables.$primary-color;
             }
 
             span.number {

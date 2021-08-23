@@ -1,14 +1,13 @@
-@import '../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 section.terms-of-use {
-    max-width: $max-width;
-    width: 100%;
-    margin: 0 auto;
+    @include mixins.base-section;
     padding: 10px;
 
     h1,
     h2 {
-        color: $primary-color;
+        color: variables.$primary-color;
         margin: 40px 0;
     }
 
@@ -16,7 +15,7 @@ section.terms-of-use {
         font-size: 46px;
         text-align: center;
 
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             font-size: 32px;
         }
     }
@@ -24,7 +23,7 @@ section.terms-of-use {
     h2 {
         font-size: 40px;
         
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             font-size: 26px;
         }
     }
@@ -33,13 +32,13 @@ section.terms-of-use {
         font-size: 16px;
         line-height: 24px;
 
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             font-size: 14px;
             line-height: 28px;
         }
 
         a {
-            color: $link-color;
+            color: variables.$link-color;
         }
     }
 }

@@ -1,37 +1,28 @@
-@import '../../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 section.about-us {
-    max-width: $max-width;
-    width: 100%;
-    margin: 0 auto;
-    padding: 50px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
+    @include mixins.base-section;
+    @include mixins.flexify(center, space-between, row);
 
-    @media screen and (max-width: 1100px) {
+    @include mixins.custom(1100px) {
         flex-direction: column-reverse;
-        padding: 10px;
     }
 
     div.about-us-content {
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             text-align: center;
         }
 
         h1.title {
-            color: $primary-color;
-            font-size: 42px;
-            font-weight: 700;
+            @include mixins.main-heading;
         }
 
         p.content {
+            @include mixins.general-content;
             font-size: 14px;
-            font-weight: 300;
-            line-height: 24px;
 
-            @media screen and (max-width: $mobile-cut-off) {
+            @include mixins.mobile {
                 font-size: 12px;
             }
         }
@@ -41,9 +32,8 @@ section.about-us {
         width: 738px;
         height: 379px;
 
-        @media screen and (max-width: 758px) {
-            width: 100%;
-            height: auto;
+        @include mixins.custom(758px) {
+            @include mixins.responsive-image;
         }
     }
 }

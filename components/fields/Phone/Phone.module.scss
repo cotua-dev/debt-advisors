@@ -1,28 +1,13 @@
-@import '../../../styles/variables';
+@use 'styles/mixins';
 
 div.phone-field-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    @include mixins.flexify(center, center, column);
 
     input.phone-field {
-        font-size: 18px;
-        width: 300px;
-        padding: 10px 15px;
-        margin-top: 20px;
-        border: 1px solid #E8E8E8;
-        border-radius: 5px;
-
-        @media screen and (max-width: $mobile-cut-off) {
-            width: 100%;
-        }
+        @include mixins.base-field;
     }
 
     small.error {
-        color: $secondary-color;
-        font-size: 14px;
-        font-weight: 700;
-        margin-top: 10px;
+        @include mixins.error;
     }
 }

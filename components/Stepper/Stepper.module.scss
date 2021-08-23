@@ -1,17 +1,13 @@
-@import '../../styles/variables';
+@use 'styles/variables';
+@use 'styles/mixins';
 
 section.debt-advisors-stepper {
-    max-width: $max-width;
-    width: 100%;
+    @include mixins.base-section;
+    @include mixins.flexify(center, center, column);
     height: 550px;
-    margin: 0 auto;
     padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 
-    @media screen and (max-width: $mobile-cut-off) {
+    @include mixins.mobile {
         height: 100%;
         padding: 0 10px 50px;
     }
@@ -21,7 +17,7 @@ section.debt-advisors-stepper {
             text-align: center;
             margin: 50px 10px;
 
-            @media screen and (max-width: 767px) {
+            @include mixins.custom(767px) {
                 margin: 20px 10px;
             }
 
@@ -30,11 +26,9 @@ section.debt-advisors-stepper {
             }
 
             strong.question {
-                color: $primary-color;
-                font-size: 42px;
-                font-weight: 700;
+                @include mixins.main-heading;
 
-                @media screen and (max-width: $mobile-cut-off) {
+                @include mixins.mobile {
                     font-size: 24px;
                 }
             }
@@ -43,13 +37,13 @@ section.debt-advisors-stepper {
 
     .loading-spinner {
         font-size: 28px;
-        color: $primary-color;
+        color: variables.$primary-color;
     }
 
     small.error {
         font-size: 14px;
         font-weight: 700;
-        color: $secondary-color;
+        color: variables.$secondary-color;
     }
 
     div.stepper-controls-wrapper {
@@ -57,7 +51,7 @@ section.debt-advisors-stepper {
         display: flex;
         flex-direction: row;
 
-        @media screen and (max-width: $mobile-cut-off) {
+        @include mixins.mobile {
             width: 100%;
         }
 
@@ -71,10 +65,7 @@ section.debt-advisors-stepper {
             font-family: 'Montserrat', Arial, Helvetica, sans-serif;
             font-size: 18px;
             font-weight: 300;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: row;
+            @include mixins.flexify(center, center, row);
 
             &:disabled {
                 cursor: not-allowed;
@@ -87,23 +78,23 @@ section.debt-advisors-stepper {
 
         button.previous-button {
             width: 80px;
-            background-color: $secondary-color;
+            background-color: variables.$secondary-color;
 
             &:disabled {
-                background-color: lighten($secondary-color, 20%);
+                background-color: lighten(variables.$secondary-color, 20%);
             }
         }
 
         button.next-button {
             width: 300px;
-            background-color: $primary-color;
+            background-color: variables.$primary-color;
             margin-left: 20px;
 
             &:disabled {
-                background-color: lighten($primary-color, 20%);
+                background-color: lighten(variables.$primary-color, 20%);
             }
 
-            @media screen and (max-width: $mobile-cut-off) {
+            @include mixins.mobile {
                 width: 100%;
             }
 
