@@ -1,9 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Currency Component renders 1`] = `
-<div>
-  <strong>
-    Currency
-  </strong>
+<div
+  class="currency-field-wrapper"
+>
+  <input
+    class="currency-field"
+    inputmode="numeric"
+    type="text"
+    value=""
+  />
 </div>
 `;
