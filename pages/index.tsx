@@ -25,11 +25,11 @@ function Home(): JSX.Element {
             <Navigation/>
             <main>
                 <Jumbotron/>
-                <Benefit/>
                 <WhatWeDo/>
                 <DoIQualify/>
                 <Steps/>
                 <CallUsNow/>
+                <Benefit/>
             </main>
             <Footer/>
         </>
