@@ -3,13 +3,13 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { Stepper } from '../components/Stepper';
 
-interface StepperPageProps {
+export interface StepperPageProps {
     props: {},
     revalidate: number;
 };
 
 export async function getStaticProps(): Promise<StepperPageProps> {
-    return { props: {}, revalidate: 60 };
+    return { props: {}, revalidate: 1 };
 }
 
 function StepperPage(): JSX.Element {

@@ -3,13 +3,13 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { Stepper } from '../components/Stepper';
 
-interface OhioPageProps {
+export interface OhioPageProps {
     props: {},
     revalidate: number;
 };
 
 export async function getStaticProps(): Promise<OhioPageProps> {
-    return { props: {}, revalidate: 60 };
+    return { props: {}, revalidate: 1 };
 }
 
 function OhioPage(): JSX.Element {

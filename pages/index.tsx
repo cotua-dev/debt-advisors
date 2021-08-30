@@ -9,13 +9,13 @@ import { DoIQualify } from '../components/home/DoIQualify';
 import { Steps } from '../components/home/Steps';
 import { CallUsNow } from '../components/home/CallUsNow';
 
-interface HomeStaticProps {
+export interface HomeStaticProps {
     props: {};
     revalidate: number;
 };
 
 export async function getStaticProps(): Promise<HomeStaticProps> {
-    return { props: {}, revalidate: 60 };
+    return { props: {}, revalidate: 1 };
 }
 
 function Home(): JSX.Element {

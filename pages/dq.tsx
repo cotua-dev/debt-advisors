@@ -3,13 +3,13 @@ import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
 import styles from '../styles/shared.module.scss';
 
-interface DisqualifyStaticProps {
+export interface DisqualifyStaticProps {
     props: {};
     revalidate: number;
 };
 
 export async function getStaticProps(): Promise<DisqualifyStaticProps> {
-    return { props: {}, revalidate: 60 };
+    return { props: {}, revalidate: 1 };
 }
 
 function Disqualify(): JSX.Element {

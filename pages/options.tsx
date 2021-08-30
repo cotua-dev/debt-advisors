@@ -4,13 +4,13 @@ import { Navigation } from '../components/Navigation';
 import { Jumbotron } from '../components/options/Jumbotron';
 import { Scenarios } from '../components/options/Scenarios';
 
-interface OptionsStaticProps {
+export interface OptionsStaticProps {
     props: {};
     revalidate: number;
 };
 
 export async function getStaticProps(): Promise<OptionsStaticProps> {
-    return { props: {}, revalidate: 60 };
+    return { props: {}, revalidate: 1 };
 }
 
 function Options(): JSX.Element {
