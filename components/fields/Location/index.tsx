@@ -1,7 +1,6 @@
-import { useEffect, useRef, MutableRefObject, ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 import AutoComplete from 'react-google-autocomplete';
 import styles from './Location.module.scss';
-import { loadGoogleScript, handleGoogleScriptLoad } from './google-places';
 import poweredByGoogleImage from '../../../public/images/powered_by_google_on_white.png';
 import { LocationProps } from './Location.interfaces';
 
@@ -10,10 +9,6 @@ import { LocationProps } from './Location.interfaces';
 export function Location(props: LocationProps): JSX.Element {
     // Grab what we need from props
     const { zipCode, setZipCode, steps, currentStep, setDisableNextButton, setUSState } = props;
-
-    // Create the google url and a reference to the autocomplete field
-    const googleURL: string = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}&libraries=places`;
-    const autocompleteRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
 
     /**
      * Use the value to set a property in the model
@@ -88,46 +83,6 @@ export function Location(props: LocationProps): JSX.Element {
         }
     }
 
-    /*
-    useEffect(() => {
-        // Load the google script
-        const googleScript: HTMLScriptElement = loadGoogleScript(googleURL);
-
-        // Wait for the script to load
-        googleScript.onload = () => {
-            // Make sure the autocomplete element reference exists
-            if (autocompleteRef.current !== null) {
-                // Get the Autocomplete object
-                const autocomplete = handleGoogleScriptLoad(autocompleteRef.current);
-
-                // Listen on `place_changed` event
-                const googlePlacesEventListener = autocomplete.addListener('place_changed', () => {
-                    // Get the formatted address from the PlaceResult
-                    const placeResult = autocomplete.getPlace();
-                    const formattedAddress = placeResult.formatted_address;
-
-                    // Parse and set the US State
-                    parseAddressComponents(placeResult);
-
-                    // Make sure the formatted address is defined
-                    if (formattedAddress !== undefined) {
-                        // Set the location
-                        setModelProperty(formattedAddress);
-                    }
-                });
-
-                // Remove the listeners when the component is destroyed
-                return () => {
-                    google.maps.event.removeListener(googlePlacesEventListener);
-                    google.maps.event.clearInstanceListeners(autocomplete);
-                    autocompleteRef.current?.remove();
-                    document.getElementById('debt-advisors-google')?.remove();
-                };
-            }
-        }
-    });
-    */
-
     return (
         <div className={styles['location-wrapper']}>
             <AutoComplete
@@ -138,15 +93,6 @@ export function Location(props: LocationProps): JSX.Element {
                 options={{ types: ['(cities)'], componentRestrictions: { country: 'us' } }}
                 value={zipCode}
             />
-            {/* <input
-                className={styles['location-field']}
-                ref={autocompleteRef}
-                type="text"
-                id="zip-code"
-                name="zip-code"
-                onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputListenerEvent(event)}
-                value={zipCode}
-            /> */}
             <picture>
                 <source srcSet={poweredByGoogleImage.src}/>
                 <img
