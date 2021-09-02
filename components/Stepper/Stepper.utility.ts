@@ -145,9 +145,9 @@ export async function sendSMS(phone: string): Promise<Response | undefined> {
             // Return the response
             return response;
         }
-    } catch(sendSMSError) {
+    } catch(sendSMSError: unknown) {
         console.error({ sendSMSError });
-        throw new Error(sendSMSError);
+        throw new Error(sendSMSError as string);
     }
 }
 
@@ -174,9 +174,9 @@ export async function verifySMSCode(phone: string, code: string): Promise<Respon
             // Return the response
             return response;
         }
-    } catch(verifySMSCodeError) {
+    } catch(verifySMSCodeError: unknown) {
         console.error({ verifySMSCodeError });
-        throw new Error(verifySMSCodeError);
+        throw new Error(verifySMSCodeError as string);
     }
 }
 
@@ -196,8 +196,8 @@ export async function addBitrixContactDeal(data: ParsedStepperModel): Promise<Re
 
         // Return the response object
         return response;
-    } catch(addBitrixContactDealError) {
+    } catch(addBitrixContactDealError: unknown) {
         console.error({ addBitrixContactDealError });
-        throw new Error(addBitrixContactDealError);
+        throw new Error(addBitrixContactDealError as string);
     }
 }
