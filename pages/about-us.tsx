@@ -4,13 +4,13 @@ import { Navigation } from '../components/Navigation';
 import { Jumbotron } from '../components/about-us/Jumbotron';
 import { Learn } from '../components/about-us/Learn';
 
-interface AboutUsStaticProps {
+export interface AboutUsStaticProps {
     props: {};
     revalidate: number;
 };
 
 export async function getStaticProps(): Promise<AboutUsStaticProps> {
-    return { props: {}, revalidate: 60 };
+    return { props: {}, revalidate: 1 };
 }
 
 function AboutUs(): JSX.Element {

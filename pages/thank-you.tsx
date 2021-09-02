@@ -4,13 +4,13 @@ import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
 import styles from '../styles/shared.module.scss';
 
-interface ThankYouStaticProps {
+export interface ThankYouStaticProps {
     props: {};
     revalidate: number;
 };
 
 export async function getStaticProps(): Promise<ThankYouStaticProps> {
-    return { props: {}, revalidate: 60 };
+    return { props: {}, revalidate: 1 };
 }
 
 function ThankYou(): JSX.Element {

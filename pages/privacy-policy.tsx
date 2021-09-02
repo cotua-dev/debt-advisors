@@ -3,13 +3,13 @@ import { Footer } from '../components/Footer';
 import { Navigation } from '../components/Navigation';
 import { PrivacyPolicy as PrivacyPolicyContent } from '../components/PrivacyPolicy';
 
-interface PrivacyPolicyStaticProps {
+export interface PrivacyPolicyStaticProps {
     props: {};
     revalidate: number;
 };
 
 export async function getStaticProps(): Promise<PrivacyPolicyStaticProps> {
-    return { props: {}, revalidate: 60 };
+    return { props: {}, revalidate: 1 };
 }
 
 function PrivacyPolicy(): JSX.Element {
