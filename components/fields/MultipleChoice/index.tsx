@@ -10,10 +10,10 @@ import { MultipleChoiceValues } from '../../Stepper/Stepper.types';
  */
 export function MultipleChoiceField(props: MultipleChoiceFieldProps): JSX.Element {
     // Grab what we need from props
-    const { model, field, setModel, nextStep, choices, steps, currentStep } = props;
+    const { field, setField, nextStep, choices, steps, currentStep } = props;
 
     // We know there will only ever be one field for multiple choice
-    const fieldName: keyof StepperModel = field[0];
+    // const fieldName: keyof StepperModel = field[0];
 
     /**
      * Set the value in the model
@@ -21,10 +21,10 @@ export function MultipleChoiceField(props: MultipleChoiceFieldProps): JSX.Elemen
      */
     function setValue(value: MultipleChoiceValues): void {
         // Build the new model using the first passed field
-        const newModel: StepperModel = { ...model, [fieldName]: value };
+        // const newModel: StepperModel = { ...model, [fieldName]: value };
 
         // Set the new model
-        setModel(newModel);
+        setField(value);
 
         // Make the current step valid
         steps[currentStep].validity = true;
@@ -40,7 +40,7 @@ export function MultipleChoiceField(props: MultipleChoiceFieldProps): JSX.Elemen
         <div className={styles['multiple-choice-wrapper']}>
             {choices.map((choice: MultipleChoice) => (
                 <button
-                    className={`${styles['choice-button']} ${model[fieldName] === choice.value ? styles['active'] : ''}`}
+                    className={`${styles['choice-button']} ${field === choice.value ? styles['active'] : ''}`}
                     key={choice.value}
                     type="button"
                     onClick={() => setValue(choice.value)}
