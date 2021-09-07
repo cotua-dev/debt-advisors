@@ -1,5 +1,5 @@
 import { UserPurpose, DebtType, BehindPaymentsType, FallBehindReason, Questions } from './Stepper.enums';
-import { ParsedStepperModel, StepperModel } from './Stepper.interfaces';
+import { ParsedStepperModel, Step, StepperModel } from './Stepper.interfaces';
 import { MultipleChoiceValues } from './Stepper.types';
 
 /**
@@ -200,4 +200,14 @@ export async function addBitrixContactDeal(data: ParsedStepperModel): Promise<Re
         console.error({ addBitrixContactDealError });
         throw new Error(addBitrixContactDealError as string);
     }
+}
+
+/**
+ * Fetch the step index of a provided question
+ * @param question String matching a question found in the enum `Questions`
+ * @param steps Array containing `Step` objects
+ * @returns Number indicating the index within the `steps` array or `-1` if not found
+ */
+export function fetchStepIndex(question: Questions, steps: Step[]): number {
+    return steps.findIndex((step: Step) => step.question === question);
 }
