@@ -1,25 +1,25 @@
 import { useState, ChangeEvent } from 'react';
 import NumberFormat from 'react-number-format';
 import styles from './Currency.module.scss';
-import { SharedFieldProps } from '../shared.interfaces';
-import { StepperModel } from '../../Stepper/Stepper.interfaces';
+import { CurrencyProps } from './Currency.interfaces';
 
-export function Currency(props: SharedFieldProps): JSX.Element {
+export function Currency(props: CurrencyProps): JSX.Element {
     // Grab what we need from props
-    const { model, field, setModel, steps, currentStep, setDisableNextButton } = props;
+    const { field, setField, steps, currentStep, setDisableNextButton } = props;
 
     const [showError, setShowError] = useState(false);
     const [error, setError] = useState('');
 
-    function handleInputListenerEvent(event: ChangeEvent<HTMLInputElement>, fieldName: keyof StepperModel): void {
+    /**
+     * Handle the input change event
+     * @param event Input change event
+     */
+    function handleInputListenerEvent(event: ChangeEvent<HTMLInputElement>): void {
         // Grab the input element from target
         const inputEl = event.target as HTMLInputElement;
 
-        // Create a new model with the updated value
-        const updatedModel: StepperModel = {...model, [fieldName]: inputEl.value};
-
-        // Set the model
-        setModel(updatedModel);
+        // Set the field
+        setField(inputEl.value);
 
         // Check to see if we have a value
         if (inputEl.value !== '') {
@@ -47,20 +47,17 @@ export function Currency(props: SharedFieldProps): JSX.Element {
 
     return (
         <div className={styles['currency-field-wrapper']}>
-            {field.map((singleField: keyof StepperModel) => (
-                <NumberFormat
-                    key={singleField}
-                    className={styles['currency-field']}
-                    thousandsGroupStyle="thousand"
-                    type="text"
-                    value={(model[singleField] as string)}
-                    onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputListenerEvent(event, singleField)}
-                    prefix="$"
-                    decimalSeparator="."
-                    allowNegative={false}
-                    thousandSeparator={true}
-                />
-            ))}
+            <NumberFormat
+                className={styles['currency-field']}
+                thousandsGroupStyle="thousand"
+                type="text"
+                value={field}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputListenerEvent(event)}
+                prefix="$"
+                decimalSeparator="."
+                allowNegative={false}
+                thousandSeparator={true}
+            />
             {
                 showError &&
                 <small className={styles['error']}>{error}</small>
