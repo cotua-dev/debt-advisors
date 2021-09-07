@@ -1,5 +1,6 @@
 import { MultipleChoiceValues, StepTypes } from './Stepper.types';
 import { UserPurpose, DebtType, BehindPaymentsType, FallBehindReason, Questions } from './Stepper.enums';
+import { Dispatch, SetStateAction } from '.pnpm/@types+react@17.0.15/node_modules/@types/react';
 
 export interface MultipleChoice {
     label: string;
@@ -38,8 +39,18 @@ export interface ParsedStepperModel {
 export interface Step {
     question: Questions;
     validity: boolean;
-    property: (keyof StepperModel)[];
+    property?: any;
+    dispatchMethod?: Dispatch<SetStateAction<any>>;
     stepType: StepTypes;
-    choices?: MultipleChoice[];
-    value: { [StepperModelKey in keyof StepperModel]?: null | string | number; };
+    choices?: MultipleChoice[]; // necessary for multiple choice
+    renderFn?: () => JSX.Element;
 };
+
+// export interface Step {
+//     question: Questions;
+//     validity: boolean;
+//     property: (keyof StepperModel)[];
+//     stepType: StepTypes;
+//     choices?: MultipleChoice[];
+//     value: { [StepperModelKey in keyof StepperModel]?: null | string | number; };
+// };
