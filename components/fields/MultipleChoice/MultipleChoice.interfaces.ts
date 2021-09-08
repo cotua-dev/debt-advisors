@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from '.pnpm/@types+react@17.0.15/node_modules/@types/react';
+import { Dispatch, SetStateAction } from 'react';
 import { MultipleChoice, Step } from '../../Stepper/Stepper.interfaces';
 import { SharedFieldProps } from '../shared.interfaces';
 
