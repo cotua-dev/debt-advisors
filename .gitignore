@@ -43,3 +43,6 @@ public/workbox-*
 
 # environment variables
 .env
+
+# pnpm
+pnpm-lock.yaml
