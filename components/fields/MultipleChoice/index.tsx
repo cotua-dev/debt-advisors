@@ -1,7 +1,9 @@
 import styles from './MultipleChoice.module.scss';
 import { MultipleChoiceFieldProps } from './MultipleChoice.interfaces';
-import { MultipleChoice, StepperModel } from '../../Stepper/Stepper.interfaces';
+import { MultipleChoice, Step, StepperModel } from '../../Stepper/Stepper.interfaces';
 import { MultipleChoiceValues } from '../../Stepper/Stepper.types';
+import { Questions } from '../../Stepper/Stepper.enums';
+import { endingSteps, fallBehindReasonStep, startingSteps } from '../../Stepper/Stepper.initial';
 
 /**
  * Component for handling multiple choice fields
@@ -10,7 +12,7 @@ import { MultipleChoiceValues } from '../../Stepper/Stepper.types';
  */
 export function MultipleChoiceField(props: MultipleChoiceFieldProps): JSX.Element {
     // Grab what we need from props
-    const { model, field, setModel, nextStep, choices, steps, currentStep } = props;
+    const { model, field, setModel, nextStep, choices, steps, currentStep, setSteps } = props;
 
     // We know there will only ever be one field for multiple choice
     const fieldName: keyof StepperModel = field[0];
@@ -28,6 +30,34 @@ export function MultipleChoiceField(props: MultipleChoiceFieldProps): JSX.Elemen
 
         // Make the current step valid
         steps[currentStep].validity = true;
+
+        // Get the current step object
+        const currentStepObject: Step = steps[currentStep];
+
+        // Check to see if we are at the behind payments type question
+        if (currentStepObject.question === Questions.BehindPaymentsType) {
+            // If 'No' is not selected, then add the fall behind reason question
+            if (value !== 2) {
+                setSteps([
+                    ...startingSteps,
+                    ...fallBehindReasonStep,
+                    ...endingSteps,
+                ]);
+            } else {
+                // Otherwise, keep the fall behind reason question out
+                setSteps([
+                    ...startingSteps,
+                    ...endingSteps,
+                ]);
+
+                // Reset the fall behind reason value and set the behind payments type value
+                setModel({
+                    ...model,
+                    behindPaymentsType: value,
+                    fallBehindReason: null,
+                });
+            }
+        }
 
         // Update local storage
         // window.localStorage.setItem('model', JSON.stringify(newModel));
