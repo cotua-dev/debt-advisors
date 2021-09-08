@@ -4,7 +4,7 @@ import { faAngleRight, faAngleLeft, faCircleNotch } from '@fortawesome/free-soli
 import styles from './Stepper.module.scss';
 import { ParsedStepperModel, Step, StepperModel } from './Stepper.interfaces';
 import { initialStepperModel, initialSteps } from './Stepper.initial';
-import { addBitrixContactDeal, parseCurrencyValue, parseModel, sendSMS, verifySMSCode } from './Stepper.utility';
+import { addBitrixContactDeal, parseModel, sendSMS, verifySMSCode } from './Stepper.utility';
 import { Questions } from './Stepper.enums';
 import { MultipleChoiceField } from '../fields/MultipleChoice';
 import { Currency } from '../fields/Currency';
@@ -122,6 +122,7 @@ export function Stepper(): JSX.Element {
         // Grab needed properties from the current step
         const { validity, question } = steps[currentStep];
 
+        /*
         // Check if we passed the unsecured debt field
         if (question === Questions.UnsecuredDebtAmount) {
             // Parse the unsecured debt amount into a number
@@ -133,6 +134,7 @@ export function Stepper(): JSX.Element {
                 window.location.href = `${window.location.origin}/dq`;
             }
         }
+        */
 
         // Check if we passed the zip code field
         if (question === Questions.ZipCode) {
@@ -195,9 +197,7 @@ export function Stepper(): JSX.Element {
 
     return (
         <section className={styles['debt-advisors-stepper']}>
-            <div>
-                <small>{`${currentStep + 1} of ${steps.length}`}</small>
-            </div>
+            <small>{`${currentStep + 1} of ${steps.length}`}</small>
             <div className={styles['steps-wrapper']}>
                 {steps.map((step: Step) => {
                     const stepIndex: number = steps.findIndex((thisStep: Step) => thisStep.question === step.question);
@@ -212,6 +212,7 @@ export function Stepper(): JSX.Element {
                                         choices={step.choices !== undefined ? step.choices : []}
                                         field={step.property}
                                         setModel={setModel}
+                                        setSteps={setSteps}
                                         model={model}
                                         nextStep={nextStep}
                                         steps={steps}
