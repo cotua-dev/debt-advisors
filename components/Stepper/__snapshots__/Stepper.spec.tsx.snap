@@ -4,11 +4,9 @@ exports[`Stepper Component renders 1`] = `
 <section
   class="debt-advisors-stepper"
 >
-  <div>
-    <small>
-      1 of 11
-    </small>
-  </div>
+  <small>
+    1 of 10
+  </small>
   <div
     class="steps-wrapper"
   >
@@ -157,59 +155,6 @@ exports[`Stepper Component renders 1`] = `
             class="choice-text"
           >
             No
-          </strong>
-        </button>
-      </div>
-    </div>
-    <div
-      class="step hidden"
-    >
-      <strong
-        class="question"
-      >
-        What made you fall behind?
-      </strong>
-      <div
-        class="multiple-choice-wrapper"
-      >
-        <button
-          class="choice-button "
-          type="button"
-        >
-          <strong
-            class="choice-text"
-          >
-            Loss of income
-          </strong>
-        </button>
-        <button
-          class="choice-button "
-          type="button"
-        >
-          <strong
-            class="choice-text"
-          >
-            Increase in cost of living
-          </strong>
-        </button>
-        <button
-          class="choice-button "
-          type="button"
-        >
-          <strong
-            class="choice-text"
-          >
-            Unexpected expenses
-          </strong>
-        </button>
-        <button
-          class="choice-button "
-          type="button"
-        >
-          <strong
-            class="choice-text"
-          >
-            Medical hardship
           </strong>
         </button>
       </div>

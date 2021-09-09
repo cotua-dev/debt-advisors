@@ -16,7 +16,7 @@ export const initialStepperModel: StepperModel = {
     code: '',
 };
 
-export const initialSteps: Step[] = [
+export const startingSteps: Step[] = [
     {
         question: Questions.UserPurpose,
         validity: false,
@@ -55,6 +55,9 @@ export const initialSteps: Step[] = [
         ],
         value: {},
     },
+];
+
+export const fallBehindReasonStep: Step[] = [
     {
         question: Questions.FallBehindReason,
         validity: false,
@@ -68,6 +71,9 @@ export const initialSteps: Step[] = [
         ],
         value: {},
     },
+];
+
+export const endingSteps: Step[] = [
     {
         question: Questions.MonthlyIncomeAmount,
         validity: false,
@@ -117,4 +123,9 @@ export const initialSteps: Step[] = [
         stepType: 'verify',
         value: {},
     },
+];
+
+export const initialSteps: Step[] = [
+    ...startingSteps,
+    ...endingSteps,
 ];
