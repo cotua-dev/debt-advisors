@@ -15,7 +15,7 @@ exports[`Jumbotron Component renders 1`] = `
     <p
       class="content"
     >
-      Debt Advisors of America is a U.S. marketing company headquartered in San Diego, California. Debt Advisors of America is a member of the American Fair Credit Council; the International Association of Professional Debt Arbitrators; and the Better Business Bureau, with which Debt Advisors of America maintains an A+ rating.
+      Debt Advisors of America is headquartered in San Diego, California. Debt Advisors of America is a member of the American Fair Credit Council; the International Association of Professional Debt Arbitrators; and the Better Business Bureau, with which Debt Advisors of America maintains an A+ rating.
     </p>
     <p
       class="content"
