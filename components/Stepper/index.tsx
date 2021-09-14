@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import styles from './Stepper.module.scss';
@@ -15,6 +16,7 @@ import { Phone } from '../fields/Phone';
 import { Verify } from '../fields/Verify';
 
 export function Stepper(): JSX.Element {
+    const { pathname } = useRouter();
     const [model, setModel] = useState(initialStepperModel);
     const [currentStep, setCurrentStep] = useState(0);
     const [steps, setSteps] = useState(initialSteps);
@@ -23,7 +25,7 @@ export function Stepper(): JSX.Element {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [disableVerifyField, setDisableVerifyField] = useState(true);
-    
+
     // Fields
     const [zipCode, setZipCode] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -82,7 +84,14 @@ export function Stepper(): JSX.Element {
                 // Make sure we have a response object and its status is 200
                 if (bitrixResponse !== undefined && bitrixResponse.status === 200) {
                     // Send to thank you page with browser refresh (this way state is completely wiped in one go)
-                    window.location.href = `${window.location.origin}/thank-you`;
+                    switch (pathname) {
+                        case '/ohio':
+                            window.location.href = `${window.location.origin}/ohio/thank-you`;
+                            break;
+                        default:
+                            window.location.href = `${window.location.origin}/thank-you`;
+                            break;
+                    }
                 } else {
                     // Display error
                     setError('Something went wrong. Please try again');
