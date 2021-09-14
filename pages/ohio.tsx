@@ -2,6 +2,7 @@ import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { Stepper } from '../components/Stepper';
+import { DoIQualify } from '../components/home/DoIQualify';
 
 interface OhioPageProps {
     props: {},
@@ -19,6 +20,7 @@ function OhioPage(): JSX.Element {
             <Navigation/>
             <main>
                 <Stepper/>
+                <DoIQualify/>
             </main>
             <Footer/>
         </>
