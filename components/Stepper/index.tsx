@@ -16,7 +16,7 @@ import { Phone } from '../fields/Phone';
 import { Verify } from '../fields/Verify';
 
 export function Stepper(): JSX.Element {
-    const { pathname } = useRouter();
+    const router = useRouter();
     const [model, setModel] = useState(initialStepperModel);
     const [currentStep, setCurrentStep] = useState(0);
     const [steps, setSteps] = useState(initialSteps);
@@ -84,7 +84,7 @@ export function Stepper(): JSX.Element {
                 // Make sure we have a response object and its status is 200
                 if (bitrixResponse !== undefined && bitrixResponse.status === 200) {
                     // Send to thank you page with browser refresh (this way state is completely wiped in one go)
-                    switch (pathname) {
+                    switch (router.pathname) {
                         case '/ohio':
                             window.location.href = `${window.location.origin}/ohio/thank-you`;
                             break;
