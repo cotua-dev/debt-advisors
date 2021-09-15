@@ -1,8 +1,6 @@
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
-import { Navigation } from '../components/Navigation';
 import { Jumbotron } from '../components/about-us/Jumbotron';
 import { Learn } from '../components/about-us/Learn';
+import { Layout } from '../components/Layout';
 
 interface AboutUsStaticProps {
     props: {};
@@ -15,15 +13,10 @@ export async function getStaticProps(): Promise<AboutUsStaticProps> {
 
 function AboutUs(): JSX.Element {
     return (
-        <>
-            <Header title="About Us – Debt Advisors"/>
-            <Navigation/>
-            <main>
-                <Jumbotron/>
-                <Learn/>
-            </main>
-            <Footer/>
-        </>
+        <Layout title="About Us – Debt Advisors">
+            <Jumbotron/>
+            <Learn/>
+        </Layout>
     );
 }
 

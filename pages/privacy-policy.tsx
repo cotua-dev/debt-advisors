@@ -1,7 +1,5 @@
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
-import { Navigation } from '../components/Navigation';
 import { PrivacyPolicy as PrivacyPolicyContent } from '../components/PrivacyPolicy';
+import { Layout } from '../components/Layout';
 
 interface PrivacyPolicyStaticProps {
     props: {};
@@ -14,14 +12,9 @@ export async function getStaticProps(): Promise<PrivacyPolicyStaticProps> {
 
 function PrivacyPolicy(): JSX.Element {
     return (
-        <>
-            <Header title="Privacy Policy – Debt Advisors"/>
-            <Navigation/>
-            <main>
-                <PrivacyPolicyContent/>
-            </main>
-            <Footer/>
-        </>
+        <Layout title="Privacy Policy – Debt Advisors">
+            <PrivacyPolicyContent/>
+        </Layout>
     );
 }
 

@@ -1,6 +1,4 @@
-import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
-import { Navigation } from '../components/Navigation';
+import { Layout } from '../components/Layout';
 import styles from '../styles/shared.module.scss';
 
 interface DisqualifyStaticProps {
@@ -15,9 +13,7 @@ export async function getStaticProps(): Promise<DisqualifyStaticProps> {
 function Disqualify(): JSX.Element {
     return (
         <>
-            <Header title="Disqualified – Debt Advisors"/>
-            <Navigation/>
-            <main>
+            <Layout title="Disqualified – Debt Advisors">
                 <section className={styles['dq']}>
                     <div className={styles['content-wrapper']}>
                         <h1>{`We're Sorry`}</h1>
@@ -28,8 +24,7 @@ function Disqualify(): JSX.Element {
                         <p>{`DAA team`}</p>
                     </div>
                 </section>
-            </main>
-            <Footer/>
+            </Layout>
         </>
     );
 }
