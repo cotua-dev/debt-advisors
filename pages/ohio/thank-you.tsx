@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { Footer } from '../../components/Footer';
-import { Header } from '../../components/Header';
-import { Navigation } from '../../components/Navigation';
+import Head from 'next/head';
+import { Layout } from '../../components/Layout';
 import styles from '../../styles/shared.module.scss';
 
 interface ThankYouStaticProps {
@@ -16,9 +15,12 @@ export async function getStaticProps(): Promise<ThankYouStaticProps> {
 function ThankYouOhio(): JSX.Element {
     return (
         <>
-            <Header title="Thank You – Debt Advisors"/>
-            <Navigation/>
-            <main>
+            <Head>
+                <script dangerouslySetInnerHTML={{__html: `
+                    gtag('event', 'conversion', {'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_THANK_YOU}'});
+                `}}></script>
+            </Head>
+            <Layout title="Thank You – Debt Advisors">
                 <section className={styles['thank-you']}>
                     <div className={styles['content-wrapper']}>
                         <h1>{`Thank you for registering!`}</h1>
@@ -28,8 +30,7 @@ function ThankYouOhio(): JSX.Element {
                         </Link>
                     </div>
                 </section>
-            </main>
-            <Footer/>
+            </Layout>
         </>
     );
 }
