@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import { Layout } from '../components/Layout';
-import styles from '../styles/shared.module.scss';
+import { Layout } from '../../components/Layout';
+import styles from '../../styles/shared.module.scss';
 
 interface ThankYouStaticProps {
     props: {};
@@ -12,7 +12,7 @@ export async function getStaticProps(): Promise<ThankYouStaticProps> {
     return { props: {}, revalidate: 60 };
 }
 
-function ThankYou(): JSX.Element {
+function ThankYouOhio(): JSX.Element {
     return (
         <>
             <Head>
@@ -35,4 +35,4 @@ function ThankYou(): JSX.Element {
     );
 }
 
-export default ThankYou;
+export default ThankYouOhio;

@@ -1,7 +1,8 @@
-import { Header } from '../components/Header';
-import { Navigation } from '../components/Navigation';
-import { Footer } from '../components/Footer';
-import { Stepper } from '../components/Stepper';
+import { Header } from '../../components/Header';
+import { Navigation } from '../../components/Navigation';
+import { Footer } from '../../components/Footer';
+import { Stepper } from '../../components/Stepper';
+import { DoIQualifyOhio } from '../../components/home/DoIQualifyOhio';
 
 interface OhioPageProps {
     props: {},
@@ -19,6 +20,7 @@ function OhioPage(): JSX.Element {
             <Navigation/>
             <main>
                 <Stepper/>
+                <DoIQualifyOhio/>
             </main>
             <Footer/>
         </>

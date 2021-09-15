@@ -18,6 +18,7 @@ class MyDocument extends Document {
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
                     gtag('config', '${process.env.NEXT_PUBLIC_GTAG}');
+                    gtag('event', 'conversion', {'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_PAGE_VIEW}'});
                     `}}></script>
                     <script dangerouslySetInnerHTML={{__html:`
                     !function(f,b,e,v,n,t,s)

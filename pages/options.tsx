@@ -1,8 +1,6 @@
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
-import { Navigation } from '../components/Navigation';
 import { Jumbotron } from '../components/options/Jumbotron';
 import { Scenarios } from '../components/options/Scenarios';
+import { Layout } from '../components/Layout';
 
 interface OptionsStaticProps {
     props: {};
@@ -15,15 +13,10 @@ export async function getStaticProps(): Promise<OptionsStaticProps> {
 
 function Options(): JSX.Element {
     return (
-        <>
-            <Header title="Options – Debt Advisors"/>
-            <Navigation/>
-            <main>
-                <Jumbotron/>
-                <Scenarios/>
-            </main>
-            <Footer/>
-        </>
+        <Layout title="Options – Debt Advisors">
+            <Jumbotron/>
+            <Scenarios/>
+        </Layout>
     );
 }
 

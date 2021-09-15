@@ -1,0 +1,47 @@
+@use 'styles/variables';
+@use 'styles/mixins';
+
+section.do-i-qualify {
+    background-color: variables.$primary-color;
+    padding: 50px 10px;
+
+    div.qualify-content {
+        @include mixins.base-section;
+        @include mixins.flexify(flex-start, center, column);
+        padding: 0;
+
+        @include mixins.mobile {
+            align-items: center;
+            text-align: center;
+            padding: 0;
+        }
+
+        h2.qualify-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-align: center;
+            width: 100%;
+            margin: 0 0 20px;
+
+            @include mixins.mobile {
+                font-size: 30px;
+            }
+        }
+
+        strong.qualify-upper,
+        p.qualify-lower {
+            color: #FFFFFF;
+        }
+
+        strong.qualify-upper {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        p.qualify-lower {
+            font-size: 16px;
+            @include mixins.general-content;
+        }
+    }
+}

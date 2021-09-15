@@ -1,7 +1,5 @@
-import { Header } from '../components/Header';
-import { Navigation } from '../components/Navigation';
-import { Footer } from '../components/Footer';
 import { Stepper } from '../components/Stepper';
+import { Layout } from '../components/Layout';
 
 interface StepperPageProps {
     props: {},
@@ -14,14 +12,9 @@ export async function getStaticProps(): Promise<StepperPageProps> {
 
 function StepperPage(): JSX.Element {
     return (
-        <>
-            <Header title="Stepper - Debt Advisors"/>
-            <Navigation/>
-            <main>
-                <Stepper/>
-            </main>
-            <Footer/>
-        </>
+        <Layout title="Stepper - Debt Advisors">
+            <Stepper/>
+        </Layout>
     );
 }
 
