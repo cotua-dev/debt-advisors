@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout Component renders 1`] = `
+<nav
+  class="debt-advisors-navigation"
+>
+  <a
+    aria-label="Home Page Link"
+    data-testid="nav-logo-link"
+    href="/"
+  >
+    <picture>
+      <source />
+      <img
+        alt="Debt Advisors Of America Logo"
+        class="logo"
+        data-testid="regular-logo"
+        loading="lazy"
+      />
+    </picture>
+  </a>
+  <div
+    class="links-wrapper"
+  >
+    <a
+      aria-label="Home Page Link"
+      class="link"
+      data-testid="home"
+      href="/"
+    >
+      Home
+    </a>
+    <a
+      aria-label="Options Page Link"
+      class="link"
+      data-testid="options"
+      href="/options"
+    >
+      Options
+    </a>
+    <a
+      aria-label="About Us Page Link"
+      class="link"
+      data-testid="about-us"
+      href="/about-us"
+    >
+      About Us
+    </a>
+  </div>
+  <button
+    aria-label="Mobile Navigation Toggle Button"
+    class="mobile-nav-toggle"
+    data-testid="open-mobile-navigation-button"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="svg-inline--fa fa-bars fa-w-14 "
+      data-icon="bars"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      viewBox="0 0 448 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</nav>
+`;
