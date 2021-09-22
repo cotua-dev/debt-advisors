@@ -35,6 +35,53 @@ class MyDocument extends Document {
                     <link rel="preconnect" href="https://fonts.googleapis.com"/>
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
                     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+                    <script type="application/ld+json" dangerouslySetInnerHTML={{__html: `
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "LocalBusiness",
+                            "image": [
+                                "https://www.debtadvisorsofamerica.com/images/icons/android/android-launchericon-512-512.png"
+                            ],
+                            "name": "Debt Advisors of America",
+                            "priceRange": "$$$",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "streetAddress": "6863 Friars Rd Ste 101",
+                                "addressLocality": "San Diego",
+                                "addressRegion": "CA",
+                                "postalCode": "92108-1266",
+                                "addressCountry": "US"
+                            },
+                            "geo": {
+                                "@type": "GeoCoordinates",
+                                "latitude": 32.7682309039158,
+                                "longitude": -117.17241555980162
+                            },
+                            "telephone": "+18006320437",
+                            "openingHoursSpecification": [
+                                {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                        "Monday",
+                                        "Tuesday",
+                                        "Wednesday",
+                                        "Thursday",
+                                        "Friday"
+                                    ],
+                                    "opens": "06:00",
+                                    "closes": "19:00"
+                                },
+                                {
+                                    "@type": "OpeningHoursSpecification",
+                                    "dayOfWeek": [
+                                        "Saturday"
+                                    ],
+                                    "opens": "07:00",
+                                    "closes": "14:00"
+                                }
+                            ]
+                        }
+                    `}}></script>
                 </Head>
                 <body>
                     <Main/>
