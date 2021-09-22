@@ -82,6 +82,7 @@ class MyDocument extends Document {
                             ]
                         }
                     `}}></script>
+                    <meta name="google-site-verification" content="K5XkTynh2jWVW2scOiufUcJKDHMqI9H9BB33any5Vo0"/>
                 </Head>
                 <body>
                     <Main/>
