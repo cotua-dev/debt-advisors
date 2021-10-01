@@ -88,6 +88,12 @@ export function Stepper(): JSX.Element {
                         case '/ohio':
                             window.location.href = `${window.location.origin}/ohio/thank-you`;
                             break;
+                        case '/new-jersey':
+                            window.location.href = `${window.location.origin}/new-jersey/thank-you`;
+                            break;
+                        case '/colorado':
+                            window.location.href = `${window.location.origin}/colorado/thank-you`;
+                            break;
                         default:
                             window.location.href = `${window.location.origin}/thank-you`;
                             break;
