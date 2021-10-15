@@ -25,7 +25,7 @@ export function Learn(): JSX.Element {
             <details>
                 <summary className={styles['title']}>{`Why not do this myself?`}</summary>
                 <p className={styles['content']}>
-                    {`While you certainly may perform similar services on your own behalf, our licensed partners are able to negotiate better settlements with creditors given their expertise and experience in the industry. Debt restructure can also be a very time-consuming process. Many of our clients appreciate the assistance and time savings that our licensed partnes can provide`}
+                    {`While you certainly may perform similar services on your own behalf, our licensed partners are able to negotiate better settlements with creditors given their expertise and experience in the industry. Debt restructure can also be a very time-consuming process. Many of our clients appreciate the assistance and time savings that our licensed partners can provide`}
                 </p>
             </details>
             <p className={styles['section-content']}>
