@@ -20,6 +20,14 @@ class MyDocument extends Document {
                     gtag('config', '${process.env.NEXT_PUBLIC_GTAG}');
                     gtag('event', 'conversion', {'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_PAGE_VIEW}'});
                     `}}></script>
+                    <script async src={`https://www.googletagmanager.com/gtag/js?${process.env.NEXT_PUBLIC_GTAG2}`}></script>
+                    <script dangerouslySetInnerHTML={{__html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.NEXT_PUBLIC_GTAG2}');
+                    `}}>
+                    </script>
                     <script dangerouslySetInnerHTML={{__html:`
                     !function(f,b,e,v,n,t,s)
                     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
