@@ -94,6 +94,21 @@ export function Stepper(): JSX.Element {
                         case '/colorado':
                             window.location.href = `${window.location.origin}/colorado/thank-you`;
                             break;
+                        case '/credit-card':
+                            window.location.href = `${window.location.origin}/credit-card/thank-you`;
+                            break;
+                        case '/debt':
+                            window.location.href = `${window.location.origin}/debt/thank-you`;
+                            break;
+                        case '/medical':
+                            window.location.href = `${window.location.origin}/medical/thank-you`;
+                            break;
+                        case '/personal':
+                            window.location.href = `${window.location.origin}/personal/thank-you`;
+                            break;
+                        case '/student-loan':
+                            window.location.href = `${window.location.origin}/student-loan/thank-you`;
+                            break;
                         default:
                             window.location.href = `${window.location.origin}/thank-you`;
                             break;
