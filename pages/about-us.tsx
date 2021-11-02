@@ -1,13 +1,9 @@
 import { Jumbotron } from '../components/about-us/Jumbotron';
 import { Learn } from '../components/about-us/Learn';
 import { Layout } from '../components/Layout';
+import { PageProps } from '../shared/interfaces';
 
-interface AboutUsStaticProps {
-    props: {};
-    revalidate: number;
-};
-
-export async function getStaticProps(): Promise<AboutUsStaticProps> {
+export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 

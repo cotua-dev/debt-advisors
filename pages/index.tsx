@@ -5,13 +5,9 @@ import { DoIQualify } from '../components/home/DoIQualify';
 import { Steps } from '../components/home/Steps';
 import { CallUsNow } from '../components/home/CallUsNow';
 import { Layout } from '../components/Layout';
+import { PageProps } from '../shared/interfaces';
 
-interface HomeStaticProps {
-    props: {};
-    revalidate: number;
-};
-
-export async function getStaticProps(): Promise<HomeStaticProps> {
+export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 

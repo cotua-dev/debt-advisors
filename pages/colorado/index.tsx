@@ -2,13 +2,9 @@ import { Header } from '../../components/Header';
 import { Navigation } from '../../components/Navigation';
 import { Footer } from '../../components/Footer';
 import { Stepper } from '../../components/Stepper';
+import { PageProps } from '../../shared/interfaces';
 
-interface ColoradoPageProps {
-    props: {},
-    revalidate: number;
-};
-
-export async function getStaticProps(): Promise<ColoradoPageProps> {
+export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 

@@ -2,13 +2,9 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { Layout } from '../../components/Layout';
 import styles from '../../styles/shared.module.scss';
+import { PageProps } from '../../shared/interfaces';
 
-interface ThankYouStaticProps {
-    props: {};
-    revalidate: number;
-};
-
-export async function getStaticProps(): Promise<ThankYouStaticProps> {
+export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 

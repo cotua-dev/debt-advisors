@@ -1,12 +1,8 @@
 import { TermsOfUse as TermsOfUseContent } from '../components/TermsOfUse';
 import { Layout } from '../components/Layout';
+import { PageProps } from '../shared/interfaces';
 
-interface TermsOfUseStaticProps {
-    props: {};
-    revalidate: number;
-};
-
-export async function getStaticProps(): Promise<TermsOfUseStaticProps> {
+export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 

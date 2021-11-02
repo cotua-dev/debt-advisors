@@ -1,13 +1,9 @@
 import { Jumbotron } from '../components/options/Jumbotron';
 import { Scenarios } from '../components/options/Scenarios';
 import { Layout } from '../components/Layout';
+import { PageProps } from '../shared/interfaces';
 
-interface OptionsStaticProps {
-    props: {};
-    revalidate: number;
-};
-
-export async function getStaticProps(): Promise<OptionsStaticProps> {
+export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 
