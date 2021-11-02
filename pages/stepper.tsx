@@ -1,12 +1,8 @@
 import { Stepper } from '../components/Stepper';
 import { Layout } from '../components/Layout';
+import { PageProps } from '../shared/interfaces';
 
-interface StepperPageProps {
-    props: {},
-    revalidate: number;
-};
-
-export async function getStaticProps(): Promise<StepperPageProps> {
+export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 

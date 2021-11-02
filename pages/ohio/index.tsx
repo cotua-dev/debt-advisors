@@ -3,13 +3,9 @@ import { Navigation } from '../../components/Navigation';
 import { Footer } from '../../components/Footer';
 import { Stepper } from '../../components/Stepper';
 import { DoIQualifyOhio } from '../../components/home/DoIQualifyOhio';
+import { PageProps } from '../../shared/interfaces';
 
-interface OhioPageProps {
-    props: {},
-    revalidate: number;
-};
-
-export async function getStaticProps(): Promise<OhioPageProps> {
+export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 

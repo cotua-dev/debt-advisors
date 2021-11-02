@@ -1,12 +1,8 @@
 import { PrivacyPolicy as PrivacyPolicyContent } from '../components/PrivacyPolicy';
 import { Layout } from '../components/Layout';
+import { PageProps } from '../shared/interfaces';
 
-interface PrivacyPolicyStaticProps {
-    props: {};
-    revalidate: number;
-};
-
-export async function getStaticProps(): Promise<PrivacyPolicyStaticProps> {
+export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 

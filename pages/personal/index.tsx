@@ -8,10 +8,10 @@ export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 
-function ColoradoPage(): JSX.Element {
+function PersonalPage(): JSX.Element {
     return (
         <>
-            <Header title="Colorado - Debt Advisors"/>
+            <Header title="Personal Debt - Debt Advisors"/>
             <Navigation/>
             <main>
                 <Stepper/>
@@ -21,4 +21,4 @@ function ColoradoPage(): JSX.Element {
     );
 }
 
-export default ColoradoPage;
+export default PersonalPage;

@@ -1,12 +1,8 @@
 import { Layout } from '../components/Layout';
 import styles from '../styles/shared.module.scss';
+import { PageProps } from '../shared/interfaces';
 
-interface DisqualifyStaticProps {
-    props: {};
-    revalidate: number;
-};
-
-export async function getStaticProps(): Promise<DisqualifyStaticProps> {
+export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 

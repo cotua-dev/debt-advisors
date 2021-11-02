@@ -8,7 +8,7 @@ export async function getStaticProps(): Promise<PageProps> {
     return { props: {}, revalidate: 60 };
 }
 
-function ThankYouOhio(): JSX.Element {
+function ThankYouStudentLoan(): JSX.Element {
     return (
         <>
             <Head>
@@ -31,4 +31,4 @@ function ThankYouOhio(): JSX.Element {
     );
 }
 
-export default ThankYouOhio;
+export default ThankYouStudentLoan;
