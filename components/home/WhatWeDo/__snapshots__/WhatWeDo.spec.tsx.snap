@@ -96,9 +96,7 @@ exports[`WhatWeDo Component renders 1`] = `
     For more details 
     <a
       class="how-it-works"
-      href="https://www.accrediteddebtrelief.com/how-it-works/"
-      rel="noreferrer"
-      target="_blank"
+      href="/"
     >
       visit our How it Works page
     </a>
