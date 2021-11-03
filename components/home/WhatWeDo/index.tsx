@@ -58,12 +58,9 @@ export function WhatWeDo(): JSX.Element {
             </Link>
             <p className={styles['details']}>
                 {`For more details `}
-                <a
-                    className={styles['how-it-works']}
-                    href="https://www.accrediteddebtrelief.com/how-it-works/"
-                    target="_blank"
-                    rel="noreferrer"
-                >{`visit our How it Works page`}</a>
+                <Link href="/">
+                    <a className={styles['how-it-works']}>{`visit our How it Works page`}</a>
+                </Link>
             </p>
         </section>
     );
