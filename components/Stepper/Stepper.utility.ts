@@ -119,6 +119,7 @@ export function parseModel(unparsedModel: StepperModel): ParsedStepperModel {
         lastName: unparsedModel.lastName,
         email: unparsedModel.email,
         phone: parsePhoneNumber(unparsedModel.phone),
+        site: window.location.href,
     };
 }
 
