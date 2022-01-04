@@ -33,6 +33,7 @@ export interface ParsedStepperModel {
     lastName: string;
     email: string;
     phone: string;
+    site: string;
 };
 
 export interface Step {
