@@ -67,7 +67,7 @@ export function Benefit(): JSX.Element {
                 {`* The minimum payment example is based on a credit card for individuals with fair credit, having an interest rate of 23% (rounded up to the nearest percentage point) and assumes a payment of 3% of the balance. Please note that, assuming the principal balance does not increase due to additional charges, fees, and interest, the required minimum monthly payment will decrease over time as additional minimum monthly payments are made and reduce the total balance.`}
             </p>
             <strong className={styles['benefit-content']}>
-                {`Our goals are to help you resolve your enrolled debts as quickly as possible and to negotiate settlements for less than what you owe`}
+                {`Our goals are to help you resolve your enrolled debts as quickly as possible and to get you into a plan with one of our licensed partners to negotiate settlements for less than what you owe`}
             </strong>
             <Link href="/stepper">
                 <a className={styles['start-reducing-payments-link']}>
@@ -75,11 +75,7 @@ export function Benefit(): JSX.Element {
                 </a>
             </Link>
             <p className={styles['benefit-content']}>
-                {`We’ve helped our previous clients achieve major savings – `}
-                <a
-                    className={styles['content-link']}
-                    href="#debt-advisors-reviews"
-                >{`check out our Proven Results.`}</a>
+                {`We've helped our previous referrals achieve major savings`}
             </p>
         </section>
     );
