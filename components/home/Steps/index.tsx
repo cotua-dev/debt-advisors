@@ -10,7 +10,7 @@ export function Steps(): JSX.Element {
                 <div className={styles['step-content']}>
                     <h3 className={styles['step-content-title']}>{`1. Free Consultation`}</h3>
                     <p className={styles['step-content-text']}>
-                        {`Take a few minutes to talk with our team. Ask questions. Learn about us. Have a certified debt consultant explain debt restructure program. Together, we can discuss whether a debt restructure program works for you.`}
+                        {`Take a few minutes to talk with our team. Ask questions. Learn about us. Have a certified debt consultant explain debt restructure program. Together, we can discuss whether a referral to a licensed debt restructure program works for you.`}
                     </p>
                 </div>
                 <picture>
@@ -36,7 +36,7 @@ export function Steps(): JSX.Element {
                 <div className={styles['step-content']}>
                     <h3 className={styles['step-content-title']}>{`2. Consider Your Options`}</h3>
                     <p className={styles['step-content-text']}>
-                        {`If you are qualified, our team provides you with an estimate of how much you can save by enrolling into a debt restructure program. Once you decide to move forward, a certified debt consultant works to tailor a program specific to you.`}
+                        {`If you are qualified, our team provides you with an estimate of how much you can save by enrolling into a debt restructure program. Once you decide to move forward, a certified debt consultant partner works to tailor a program specific to you.`}
                     </p>
                 </div>
             </div>
