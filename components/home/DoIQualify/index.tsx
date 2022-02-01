@@ -7,7 +7,7 @@ export function DoIQualify(): JSX.Element {
                 <h2 className={styles['qualify-title']}>{`Do I Qualify?`}</h2>
                 <strong className={styles['qualify-upper']}>{`You have over $10,000 in debt`}</strong>
                 <p className={styles['qualify-lower']}>
-                    {`This is the baseline for us to negotiate on your behalf; it gives us greater leverage and a better chance at settling debts with your creditors.`}
+                    {`This is the baseline for a third-party partner to negotiate on your behalf; it gives them greater leverage and a better chance at settling debts with your creditors.`}
                 </p>
                 <strong className={styles['qualify-upper']}>{`You have unsecured debt`}</strong>
                 <p className={styles['qualify-lower']}>
@@ -15,7 +15,7 @@ export function DoIQualify(): JSX.Element {
                 </p>
                 <strong className={styles['qualify-upper']}>{`You are able to make monthly payments`}</strong>
                 <p className={styles['qualify-lower']}>
-                    {`Our program involves making deposits of an agreed upon amount into a dedicated account every month – consistent monthly deposits are crucial to your overall success.`}
+                    {`Our program involves making deposits of an agreed upon amount into a dedicated account every month - consistent monthly deposits are crucial to your overall success.`}
                 </p>
             </div>
         </section>

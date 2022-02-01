@@ -20,7 +20,7 @@ exports[`DoIQualify Component renders 1`] = `
     <p
       class="qualify-lower"
     >
-      This is the baseline for us to negotiate on your behalf; it gives us greater leverage and a better chance at settling debts with your creditors.
+      This is the baseline for a third-party partner to negotiate on your behalf; it gives them greater leverage and a better chance at settling debts with your creditors.
     </p>
     <strong
       class="qualify-upper"
@@ -40,7 +40,7 @@ exports[`DoIQualify Component renders 1`] = `
     <p
       class="qualify-lower"
     >
-      Our program involves making deposits of an agreed upon amount into a dedicated account every month – consistent monthly deposits are crucial to your overall success.
+      Our program involves making deposits of an agreed upon amount into a dedicated account every month - consistent monthly deposits are crucial to your overall success.
     </p>
   </div>
 </section>
