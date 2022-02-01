@@ -231,7 +231,7 @@ exports[`Benefit Component renders 1`] = `
   <strong
     class="benefit-content"
   >
-    Our goals are to help you resolve your enrolled debts as quickly as possible and to negotiate settlements for less than what you owe
+    Our goals are to help you resolve your enrolled debts as quickly as possible and to get you into a plan with one of our licensed partners to negotiate settlements for less than what you owe
   </strong>
   <a
     class="start-reducing-payments-link"
@@ -242,13 +242,7 @@ exports[`Benefit Component renders 1`] = `
   <p
     class="benefit-content"
   >
-    We’ve helped our previous clients achieve major savings – 
-    <a
-      class="content-link"
-      href="#debt-advisors-reviews"
-    >
-      check out our Proven Results.
-    </a>
+    We've helped our previous referrals achieve major savings
   </p>
 </section>
 `;
