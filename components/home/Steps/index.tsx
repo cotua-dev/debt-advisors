@@ -10,7 +10,7 @@ export function Steps(): JSX.Element {
                 <div className={styles['step-content']}>
                     <h3 className={styles['step-content-title']}>{`1. Free Consultation`}</h3>
                     <p className={styles['step-content-text']}>
-                        {`Take a few minutes to talk with our team. Ask questions. Learn about us. Have a certified debt consultant explain debt restructure program. Together, we can discuss whether a referral to a licensed debt restructure program works for you.`}
+                        {`Take a few minutes to talk with our team. Ask questions. Learn about us. Have a certified debt consultant explain debt restructure program. Together, we can discuss whether referral for a debt restructure program works for you.`}
                     </p>
                 </div>
                 <picture>
