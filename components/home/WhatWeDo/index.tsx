@@ -34,7 +34,7 @@ export function WhatWeDo(): JSX.Element {
         <section className={styles['what-we-do']}>
             <h2 className={styles['what-we-do-title']}>{`What We Do`}</h2>
             <p className={styles['what-we-do-content']}>
-                {`Debt Advisors of America helps individuals across the U.S. by 1) gathering personal information to determine a consolidation plan that will best fit your needs. Our service is a form of debt consolidation without a loan. 2) Our customized evaluations aim to help you reduce what you owe, avoid filing for bankrupty, and finally overcome overwhelming debt.`}
+                {`Debt Advisors of America helps individuals across the U.S. by 1) gathering personal information to determine a consolidation plan that will best fit your needs. Our service is a form of debt consolidation without a loan. 2) Our customized evaluations aim to help you reduce what you owe, avoid filing for bankruptcy, and finally overcome overwhelming debt.`}
             </p>
             <div className={styles['actions-wrapper']}>
                 {actions.map((action: Action) => (
