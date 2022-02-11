@@ -56,7 +56,7 @@ export function Benefit(): JSX.Element {
                             <td><strong className={styles['debt-advisors-row-label']}>{`Making Only Minimum Payments`}</strong></td>
                             <td><p>{`$729`}</p></td>
                             <td><p>{`$72,262`}</p></td>
-                            <td><p>{`23 months`}</p></td>
+                            <td><p>{`230 months`}</p></td>
                             <td><p>{`23%`}</p></td>
                             <td><FontAwesomeIcon className={styles['times']} icon={faTimes}/></td>
                         </tr>
