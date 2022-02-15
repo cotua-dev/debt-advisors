@@ -15,7 +15,7 @@ export function DoIQualifyOhio(): JSX.Element {
                 </p>
                 <strong className={styles['qualify-upper']}>{`You are able to make monthly payments`}</strong>
                 <p className={styles['qualify-lower']}>
-                    {`In Ohio, our program involves making deposits of an agreed upon amount into a dedicated account every month – consistent monthly deposits are crucial to your overall success.`}
+                    {`In Ohio, The programs we recommend to you involve involves making deposits of an agreed upon amount into a dedicated account every month – consistent monthly deposits are crucial to your overall success.`}
                 </p>
             </div>
         </section>
