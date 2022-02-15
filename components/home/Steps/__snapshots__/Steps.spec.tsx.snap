@@ -18,7 +18,7 @@ exports[`Steps Component renders 1`] = `
       <p
         class="step-content-text"
       >
-        Take a few minutes to talk with our team. Ask questions. Learn about us. Have a certified debt consultant explain debt restructure program. Together, we can discuss whether a referral to a licensed debt restructure program works for you.
+        Take a few minutes to talk with our team. Ask questions. Learn about us. Have a certified debt consultant explain debt restructure program. Together, we can discuss whether referral for a debt restructure program works for you.
       </p>
     </div>
     <picture>
