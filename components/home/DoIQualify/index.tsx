@@ -15,7 +15,7 @@ export function DoIQualify(): JSX.Element {
                 </p>
                 <strong className={styles['qualify-upper']}>{`You are able to make monthly payments`}</strong>
                 <p className={styles['qualify-lower']}>
-                    {`Our program involves making deposits of an agreed upon amount into a dedicated account every month - consistent monthly deposits are crucial to your overall success.`}
+                    {`The programs we recommend to you involve making deposits of an agreed upon amount into a dedicated account every month - consistent monthly deposits are crucial to your overall success.`}
                 </p>
             </div>
         </section>
