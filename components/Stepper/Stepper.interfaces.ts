@@ -1,5 +1,6 @@
-import { MultipleChoiceValues, StepTypes } from './Stepper.types';
+import { MultipleChoiceValues, StepperType, StepTypes } from './Stepper.types';
 import { UserPurpose, DebtType, BehindPaymentsType, FallBehindReason, Questions } from './Stepper.enums';
+import { MailerCheckResponseBody } from '../MailerCheck/MailerCheck.interfaces';
 
 export interface MultipleChoice {
     label: string;
@@ -19,6 +20,7 @@ export interface StepperModel {
     email: string;
     phone: string;
     code: string;
+    isMailer: boolean;
 };
 
 export interface ParsedStepperModel {
@@ -34,6 +36,7 @@ export interface ParsedStepperModel {
     email: string;
     phone: string;
     site: string;
+    isMailer: boolean;
 };
 
 export interface Step {
@@ -43,4 +46,9 @@ export interface Step {
     stepType: StepTypes;
     choices?: MultipleChoice[];
     value: { [StepperModelKey in keyof StepperModel]?: null | string | number; };
+};
+
+export interface StepperProps {
+    'stepper-type': StepperType,
+    'user-info'?: MailerCheckResponseBody,
 };
