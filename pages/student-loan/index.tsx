@@ -14,7 +14,7 @@ function StudentLoanPage(): JSX.Element {
             <Header title="Student Loan Debt - Debt Advisors"/>
             <Navigation/>
             <main>
-                <Stepper/>
+                <Stepper stepper-type="full"/>
             </main>
             <Footer/>
         </>

@@ -14,7 +14,7 @@ function ColoradoPage(): JSX.Element {
             <Header title="Colorado - Debt Advisors"/>
             <Navigation/>
             <main>
-                <Stepper/>
+                <Stepper stepper-type="full"/>
             </main>
             <Footer/>
         </>

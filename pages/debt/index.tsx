@@ -14,7 +14,7 @@ function DebtPage(): JSX.Element {
             <Header title="Debt - Debt Advisors"/>
             <Navigation/>
             <main>
-                <Stepper/>
+                <Stepper stepper-type="full"/>
             </main>
             <Footer/>
         </>
