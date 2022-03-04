@@ -50,7 +50,7 @@ export function Navigation(): JSX.Element {
                     type="button"
                     onClick={() => setNavToggle(true)}
                     aria-label="Mobile Navigation Toggle Button"
-                ><FontAwesomeIcon icon={faBars}/></button>
+                ><FontAwesomeIcon className={styles['hamburger']} icon={faBars}/></button>
             </nav>
             {navToggle &&
                 <aside
@@ -64,7 +64,7 @@ export function Navigation(): JSX.Element {
                             type="button"
                             onClick={() => setNavToggle(false)}
                             aria-label="Mobile Navigation Toggle Button"
-                        ><FontAwesomeIcon icon={faTimes}/></button>
+                        ><FontAwesomeIcon className={styles['close']} icon={faTimes}/></button>
                     </div>
                     <div className={styles['mobile-links-wrapper']}>
                         {links.map((link: NavigationLink) => (

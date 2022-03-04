@@ -22,7 +22,7 @@ export function Jumbotron(): JSX.Element {
                 <Link href="/stepper">
                     <a className={styles['start-button']}>{`Start - it's free!`}</a>
                 </Link>
-                <div className={styles['jumbotron-logos-wrapper']}>
+                <div className="flex flex-row mt-4">
                     <a
                         href="https://www.bbb.org/us/ca/san-diego/profile/debt-relief-services/debt-advisors-of-america-1126-1000064078"
                         target="_blank"
@@ -31,7 +31,7 @@ export function Jumbotron(): JSX.Element {
                         <picture>
                             <source srcSet={bbbImage.src}/>
                             <img
-                                className={styles['bbb-logo']}
+                                className="w-28"
                                 src={bbbImage.src}
                                 alt="Better Business Bureau Logo"
                                 loading="lazy"
@@ -39,6 +39,7 @@ export function Jumbotron(): JSX.Element {
                         </picture>
                     </a>
                     <a
+                        className="ml-4"
                         href="https://americanfaircreditcouncil.org/view-members/debt-advisors-of-america/"
                         target="_blank"
                         rel="noreferrer"
@@ -46,7 +47,7 @@ export function Jumbotron(): JSX.Element {
                         <picture>
                             <source srcSet={afccImage.src}/>
                             <img
-                                className={styles['afcc-logo']}
+                                className="w-28"
                                 src={afccImage.src}
                                 alt="American Fair Credit Council Logo"
                                 loading="lazy"

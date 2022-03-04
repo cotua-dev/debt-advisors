@@ -14,7 +14,7 @@ function NewJerseyPage(): JSX.Element {
             <Header title="New Jersey - Debt Advisors"/>
             <Navigation/>
             <main>
-                <Stepper/>
+                <Stepper stepper-type="full"/>
             </main>
             <Footer/>
         </>

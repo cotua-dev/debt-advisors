@@ -47,9 +47,12 @@ nav.debt-advisors-navigation {
             display: block;
             border: 0;
             background-color: transparent;
-            font-size: 28px;
             cursor: pointer;
             color: variables.$primary-color;
+        }
+
+        .hamburger {
+            height: 28px;
         }
     }
 }
@@ -68,11 +71,14 @@ aside.debt-advisors-mobile-navigation {
         @include mixins.flexify(center, flex-end, false);
 
         button.close-mobile-navigation {
-            font-size: 28px;
             cursor: pointer;
             color: #FFFFFF;
             border: 0;
             background-color: transparent;
+
+            .close {
+                height: 28px;
+            }
         }
     }
 

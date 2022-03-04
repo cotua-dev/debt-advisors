@@ -14,7 +14,7 @@ function MedicalPage(): JSX.Element {
             <Header title="Medical Debt - Debt Advisors"/>
             <Navigation/>
             <main>
-                <Stepper/>
+                <Stepper stepper-type="full"/>
             </main>
             <Footer/>
         </>

@@ -14,6 +14,7 @@ export const initialStepperModel: StepperModel = {
     email: '',
     phone: '',
     code: '',
+    isMailer: false,
 };
 
 export const startingSteps: Step[] = [
@@ -73,21 +74,7 @@ export const fallBehindReasonStep: Step[] = [
     },
 ];
 
-export const endingSteps: Step[] = [
-    {
-        question: Questions.MonthlyIncomeAmount,
-        validity: false,
-        property: ['monthlyIncomeAmount'],
-        stepType: 'currency',
-        value: {},
-    },
-    {
-        question: Questions.UnsecuredDebtAmount,
-        validity: false,
-        property: ['unsecuredDebtAmount'],
-        stepType: 'currency',
-        value: {},
-    },
+export const userSteps: Step[] = [
     {
         question: Questions.ZipCode,
         validity: false,
@@ -125,7 +112,30 @@ export const endingSteps: Step[] = [
     },
 ];
 
+export const endingSteps: Step[] = [
+    {
+        question: Questions.MonthlyIncomeAmount,
+        validity: false,
+        property: ['monthlyIncomeAmount'],
+        stepType: 'currency',
+        value: {},
+    },
+    {
+        question: Questions.UnsecuredDebtAmount,
+        validity: false,
+        property: ['unsecuredDebtAmount'],
+        stepType: 'currency',
+        value: {},
+    },
+];
+
 export const initialSteps: Step[] = [
+    ...startingSteps,
+    ...endingSteps,
+    ...userSteps,
+];
+
+export const initialNoUserSteps: Step[] = [
     ...startingSteps,
     ...endingSteps,
 ];

@@ -14,7 +14,7 @@ function PersonalPage(): JSX.Element {
             <Header title="Personal Debt - Debt Advisors"/>
             <Navigation/>
             <main>
-                <Stepper/>
+                <Stepper stepper-type="full"/>
             </main>
             <Footer/>
         </>

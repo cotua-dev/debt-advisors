@@ -15,7 +15,7 @@ function OhioPage(): JSX.Element {
             <Header title="Ohio - Debt Advisors"/>
             <Navigation/>
             <main>
-                <Stepper/>
+                <Stepper stepper-type="full"/>
                 <DoIQualifyOhio/>
             </main>
             <Footer/>

@@ -14,7 +14,7 @@ function CreditCardPage(): JSX.Element {
             <Header title="Credit Card Debt - Debt Advisors"/>
             <Navigation/>
             <main>
-                <Stepper/>
+                <Stepper stepper-type="full"/>
             </main>
             <Footer/>
         </>

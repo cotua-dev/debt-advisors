@@ -43,3 +43,5 @@ public/workbox-*
 
 # environment variables
 .env
+
+notes.md

@@ -31,7 +31,7 @@ export function Benefit(): JSX.Element {
                                 <picture>
                                     <source srcSet={regularLogo.src}/>
                                     <img
-                                        className={styles['regular-logo']}
+                                        className="w-36 mx-auto"
                                         src={regularLogo.src}
                                         alt="Debt Advisors Of America Regular Logo"
                                         loading="lazy"
@@ -42,7 +42,7 @@ export function Benefit(): JSX.Element {
                             <td><strong className={styles['debt-advisors-data']}>{`$18,750`}</strong></td>
                             <td><strong className={styles['debt-advisors-data']}>{`46 months`}</strong></td>
                             <td><strong className={styles['debt-advisors-data']}>{`0%`}</strong></td>
-                            <td><FontAwesomeIcon className={styles['check']} icon={faCheck}/></td>
+                            <td><FontAwesomeIcon className="w-6 h-6 text-green-700 mx-auto" icon={faCheck}/></td>
                         </tr>
                         <tr>
                             <td><strong className={styles['debt-advisors-row-label']}>{`Consolidation Loan`}</strong></td>
@@ -50,7 +50,7 @@ export function Benefit(): JSX.Element {
                             <td><p>{`$40,580`}</p></td>
                             <td><p>{`60 months`}</p></td>
                             <td><p>{`21%`}</p></td>
-                            <td><FontAwesomeIcon className={styles['times']} icon={faTimes}/></td>
+                            <td><FontAwesomeIcon className="w-6 h-6 text-red-700 mx-auto" icon={faTimes}/></td>
                         </tr>
                         <tr>
                             <td><strong className={styles['debt-advisors-row-label']}>{`Making Only Minimum Payments`}</strong></td>
@@ -58,7 +58,7 @@ export function Benefit(): JSX.Element {
                             <td><p>{`$72,262`}</p></td>
                             <td><p>{`230 months`}</p></td>
                             <td><p>{`23%`}</p></td>
-                            <td><FontAwesomeIcon className={styles['times']} icon={faTimes}/></td>
+                            <td><FontAwesomeIcon className="w-6 h-6 text-red-700 mx-auto" icon={faTimes}/></td>
                         </tr>
                     </tbody>
                 </table>

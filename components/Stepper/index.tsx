@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import styles from './Stepper.module.scss';
-import { ParsedStepperModel, Step, StepperModel } from './Stepper.interfaces';
-import { initialStepperModel, initialSteps } from './Stepper.initial';
+import { ParsedStepperModel, Step, StepperModel, StepperProps } from './Stepper.interfaces';
+import { initialNoUserSteps, initialStepperModel, initialSteps } from './Stepper.initial';
 import { addBitrixContactDeal, parseModel, sendSMS, verifySMSCode } from './Stepper.utility';
 import { Questions } from './Stepper.enums';
 import { MultipleChoiceField } from '../fields/MultipleChoice';
@@ -15,11 +15,11 @@ import { Email } from '../fields/Email';
 import { Phone } from '../fields/Phone';
 import { Verify } from '../fields/Verify';
 
-export function Stepper(): JSX.Element {
+export function Stepper(props: StepperProps): JSX.Element {
     const router = useRouter();
     const [model, setModel] = useState(initialStepperModel);
     const [currentStep, setCurrentStep] = useState(0);
-    const [steps, setSteps] = useState(initialSteps);
+    const [steps, setSteps] = useState(props['stepper-type'] == 'full' ? initialSteps : initialNoUserSteps);
     const [disableNextButton, setDisableNextButton] = useState(true);
     const [disablePreviousButton, setDisablePreviousButton] = useState(true);
     const [loading, setLoading] = useState(false);
@@ -27,13 +27,13 @@ export function Stepper(): JSX.Element {
     const [disableVerifyField, setDisableVerifyField] = useState(true);
 
     // Fields
-    const [zipCode, setZipCode] = useState('');
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
+    const [zipCode, setZipCode] = useState(props['user-info'] === undefined ? '' : props['user-info'].zip);
+    const [firstName, setFirstName] = useState(props['user-info'] === undefined ? '' : props['user-info'].firstName);
+    const [lastName, setLastName] = useState(props['user-info'] === undefined ? '' : props['user-info'].lastName);
+    const [email, setEmail] = useState(props['user-info'] === undefined ? '' : props['user-info'].email);
+    const [phone, setPhone] = useState(props['user-info'] === undefined ? '' : props['user-info'].phone);
     const [code, setCode] = useState('');
-    const [usState, setUSState] = useState('');
+    const [usState, setUSState] = useState(props['user-info'] === undefined ? '' : props['user-info'].state);
 
     /**
      * Send a SMS to the provided phone number to verify the user owns the number
@@ -65,6 +65,38 @@ export function Stepper(): JSX.Element {
         setLoading(false);
     }
 
+    function sendThankYouPage() {
+        switch (router.pathname) {
+            case '/ohio':
+                window.location.href = `${window.location.origin}/ohio/thank-you`;
+                break;
+            case '/new-jersey':
+                window.location.href = `${window.location.origin}/new-jersey/thank-you`;
+                break;
+            case '/colorado':
+                window.location.href = `${window.location.origin}/colorado/thank-you`;
+                break;
+            case '/credit-card':
+                window.location.href = `${window.location.origin}/credit-card/thank-you`;
+                break;
+            case '/debt':
+                window.location.href = `${window.location.origin}/debt/thank-you`;
+                break;
+            case '/medical':
+                window.location.href = `${window.location.origin}/medical/thank-you`;
+                break;
+            case '/personal':
+                window.location.href = `${window.location.origin}/personal/thank-you`;
+                break;
+            case '/student-loan':
+                window.location.href = `${window.location.origin}/student-loan/thank-you`;
+                break;
+            default:
+                window.location.href = `${window.location.origin}/thank-you`;
+                break;
+        }
+    }
+
     /**
      * Verify the user provided code with their phone number
      */
@@ -73,8 +105,22 @@ export function Stepper(): JSX.Element {
         setLoading(true);
         setError('');
 
+        if (props['stepper-type'] === 'short') {
+            const bitrixResponse: Response | undefined = await addBitrixContactDeal(data);
+
+            if (bitrixResponse !== undefined && bitrixResponse.status === 200) {
+                sendThankYouPage();
+            } else {
+                setError('Something went wrong. Please try again');
+            }
+
+            // Stop the function here
+            setLoading(false);
+            return;
+        }
+
         // Make sure we have a `phone` and `code`
-        if (phone !== '' && code !== '') {
+        if (phone !== '' && code !== '' && props['stepper-type'] === 'full') {
             const verifyResponse: Response | undefined = await verifySMSCode(phone, code);
 
             // Make sure we have a response object and its status is 200
@@ -84,35 +130,7 @@ export function Stepper(): JSX.Element {
                 // Make sure we have a response object and its status is 200
                 if (bitrixResponse !== undefined && bitrixResponse.status === 200) {
                     // Send to thank you page with browser refresh (this way state is completely wiped in one go)
-                    switch (router.pathname) {
-                        case '/ohio':
-                            window.location.href = `${window.location.origin}/ohio/thank-you`;
-                            break;
-                        case '/new-jersey':
-                            window.location.href = `${window.location.origin}/new-jersey/thank-you`;
-                            break;
-                        case '/colorado':
-                            window.location.href = `${window.location.origin}/colorado/thank-you`;
-                            break;
-                        case '/credit-card':
-                            window.location.href = `${window.location.origin}/credit-card/thank-you`;
-                            break;
-                        case '/debt':
-                            window.location.href = `${window.location.origin}/debt/thank-you`;
-                            break;
-                        case '/medical':
-                            window.location.href = `${window.location.origin}/medical/thank-you`;
-                            break;
-                        case '/personal':
-                            window.location.href = `${window.location.origin}/personal/thank-you`;
-                            break;
-                        case '/student-loan':
-                            window.location.href = `${window.location.origin}/student-loan/thank-you`;
-                            break;
-                        default:
-                            window.location.href = `${window.location.origin}/thank-you`;
-                            break;
-                    }
+                    sendThankYouPage();
                 } else {
                     // Display error
                     setError('Something went wrong. Please try again');
@@ -221,6 +239,10 @@ export function Stepper(): JSX.Element {
         };
         const parsedModel: ParsedStepperModel = parseModel(unparsedModel);
 
+        if (props['stepper-type'] === 'short') {
+            parsedModel.isMailer = true;
+        }
+
         // Run submission
         submission(parsedModel);
     }
@@ -247,6 +269,7 @@ export function Stepper(): JSX.Element {
                                         nextStep={nextStep}
                                         steps={steps}
                                         currentStep={currentStep}
+                                        stepperType={props['stepper-type']}
                                     />
                             }
                             {
@@ -318,7 +341,7 @@ export function Stepper(): JSX.Element {
                     );
                 })}
             </div>
-            {loading && <FontAwesomeIcon className={styles['loading-spinner']} icon={faCircleNotch} spin/>}
+            {loading && <FontAwesomeIcon className="h-7 text-daa-purple animate-spin" icon={faCircleNotch} spin/>}
             {error !== '' && <small className={styles['error']}>{error}</small>}
             <div className={styles['stepper-controls-wrapper']}>
                 <button

@@ -32,7 +32,7 @@ exports[`Jumbotron Component renders 1`] = `
       Start - it's free!
     </a>
     <div
-      class="jumbotron-logos-wrapper"
+      class="flex flex-row mt-4"
     >
       <a
         href="https://www.bbb.org/us/ca/san-diego/profile/debt-relief-services/debt-advisors-of-america-1126-1000064078"
@@ -43,12 +43,13 @@ exports[`Jumbotron Component renders 1`] = `
           <source />
           <img
             alt="Better Business Bureau Logo"
-            class="bbb-logo"
+            class="w-28"
             loading="lazy"
           />
         </picture>
       </a>
       <a
+        class="ml-4"
         href="https://americanfaircreditcouncil.org/view-members/debt-advisors-of-america/"
         rel="noreferrer"
         target="_blank"
@@ -57,7 +58,7 @@ exports[`Jumbotron Component renders 1`] = `
           <source />
           <img
             alt="American Fair Credit Council Logo"
-            class="afcc-logo"
+            class="w-28"
             loading="lazy"
           />
         </picture>
