@@ -3,7 +3,7 @@ import { MultipleChoiceFieldProps } from './MultipleChoice.interfaces';
 import { MultipleChoice, Step, StepperModel } from '../../Stepper/Stepper.interfaces';
 import { MultipleChoiceValues } from '../../Stepper/Stepper.types';
 import { Questions } from '../../Stepper/Stepper.enums';
-import { endingSteps, fallBehindReasonStep, startingSteps } from '../../Stepper/Stepper.initial';
+import { endingSteps, fallBehindReasonStep, startingSteps, userSteps } from '../../Stepper/Stepper.initial';
 
 /**
  * Component for handling multiple choice fields
@@ -36,19 +36,21 @@ export function MultipleChoiceField(props: MultipleChoiceFieldProps): JSX.Elemen
 
         // Check to see if we are at the behind payments type question
         if (currentStepObject.question === Questions.BehindPaymentsType) {
+            let stepsToAdd: Step[] = [];
+
             // If 'No' is not selected, then add the fall behind reason question
             if (value !== 2) {
-                setSteps([
+                stepsToAdd = [
                     ...startingSteps,
                     ...fallBehindReasonStep,
                     ...endingSteps,
-                ]);
+                ];
             } else {
                 // Otherwise, keep the fall behind reason question out
-                setSteps([
+                stepsToAdd = [
                     ...startingSteps,
                     ...endingSteps,
-                ]);
+                ];
 
                 // Reset the fall behind reason value and set the behind payments type value
                 setModel({
@@ -57,6 +59,12 @@ export function MultipleChoiceField(props: MultipleChoiceFieldProps): JSX.Elemen
                     fallBehindReason: null,
                 });
             }
+
+            if (props.stepperType === 'full') {
+                stepsToAdd = [...stepsToAdd, ...userSteps];
+            }
+
+            setSteps(stepsToAdd);
         }
 
         // Update local storage
