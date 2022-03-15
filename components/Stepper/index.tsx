@@ -30,10 +30,10 @@ export function Stepper(props: StepperProps): JSX.Element {
     const [zipCode, setZipCode] = useState(props['user-info'] === undefined ? '' : props['user-info'].zip);
     const [firstName, setFirstName] = useState(props['user-info'] === undefined ? '' : props['user-info'].firstName);
     const [lastName, setLastName] = useState(props['user-info'] === undefined ? '' : props['user-info'].lastName);
-    const [email, setEmail] = useState(props['user-info'] === undefined ? '' : props['user-info'].email);
-    const [phone, setPhone] = useState(props['user-info'] === undefined ? '' : props['user-info'].phone);
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const [code, setCode] = useState('');
-    const [usState, setUSState] = useState(props['user-info'] === undefined ? '' : props['user-info'].state);
+    const [usState, setUSState] = useState(props['user-info'] === undefined ? '' : props['user-info'].stateAbbreviation);
 
     /**
      * Send a SMS to the provided phone number to verify the user owns the number
@@ -237,10 +237,27 @@ export function Stepper(props: StepperProps): JSX.Element {
             phone,
             zipCode,
         };
-        const parsedModel: ParsedStepperModel = parseModel(unparsedModel);
+        let parsedModel: ParsedStepperModel = parseModel(unparsedModel);
 
         if (props['stepper-type'] === 'short') {
             parsedModel.isMailer = true;
+        }
+
+        if (parsedModel.isMailer && props['user-info'] !== undefined) {
+            const {
+                referenceId, middleInitial, suffix, address, city,
+                stateAbbreviation, crrt, barcode, county, estimatedDebt,
+                settled, newPayment, tier, segment, drop, tollFreeNumber,
+                spanishTollFreeNumber, noticeDate, url, stateFull,
+            } = props['user-info'];
+
+            parsedModel = {
+                ...parsedModel,
+                referenceId, middleInitial, suffix, address, city,
+                stateAbbreviation, crrt, barcode, county, estimatedDebt,
+                settled, newPayment, tier, segment, drop, tollFreeNumber,
+                spanishTollFreeNumber, noticeDate, url, stateFull,
+            };
         }
 
         // Run submission
