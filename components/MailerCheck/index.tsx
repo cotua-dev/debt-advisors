@@ -65,7 +65,7 @@ export function MailerCheck(): JSX.Element {
                             <input
                                 type="text"
                                 className="w-16 text-base text-center p-1 mr-1 border border-1 rounded"
-                                maxLength={5}
+                                maxLength={6}
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => setFirstField(e.target.value)}
                             />
                             {`–`}
