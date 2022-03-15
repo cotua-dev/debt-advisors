@@ -19,7 +19,7 @@ export function Jumbotron(): JSX.Element {
             <picture>
                 <source srcSet={aboutUsJumbotronImage.src}/>
                 <img
-                    className={styles['jumbotron-image']}
+                    className="w-full h-fit"
                     src={aboutUsJumbotronImage.src}
                     alt="About Us Jumbotron Image"
                     loading="lazy"
