@@ -7,7 +7,30 @@ export interface MultipleChoice {
     value: MultipleChoiceValues;
 };
 
-export interface StepperModel {
+export interface MailerModel {
+    referenceId: string;
+    middleInitial: string;
+    suffix: string;
+    address: string;
+    city: string;
+    stateAbbreviation: string;
+    crrt: string;
+    barcode: string;
+    county: string;
+    estimatedDebt: number;
+    settled: number;
+    newPayment: number;
+    tier: string;
+    segment: string;
+    drop: string;
+    tollFreeNumber: string;
+    spanishTollFreeNumber: string;
+    noticeDate: string;
+    url: string;
+    stateFull: string;
+};
+
+export interface StepperModel extends Partial<MailerModel> {
     userPurpose: MultipleChoiceValues | null;
     debtType: MultipleChoiceValues | null;
     behindPaymentsType: MultipleChoiceValues | null;
@@ -23,7 +46,7 @@ export interface StepperModel {
     isMailer: boolean;
 };
 
-export interface ParsedStepperModel {
+export interface ParsedStepperModel extends Partial<MailerModel> {
     userPurpose: UserPurpose;
     debtType: DebtType;
     behindPaymentsType: BehindPaymentsType;
