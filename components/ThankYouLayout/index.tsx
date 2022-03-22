@@ -15,7 +15,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 strategy="afterInteractive"
                 id="facebook-track-submit-application"
                 dangerouslySetInnerHTML={{__html: `
-                    fbq('track', 'SUBMIT_APPLICATION');
+                    fbq('track', 'SubmitApplication');
                 `}}
             />
             {children}
