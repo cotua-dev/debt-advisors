@@ -64,15 +64,13 @@ export function MailerCheck(): JSX.Element {
                         <div className="block mb-4">
                             <input
                                 type="text"
-                                className="w-16 text-base text-center p-1 mr-1 border border-1 rounded"
-                                maxLength={6}
+                                className="w-20 text-base text-center p-1 mr-1 border border-1 rounded"
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => setFirstField(e.target.value)}
                             />
                             {`–`}
                             <input
                                 type="text"
                                 className="w-20 text-base text-center p-1 ml-1 border border-1 rounded"
-                                maxLength={6}
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => setSecondField(e.target.value)}
                             />
                         </div>
