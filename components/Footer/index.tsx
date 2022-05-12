@@ -48,8 +48,8 @@ export function Footer(): JSX.Element {
                         <a
                             data-testid="phone"
                             className={styles['info']}
-                            href="tel:+18006320437"
-                        >{`800-632-0437`}</a>
+                            href="tel:+18009202365"
+                        >{`800-920-2365`}</a>
                     </div>
                     <div className={styles['contact-info']}>
                         {/* <p className={styles['title']}>

@@ -66,9 +66,9 @@ exports[`Footer Component renders 1`] = `
         <a
           class="info"
           data-testid="phone"
-          href="tel:+18006320437"
+          href="tel:+18009202365"
         >
-          800-632-0437
+          800-920-2365
         </a>
       </div>
       <div
