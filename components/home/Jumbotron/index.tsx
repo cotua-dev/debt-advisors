@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import jumbotronImage from '../../../public/images/home-boy-girl.png';
 import bbbImage from '../../../public/images/bbb.png';
-import afccImage from '../../../public/images/afcc.png';
+// import afccImage from '../../../public/images/afcc.png';
 import styles from './Jumbotron.module.scss';
 
 export function Jumbotron(): JSX.Element {
@@ -38,7 +38,7 @@ export function Jumbotron(): JSX.Element {
                             />
                         </picture>
                     </a>
-                    <a
+                    {/* <a
                         className="ml-4"
                         href="https://americanfaircreditcouncil.org/view-members/debt-advisors-of-america/"
                         target="_blank"
@@ -53,7 +53,7 @@ export function Jumbotron(): JSX.Element {
                                 loading="lazy"
                             />
                         </picture>
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </section>
