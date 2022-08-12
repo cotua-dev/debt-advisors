@@ -1,4 +1,5 @@
 @use 'styles/mixins';
+@use 'styles/variables';
 
 div.code-field-wrapper {
     @include mixins.flexify(center, center, column);
@@ -9,5 +10,13 @@ div.code-field-wrapper {
 
     small.error {
         @include mixins.error;
+    }
+
+    small.note {
+        @include mixins.note;
+
+        a {
+            color: variables.$secondary-color;
+        }
     }
 }
