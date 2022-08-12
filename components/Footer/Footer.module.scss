@@ -27,6 +27,11 @@ footer.debt-advisors-footer {
             a picture img.white-logo {
                 width: 240px;
                 height: 80px;
+                margin-bottom: 20px;
+
+                @include mixins.custom(930px) {
+                    margin: 0 auto 20px auto;
+                }
 
                 @include mixins.custom(260px) {
                     @include mixins.responsive-image;
