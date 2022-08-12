@@ -48,21 +48,6 @@ exports[`Jumbotron Component renders 1`] = `
           />
         </picture>
       </a>
-      <a
-        class="ml-4"
-        href="https://americanfaircreditcouncil.org/view-members/debt-advisors-of-america/"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <picture>
-          <source />
-          <img
-            alt="American Fair Credit Council Logo"
-            class="w-28"
-            loading="lazy"
-          />
-        </picture>
-      </a>
     </div>
   </div>
 </section>

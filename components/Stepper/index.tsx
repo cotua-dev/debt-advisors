@@ -383,7 +383,7 @@ export function Stepper(props: StepperProps): JSX.Element {
                         type="button"
                         onClick={() => onSubmit()}
                         disabled={disableNextButton}
-                    >{`Submit`}</button>
+                    >{`Call or Text Me Now`}</button>
                 }
             </div>
         </section>

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ChangeEvent, useState } from 'react';
 import NumberFormat from 'react-number-format';
 import { VerifyProps } from './Verify.interfaces';
@@ -56,6 +57,16 @@ export function Verify(props: VerifyProps): JSX.Element {
                 onChange={(event: ChangeEvent<HTMLInputElement>) => handleCodeSetting(event.target.value)}
                 disabled={disableVerifyField}
             />
+            <small className={styles['note']}>
+                {`By clicking the "Call or Text Me Now” button below, you agree to receive promotional messages sent via an autodialer and other automated systems. This agreement isn't a condition of any purchase. Terms and Privacy Policy can be found at `}
+                <Link href="/terms-of-use"><a aria-label="Terms of Use Page Link">{`Terms`}</a></Link>
+                {` and `}
+                <Link href="/privacy-policy"><a aria-label="Privacy Policy Page Link">{`Privacy Policy.`}</a></Link>
+                {` You may receive emails and/or text messages every week until you tell us to stop trying to contact you. `}
+                {/* {` You may receive every week until you tell us to stop trying to contact you. To stop receiving phone calls, call `}
+                <a href="tel:+18009202365">{`800-920-2365.`}</a> */}
+                {` To stop receiving text messages, reply STOP. To stop receiving emails, click the UNSUBSCRIBE button in the message.`}
+            </small>
             {
                 showError &&
                 <small className={styles['error']}>{error}</small>
