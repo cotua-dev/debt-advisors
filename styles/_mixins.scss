@@ -83,3 +83,8 @@
     font-weight: 700;
     margin-top: 10px;
 }
+
+@mixin note() {
+    color: #64748B;
+    margin-top: 20px;
+}
