@@ -62,9 +62,8 @@ export function Verify(props: VerifyProps): JSX.Element {
                 <Link href="/terms-of-use"><a aria-label="Terms of Use Page Link">{`Terms`}</a></Link>
                 {` and `}
                 <Link href="/privacy-policy"><a aria-label="Privacy Policy Page Link">{`Privacy Policy.`}</a></Link>
-                {` You may receive emails and/or text messages every week until you tell us to stop trying to contact you. `}
-                {/* {` You may receive every week until you tell us to stop trying to contact you. To stop receiving phone calls, call `}
-                <a href="tel:+18009202365">{`800-920-2365.`}</a> */}
+                {` You may receive every week until you tell us to stop trying to contact you. To stop receiving phone calls, call `}
+                <a href="tel:+18886838681">{`888-683-8681.`}</a>
                 {` To stop receiving text messages, reply STOP. To stop receiving emails, click the UNSUBSCRIBE button in the message.`}
             </small>
             {
