@@ -13,35 +13,14 @@ export async function getStaticProps(): Promise<PageProps> {
 
 function Home(): JSX.Element {
     return (
-        <>
-            <Layout>
-                <Jumbotron/>
-                <WhatWeDo/>
-                <DoIQualify/>
-                <Steps/>
-                <CallUsNow/>
-                <Benefit/>
-            </Layout>
-            <script id="click-cease">
-                {`
-                    var script = document.createElement('script');
-                    script.async = true; script.type = 'text/javascript';
-                    var target = 'https://www.clickcease.com/monitor/stat.js';
-                    script.src = target;var elem = document.head;elem.appendChild(script);
-                `}
-            </script>
-            <noscript>
-                <a
-                    href="https://www.clickcease.com"
-                    rel="nofollow"
-                >
-                    <img
-                        src="https://monitor.clickcease.com/stats/stats.aspx"
-                        alt="ClickCease"
-                    />
-                </a>
-            </noscript>
-        </>
+        <Layout>
+            <Jumbotron/>
+            <WhatWeDo/>
+            <DoIQualify/>
+            <Steps/>
+            <CallUsNow/>
+            <Benefit/>
+        </Layout>
     );
 }
 
