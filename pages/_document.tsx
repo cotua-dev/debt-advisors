@@ -90,6 +90,12 @@ class MyDocument extends Document {
                             ]
                         }
                     `}}></script>
+                    <script dangerouslySetInnerHTML={{__html: `
+                    var script = document.createElement('script');
+                    script.async = true; script.type = 'text/javascript';
+                    var target = 'https://www.clickcease.com/monitor/stat.js';
+                    script.src = target;var elem = document.head;elem.appendChild(script);
+                    `}}></script>
                     <meta name="google-site-verification" content="K5XkTynh2jWVW2scOiufUcJKDHMqI9H9BB33any5Vo0"/>
                 </Head>
                 <body>
@@ -97,6 +103,11 @@ class MyDocument extends Document {
                     <NextScript/>
                     <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM}`} height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
                     <noscript><img height="1" width="1" style={{display:'none'}} alt="Facebook Img" src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_FBQ}&ev=PageView&noscript=1`}/></noscript>
+                    <noscript>
+                        <a href="https://www.clickcease.com" rel="nofollow">
+                            <img src="https://monitor.clickcease.com/stats/stats.aspx" alt="ClickCease"/>
+                        </a>
+                    </noscript>
                 </body>
             </Html>
         );
