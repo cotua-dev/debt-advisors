@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image';
+
 export interface Review {
     key: number;
     image: StaticImageData;
