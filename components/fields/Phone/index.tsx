@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import NumberFormat from 'react-number-format';
+import { PatternFormat } from 'react-number-format';
 import { PhoneProps } from './Phone.interfaces';
 import styles from './Phone.module.scss';
 
@@ -46,7 +46,7 @@ export function Phone(props: PhoneProps): JSX.Element {
 
     return (
         <div className={styles['phone-field-wrapper']}>
-            <NumberFormat
+            <PatternFormat
                 className={styles['phone-field']}
                 mask="_"
                 format="+1 ### ### ####"

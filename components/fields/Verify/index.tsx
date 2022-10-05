@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ChangeEvent, useState } from 'react';
-import NumberFormat from 'react-number-format';
+import { PatternFormat } from 'react-number-format';
 import { VerifyProps } from './Verify.interfaces';
 import styles from './Verify.module.scss';
 
@@ -47,7 +47,7 @@ export function Verify(props: VerifyProps): JSX.Element {
 
     return (
         <div className={styles['code-field-wrapper']}>
-            <NumberFormat
+            <PatternFormat
                 className={styles['code-field']}
                 format="######"
                 type="text"

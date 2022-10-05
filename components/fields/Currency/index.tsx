@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from 'react';
-import NumberFormat from 'react-number-format';
+import { NumericFormat } from 'react-number-format';
 import styles from './Currency.module.scss';
 import { SharedFieldProps } from '../shared.interfaces';
 import { StepperModel } from '../../Stepper/Stepper.interfaces';
@@ -48,10 +48,9 @@ export function Currency(props: SharedFieldProps): JSX.Element {
     return (
         <div className={styles['currency-field-wrapper']}>
             {field.map((singleField: keyof StepperModel) => (
-                <NumberFormat
+                <NumericFormat
                     key={singleField}
                     className={styles['currency-field']}
-                    thousandsGroupStyle="thousand"
                     type="text"
                     value={(model[singleField] as string)}
                     onChange={(event: ChangeEvent<HTMLInputElement>) => handleInputListenerEvent(event, singleField)}
