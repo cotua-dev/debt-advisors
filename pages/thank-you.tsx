@@ -17,12 +17,12 @@ function ThankYou(): JSX.Element {
                         <h1>{`Thank you for registering!`}</h1>
                         <p>{`A representative will contact you shortly`}</p>
                         <a
-                            className={styles['phone-number']}
-                            href="tel:+18009202365"
-                        >{`Phone: (800) 920-2365`}</a>
-                        <Link href="/">
+                            className={styles['thank-you-button']}
+                            href="tel:+18442763691"
+                        >{`Click to Call`}</a>
+                        {/* <Link href="/">
                             <a className={styles['thank-you-button']}>{`Return to home page`}</a>
-                        </Link>
+                        </Link> */}
                     </div>
                 </section>
             </Layout>
