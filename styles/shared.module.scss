@@ -41,7 +41,12 @@ section.thank-you {
         align-items: center;
         text-align: center;
 
-        a {
+        a.phone-number {
+            margin: 20px 0;
+            color: variables.$primary-color;
+        }
+
+        a.thank-you-button {
             padding: 10px 20px;
             border-radius: 10px;
             border: none;
