@@ -5,7 +5,7 @@ import { faAngleRight, faAngleLeft, faCircleNotch } from '@fortawesome/free-soli
 import styles from './Stepper.module.scss';
 import { ParsedStepperModel, Step, StepperModel, StepperProps } from './Stepper.interfaces';
 import { initialNoUserSteps, initialStepperModel, initialSteps } from './Stepper.initial';
-import { addBitrixContactDeal, parseModel, sendSMS, verifySMSCode } from './Stepper.utility';
+import { addBitrixContactDeal, parseCurrencyValue, parseModel, sendSMS, verifySMSCode } from './Stepper.utility';
 import { Questions } from './Stepper.enums';
 import { MultipleChoiceField } from '../fields/MultipleChoice';
 import { Currency } from '../fields/Currency';
@@ -170,19 +170,17 @@ export function Stepper(props: StepperProps): JSX.Element {
         // Grab needed properties from the current step
         const { validity, question } = steps[currentStep];
 
-        /*
         // Check if we passed the unsecured debt field
         if (question === Questions.UnsecuredDebtAmount) {
             // Parse the unsecured debt amount into a number
             const unsecuredDebtAmountNumber: number = parseCurrencyValue(model.unsecuredDebtAmount);
 
-            // Check if the debt is less than $7,500
-            if (unsecuredDebtAmountNumber < 7500) {
+            // Check if the debt is less than $5,000
+            if (unsecuredDebtAmountNumber < 5000) {
                 // If so, send to disqualify page with browser refresh (this way state is completely wiped in one go)
                 window.location.href = `${window.location.origin}/dq`;
             }
         }
-        */
 
         // Check if we passed the zip code field
         if (question === Questions.ZipCode) {
