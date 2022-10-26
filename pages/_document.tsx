@@ -46,7 +46,7 @@ class MyDocument extends Document {
                                 id="google-tag-two-script"
                                 strategy="afterInteractive"
                                 async
-                                src={`https://www.googletagmanager.com/gtag/js?${process.env.NEXT_PUBLIC_GTAG2}`}
+                                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTAG2}`}
                             ></Script>
                             <Script
                                 id="google-tag-two-custom"
