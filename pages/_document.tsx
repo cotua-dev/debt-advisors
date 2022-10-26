@@ -40,24 +40,22 @@ class MyDocument extends Document {
                             `}}
                         ></Script>
                     }
-                    <>
-                        <Script
-                            id="google-tag-two-script"
-                            strategy="afterInteractive"
-                            async
-                            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTAG2}`}
-                        ></Script>
-                        <Script
-                            id="google-tag-two-custom"
-                            strategy="afterInteractive"
-                            dangerouslySetInnerHTML={{__html: `
-                                window.dataLayer = window.dataLayer || [];
-                                function gtag(){dataLayer.push(arguments);}
-                                gtag('js', new Date());
-                                gtag('config', '${process.env.NEXT_PUBLIC_GTAG2}');
-                            `}}
-                        ></Script>
-                    </>
+                    <Script
+                        id="google-tag-two-script"
+                        strategy="afterInteractive"
+                        async
+                        src="https://www.googletagmanager.com/gtag/js?id=G-6G04CZNE90"
+                    ></Script>
+                    <Script
+                        id="google-tag-two-custom"
+                        strategy="afterInteractive"
+                        dangerouslySetInnerHTML={{__html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'G-6G04CZNE90');
+                        `}}
+                    ></Script>
                     {process.env.NEXT_PUBLIC_FBQ &&
                         <Script
                             id="facebook-script"
