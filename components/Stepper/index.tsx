@@ -26,6 +26,8 @@ export function Stepper(props: StepperProps): JSX.Element {
     const [error, setError] = useState('');
     const [disableVerifyField, setDisableVerifyField] = useState(true);
 
+    const minimumDebtAmount = 5000;
+
     // Fields
     const [zipCode, setZipCode] = useState(props['user-info'] === undefined ? '' : props['user-info'].zip);
     const [firstName, setFirstName] = useState(props['user-info'] === undefined ? '' : props['user-info'].firstName);
@@ -65,7 +67,10 @@ export function Stepper(props: StepperProps): JSX.Element {
         setLoading(false);
     }
 
-    function sendThankYouPage() {
+    function sendThankYouPage(unsecuredDebtAmount: number) {
+        // let thankYouRoute = `${window.location.origin}/thank-you`;
+        const debtLessThan10k = unsecuredDebtAmount >= minimumDebtAmount && unsecuredDebtAmount < 10000;
+
         switch (router.pathname) {
             case '/ohio':
                 window.location.href = `${window.location.origin}/ohio/thank-you`;
@@ -92,7 +97,7 @@ export function Stepper(props: StepperProps): JSX.Element {
                 window.location.href = `${window.location.origin}/student-loan/thank-you`;
                 break;
             default:
-                window.location.href = `${window.location.origin}/thank-you`;
+                window.location.href = debtLessThan10k ? `${window.location.origin}/thanks` : `${window.location.origin}/thank-you`;
                 break;
         }
     }
@@ -109,7 +114,7 @@ export function Stepper(props: StepperProps): JSX.Element {
             const bitrixResponse: Response | undefined = await addBitrixContactDeal(data);
 
             if (bitrixResponse !== undefined && bitrixResponse.status === 200) {
-                sendThankYouPage();
+                sendThankYouPage(data.unsecuredDebtAmount);
             } else {
                 setError('Something went wrong. Please try again');
             }
@@ -130,7 +135,7 @@ export function Stepper(props: StepperProps): JSX.Element {
                 // Make sure we have a response object and its status is 200
                 if (bitrixResponse !== undefined && bitrixResponse.status === 200) {
                     // Send to thank you page with browser refresh (this way state is completely wiped in one go)
-                    sendThankYouPage();
+                    sendThankYouPage(data.unsecuredDebtAmount);
                 } else {
                     // Display error
                     setError('Something went wrong. Please try again');
@@ -176,7 +181,7 @@ export function Stepper(props: StepperProps): JSX.Element {
             const unsecuredDebtAmountNumber: number = parseCurrencyValue(model.unsecuredDebtAmount);
 
             // Check if the debt is less than $5,000
-            if (unsecuredDebtAmountNumber < 5000) {
+            if (unsecuredDebtAmountNumber < minimumDebtAmount) {
                 // If so, send to disqualify page with browser refresh (this way state is completely wiped in one go)
                 window.location.href = `${window.location.origin}/dq`;
             }
