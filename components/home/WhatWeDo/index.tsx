@@ -21,13 +21,13 @@ export function WhatWeDo(): JSX.Element {
             title: 'We Tailor a Debt Relief Program That is Right For You',
             description: 'Programs can be modified to fit your specific needs',
         },
-        {
-            key: 3,
-            image: whatWeDoImageThree.src,
-            imageAlt: 'You Tell Us About Your Financial Situation Logo',
-            title: 'You Tell Us About Your Financial Situation',
-            description: 'Call us or fill out our online form to receive a free, no obligation consultation',
-        },
+        // {
+        //     key: 3,
+        //     image: whatWeDoImageThree.src,
+        //     imageAlt: 'You Tell Us About Your Financial Situation Logo',
+        //     title: 'You Tell Us About Your Financial Situation',
+        //     description: 'Call us or fill out our online form to receive a free, no obligation consultation',
+        // },
     ];
 
     return (
@@ -56,12 +56,12 @@ export function WhatWeDo(): JSX.Element {
             <Link href="/stepper">
                 <a className={styles['free-debt-consultation']}>{`Get a Free Debt Consultation Now`}</a>
             </Link>
-            <p className={styles['details']}>
+            {/* <p className={styles['details']}>
                 {`For more details `}
                 <Link href="/">
                     <a className={styles['how-it-works']}>{`visit our How it Works page`}</a>
                 </Link>
-            </p>
+            </p> */}
         </section>
     );
 }

@@ -25,7 +25,7 @@ section.what-we-do {
     }
 
     div.actions-wrapper {
-        @include mixins.flexify(center, space-between, row);
+        @include mixins.flexify(center, space-evenly, row);
         width: 100%;
         margin: 40px 0;
 
