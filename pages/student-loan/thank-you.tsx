@@ -17,7 +17,7 @@ function ThankYouStudentLoan(): JSX.Element {
                         <h1>{`Thank you for registering!`}</h1>
                         <p>{`A representative will contact you shortly`}</p>
                         <Link href="/">
-                            <a>{`Return to home page`}</a>
+                            {`Return to home page`}
                         </Link>
                     </div>
                 </section>

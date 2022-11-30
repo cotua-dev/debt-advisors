@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Layout } from '../components/Layout';
 import { ThankYouLayout } from '../components/ThankYouLayout';
 import styles from '../styles/shared.module.scss';
@@ -20,9 +19,6 @@ function ThankYou(): JSX.Element {
                             className={styles['thank-you-button']}
                             href="tel:+18442763691"
                         >{`Click to Call`}</a>
-                        {/* <Link href="/">
-                            <a className={styles['thank-you-button']}>{`Return to home page`}</a>
-                        </Link> */}
                     </div>
                 </section>
             </Layout>

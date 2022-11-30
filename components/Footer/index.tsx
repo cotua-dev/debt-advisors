@@ -9,19 +9,17 @@ export function Footer(): JSX.Element {
         <footer className={styles['debt-advisors-footer']}>
             <div className={styles['footer-content-wrapper']}>
                 <div className={styles['logo-text']}>
-                    <Link href="/">
-                        <a aria-label="Home Page Link">
-                            <picture>
-                                <source srcSet={whiteLogo.src}/>
-                                <img
-                                    data-testid="white-logo"
-                                    className={styles['white-logo']}
-                                    src={whiteLogo.src}
-                                    alt="Debt Advisors Of America White Logo"
-                                    loading="lazy"
-                                />
-                            </picture>
-                        </a>
+                    <Link href="/" aria-label="Home Page Link">
+                        <picture>
+                            <source srcSet={whiteLogo.src}/>
+                            <img
+                                data-testid="white-logo"
+                                className={styles['white-logo']}
+                                src={whiteLogo.src}
+                                alt="Debt Advisors Of America White Logo"
+                                loading="lazy"
+                            />
+                        </picture>
                     </Link>
                     <p
                         data-testid="footer-text"
@@ -75,18 +73,12 @@ export function Footer(): JSX.Element {
                 </div>
             </div>
             <div className={styles['legal-wrapper']}>
-                <Link href="/terms-of-use">
-                    <a
-                        data-testid="terms-of-use"
-                        className={styles['legal-link']}
-                    >{'Terms of Use'}</a>
+                <Link href="/terms-of-use" className={styles['legal-link']}>
+                    {'Terms of Use'}
                 </Link>
                 <span>{' / '}</span>
-                <Link href="/privacy-policy">
-                    <a
-                        data-testid="privacy-policy"
-                        className={styles['legal-link']}
-                    >{'Privacy Policy'}</a>
+                <Link href="/privacy-policy" className={styles['legal-link']}>
+                    {'Privacy Policy'}
                 </Link>
             </div>
         </footer>
