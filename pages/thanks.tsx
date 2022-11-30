@@ -19,9 +19,6 @@ function ThankYouOne(): JSX.Element {
                             className={styles['thank-you-button']}
                             href="tel:+18442763691"
                         >{`Click to Call`}</a>
-                        {/* <Link href="/">
-                            <a className={styles['thank-you-button']}>{`Return to home page`}</a>
-                        </Link> */}
                     </div>
                 </section>
             </Layout>

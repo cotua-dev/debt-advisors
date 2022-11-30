@@ -53,15 +53,9 @@ export function WhatWeDo(): JSX.Element {
                     </div>
                 ))}
             </div>
-            <Link href="/stepper">
-                <a className={styles['free-debt-consultation']}>{`Get a Free Debt Consultation Now`}</a>
+            <Link href="/stepper" className={styles['free-debt-consultation']}>
+                {`Get a Free Debt Consultation Now`}
             </Link>
-            {/* <p className={styles['details']}>
-                {`For more details `}
-                <Link href="/">
-                    <a className={styles['how-it-works']}>{`visit our How it Works page`}</a>
-                </Link>
-            </p> */}
         </section>
     );
 }

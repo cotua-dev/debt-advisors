@@ -19,29 +19,26 @@ export function Navigation(): JSX.Element {
     return (
         <>
             <nav className={styles['debt-advisors-navigation']}>
-                <Link href="/">
-                    <a data-testid="nav-logo-link" aria-label="Home Page Link">
-                        <picture>
-                            <source srcSet={regularLogo.src}/>
-                            <img
-                                className={styles['logo']}
-                                data-testid="regular-logo"
-                                src={regularLogo.src}
-                                alt="Debt Advisors Of America Logo"
-                                loading="lazy"
-                            />
-                        </picture>
-                    </a>
+                <Link href="/" aria-label="Home Page Link">
+                    <picture>
+                        <source srcSet={regularLogo.src}/>
+                        <img
+                            className={styles['logo']}
+                            data-testid="regular-logo"
+                            src={regularLogo.src}
+                            alt="Debt Advisors Of America Logo"
+                            loading="lazy"
+                        />
+                    </picture>
                 </Link>
                 <div className={styles['links-wrapper']}>
                     {links.map((link: NavigationLink) => (
-                        <Link href={link.url} key={link.key}>
-                            <a
-                                data-testid={link.key}
-                                className={styles['link']}
-                                aria-label={link.aria}
-                            >{link.label}</a>
-                        </Link>
+                        <Link
+                            href={link.url}
+                            key={link.key}
+                            aria-label={link.aria}
+                            className={styles['link']}
+                        >{link.label}</Link>
                     ))}
                 </div>
                 <button
@@ -68,13 +65,12 @@ export function Navigation(): JSX.Element {
                     </div>
                     <div className={styles['mobile-links-wrapper']}>
                         {links.map((link: NavigationLink) => (
-                            <Link href={link.url} key={link.key}>
-                                <a
-                                    data-testid={link.key}
-                                    className={styles['link']}
-                                    aria-label={link.aria}
-                                >{link.label}</a>
-                            </Link>
+                            <Link
+                                href={link.url}
+                                key={link.key}
+                                className={styles['link']}
+                                aria-label={link.aria}
+                            >{link.label}</Link>
                         ))}
                     </div>
                 </aside>

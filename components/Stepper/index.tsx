@@ -180,6 +180,9 @@ export function Stepper(props: StepperProps): JSX.Element {
             // Parse the unsecured debt amount into a number
             const unsecuredDebtAmountNumber: number = parseCurrencyValue(model.unsecuredDebtAmount);
 
+            // Set unsecured debt amount in an atom
+            localStorage.setItem('amount', unsecuredDebtAmountNumber.toString());
+
             // Check if the debt is less than $5,000
             if (unsecuredDebtAmountNumber < minimumDebtAmount) {
                 // If so, send to disqualify page with browser refresh (this way state is completely wiped in one go)
