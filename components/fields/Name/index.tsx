@@ -15,6 +15,7 @@ export function Name(props: NameProps): JSX.Element {
 
         // Set the current step's `firstName` value
         steps[currentStep].value.firstName = value;
+        localStorage.setItem('firstName', value);
     }
 
     /**
@@ -27,6 +28,7 @@ export function Name(props: NameProps): JSX.Element {
 
         // Set the current step's `lastName` value
         steps[currentStep].value.lastName = value;
+        localStorage.setItem('lastName', value);
 
         // Make the current step valid
         steps[currentStep].validity = true;

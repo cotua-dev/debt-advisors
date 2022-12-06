@@ -28,6 +28,7 @@ export function Phone(props: PhoneProps): JSX.Element {
 
             // Set the current step's `phone` value
             steps[currentStep].value.phone = value;
+            localStorage.setItem('phone', value);
 
             // Make the current step valid
             steps[currentStep].validity = true;
