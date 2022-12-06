@@ -11,12 +11,14 @@ specifiers:
   '@testing-library/jest-dom': ^5.16.1
   '@testing-library/react': ^12.1.2
   '@testing-library/react-hooks': ^7.0.2
+  '@types/crypto-js': ^4.1.1
   '@types/google.maps': ^3.47.2
   '@types/jest': ^27.4.0
   '@types/node': ^18.11.9
   '@types/react': ^18.0.25
   autoprefixer: ^10.4.2
   babel-jest: ^27.4.5
+  crypto-js: ^4.1.1
   cypress: ^8.7.0
   eslint: ^7.32.0
   eslint-config-next: ^12.3.1
@@ -43,6 +45,7 @@ dependencies:
   '@fortawesome/fontawesome-svg-core': 6.2.0
   '@fortawesome/free-solid-svg-icons': 6.2.0
   '@fortawesome/react-fontawesome': 0.2.0_6j2wdqxompc6mcokhxkpep2gqu
+  crypto-js: 4.1.1
   next: 13.0.5_ru2bdujs5wv7zrmz55pdteej2m
   next-pwa: 5.6.0_tciy4vuwt7dfu7c56i7rrur5lq
   react: 18.2.0
@@ -58,6 +61,7 @@ devDependencies:
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 12.1.2_biqbaboplfbrettd7655fr4n2y
   '@testing-library/react-hooks': 7.0.2_biqbaboplfbrettd7655fr4n2y
+  '@types/crypto-js': 4.1.1
   '@types/google.maps': 3.50.2
   '@types/jest': 27.5.2
   '@types/node': 18.11.9
@@ -2055,6 +2059,10 @@ packages:
       '@types/node': 18.11.9
     dev: true
 
+  /@types/crypto-js/4.1.1:
+    resolution: {integrity: sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==}
+    dev: true
+
   /@types/eslint-scope/3.7.4:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
@@ -3481,6 +3489,10 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: true
+
+  /crypto-js/4.1.1:
+    resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}
+    dev: false
 
   /crypto-random-string/2.0.0:
     resolution: {integrity: sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==}
