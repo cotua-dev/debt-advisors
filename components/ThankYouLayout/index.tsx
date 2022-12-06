@@ -61,7 +61,6 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 // let pixelScript: HTMLElement | null = document.getElementById('facebook-track-submit-application');
 
                 const parsedPhoneNumber: string = parsePhoneNumber(phone);
-                console.info({parsedPhoneNumber});
 
                 const emailHash = SHA256(email);
                 const phoneHash = SHA256(parsedPhoneNumber);
