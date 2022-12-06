@@ -27,6 +27,7 @@ export function Email(props: EmailProps): JSX.Element {
 
             // Set the current step's `email` value
             steps[currentStep].value.email = value;
+            localStorage.setItem('email', value);
 
             // Make the current step valid
             steps[currentStep].validity = true;
