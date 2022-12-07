@@ -70,6 +70,25 @@ export function Location(props: LocationProps): JSX.Element {
             if (usStateComponent.length >= 0) {
                 // Set the US State using its long name
                 setUSState(usStateComponent[0].long_name);
+                localStorage.setItem('state', usStateComponent[0].short_name.toLowerCase());
+            }
+
+            // Filter through the address components to find the city
+            const cityComponent: google.maps.GeocoderAddressComponent[] = address_components.filter((address_component: google.maps.GeocoderAddressComponent) => {
+                // Check if the type contains the `locality` string
+                const locality: number = address_component.types.findIndex((addressType: string) => addressType === 'locality');
+
+                // Make sure we have an object
+                if (locality !== -1) {
+                    // Return the city component
+                    return address_component;
+                }
+            });
+
+            // Make sure we have a city component
+            if (cityComponent.length > 0) {
+                // Set the city using its long name to localStorage
+                localStorage.setItem('city', cityComponent[0].long_name.toLowerCase().replace(' ', ''));
             }
         }
     }
