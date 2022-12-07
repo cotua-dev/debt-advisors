@@ -29,6 +29,8 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
         const phone: string | null = localStorage.getItem('phone');
         const firstName: string | null = localStorage.getItem('firstName');
         const lastName: string | null = localStorage.getItem('lastName');
+        const city: string | null = localStorage.getItem('city');
+        const state: string | null = localStorage.getItem('state');
 
         // Make sure we have the body element
         if (bodyEl !== null) {
@@ -56,7 +58,9 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 email !== null &&
                 phone !== null &&
                 firstName !== null &&
-                lastName !== null
+                lastName !== null &&
+                city !== null &&
+                state !== null
             ) {
                 // let pixelScript: HTMLElement | null = document.getElementById('facebook-track-submit-application');
 
@@ -66,6 +70,9 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 const phoneHash = SHA256(parsedPhoneNumber);
                 const firstNameHash = SHA256(firstName);
                 const lastNameHash = SHA256(lastName);
+                const cityHash = SHA256(city);
+                const stateHash = SHA256(state);
+                const countryHash = SHA256("us");
 
                 // Send data off to Facebook
                 (window as any).fbq('track', 'Lead', {
@@ -73,6 +80,9 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     ph: phoneHash.toString(),
                     fn: firstNameHash.toString(),
                     ln: lastNameHash.toString(),
+                    ct: cityHash.toString(),
+                    st: stateHash.toString(),
+                    country: countryHash.toString(),
                 });
 
                 // if (pixelScript !== null) {
