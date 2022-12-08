@@ -56,7 +56,7 @@ class MyDocument extends Document {
                             gtag('config', 'G-6G04CZNE90');
                         `}}
                     ></Script>
-                    {process.env.NEXT_PUBLIC_FBQ &&
+                    {process.env.NEXT_PUBLIC_FBQ1 && process.env.NEXT_PUBLIC_FBQ2 &&
                         <Script
                             id="facebook-script"
                             strategy="afterInteractive"
