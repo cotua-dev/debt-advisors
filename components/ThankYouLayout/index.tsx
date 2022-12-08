@@ -83,7 +83,16 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     ct: cityHash.toString(),
                     st: stateHash.toString(),
                     country: countryHash.toString(),
-                });
+                }, { eventID: `lead_${new Date().getTime()}` });
+                (window as any).fbq('track', 'ClickCeaseInvalidUsersLive', {
+                    em: emailHash.toString(),
+                    ph: phoneHash.toString(),
+                    fn: firstNameHash.toString(),
+                    ln: lastNameHash.toString(),
+                    ct: cityHash.toString(),
+                    st: stateHash.toString(),
+                    country: countryHash.toString(),
+                }, { eventID: `click_cease_${new Date().getTime()}` });
 
                 // if (pixelScript !== null) {
                 //     pixelScript = document.createElement('script');
