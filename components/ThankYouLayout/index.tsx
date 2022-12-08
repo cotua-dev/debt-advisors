@@ -74,7 +74,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 const stateHash = SHA256(state);
                 const countryHash = SHA256("us");
 
-                // Send data off to Facebook
+                // Send lead event
                 (window as any).fbq('track', 'Lead', {
                     em: emailHash.toString(),
                     ph: phoneHash.toString(),
@@ -84,6 +84,8 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     st: stateHash.toString(),
                     country: countryHash.toString(),
                 }, { eventID: `lead_${new Date().getTime()}` });
+
+                // Send custom event
                 (window as any).fbq('track', 'ClickCeaseInvalidUsersLive', {
                     em: emailHash.toString(),
                     ph: phoneHash.toString(),
@@ -93,6 +95,17 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     st: stateHash.toString(),
                     country: countryHash.toString(),
                 }, { eventID: `click_cease_${new Date().getTime()}` });
+
+                // Send submit app event
+                (window as any).fbq('track', 'SubmitApplication', {
+                    em: emailHash.toString(),
+                    ph: phoneHash.toString(),
+                    fn: firstNameHash.toString(),
+                    ln: lastNameHash.toString(),
+                    ct: cityHash.toString(),
+                    st: stateHash.toString(),
+                    country: countryHash.toString(),
+                }, { eventID: `submit_app_${new Date().getTime()}` });
 
                 // if (pixelScript !== null) {
                 //     pixelScript = document.createElement('script');
