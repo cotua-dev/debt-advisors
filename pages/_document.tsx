@@ -69,7 +69,8 @@ class MyDocument extends Document {
                                 t.src=v;s=b.getElementsByTagName(e)[0];
                                 s.parentNode.insertBefore(t,s)}(window, document,'script',
                                 'https://connect.facebook.net/en_US/fbevents.js');
-                                fbq('init', '${process.env.NEXT_PUBLIC_FBQ}');
+                                fbq('init', '${process.env.NEXT_PUBLIC_FBQ1}');
+                                fbq('init', '${process.env.NEXT_PUBLIC_FBQ2}');
                                 fbq('track', 'PageView');
                             `}}
                         ></Script>
