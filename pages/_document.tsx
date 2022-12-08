@@ -71,7 +71,7 @@ class MyDocument extends Document {
                                 'https://connect.facebook.net/en_US/fbevents.js');
                                 fbq('init', '${process.env.NEXT_PUBLIC_FBQ1}');
                                 fbq('init', '${process.env.NEXT_PUBLIC_FBQ2}');
-                                fbq('track', 'PageView');
+                                fbq('track', 'PageView', null, 'page_view_${new Date().getTime()}');
                             `}}
                         ></Script>
                     }
