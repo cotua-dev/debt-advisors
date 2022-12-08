@@ -56,7 +56,7 @@ class MyDocument extends Document {
                             gtag('config', 'G-6G04CZNE90');
                         `}}
                     ></Script>
-                    {process.env.NEXT_PUBLIC_FBQ1 && process.env.NEXT_PUBLIC_FBQ2 &&
+                    {process.env.NEXT_PUBLIC_FBQ1 && process.env.NEXT_PUBLIC_FBQ2 && process.env.NEXT_PUBLIC_FBQ3 &&
                         <Script
                             id="facebook-script"
                             strategy="afterInteractive"
@@ -71,6 +71,7 @@ class MyDocument extends Document {
                                 'https://connect.facebook.net/en_US/fbevents.js');
                                 fbq('init', '${process.env.NEXT_PUBLIC_FBQ1}');
                                 fbq('init', '${process.env.NEXT_PUBLIC_FBQ2}');
+                                fbq('init', '${process.env.NEXT_PUBLIC_FBQ3}');
                                 fbq('track', 'PageView', null, {eventID: 'page_view_${new Date().getTime()}'});
                             `}}
                         ></Script>
