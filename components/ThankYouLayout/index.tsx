@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
-import { SHA256 } from 'crypto-js';
+import Script from 'next/script';
+// import { SHA256 } from 'crypto-js';
 import { ThankYouLayoutProps } from './ThankYouLayout.interfaces';
 
 export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
+    /*
     const parsePhoneNumber = (phone: string): string => {
         let parsedPhoneNumber = '';
 
@@ -11,6 +13,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
 
         return parsedPhoneNumber;
     }
+    */
 
     /**
      * We needed to pass the unsecured debt amount to the google tag conversion script
@@ -25,12 +28,12 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
 
         // Grab data from localStorage
         const amount: string | null = localStorage.getItem('amount');
-        const email: string | null = localStorage.getItem('email');
-        const phone: string | null = localStorage.getItem('phone');
-        const firstName: string | null = localStorage.getItem('firstName');
-        const lastName: string | null = localStorage.getItem('lastName');
-        const city: string | null = localStorage.getItem('city');
-        const state: string | null = localStorage.getItem('state');
+        // const email: string | null = localStorage.getItem('email');
+        // const phone: string | null = localStorage.getItem('phone');
+        // const firstName: string | null = localStorage.getItem('firstName');
+        // const lastName: string | null = localStorage.getItem('lastName');
+        // const city: string | null = localStorage.getItem('city');
+        // const state: string | null = localStorage.getItem('state');
 
         // Make sure we have the body element
         if (bodyEl !== null) {
@@ -54,6 +57,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
             }
 
             // Only add the pixel script if we have its lead data in localStorage
+            /*
             if (
                 email !== null &&
                 phone !== null &&
@@ -129,6 +133,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     last_name: lastNameHash.toString(),
                 });
             }
+            */
         }
     });
 
@@ -145,6 +150,14 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     });
                 `}}
             /> */}
+            <Script
+                strategy="afterInteractive"
+                id="facebook-track-submit-application"
+                dangerouslySetInnerHTML={{__html: `
+                    fbq('track', 'SubmitApplication');
+                    fbq('track', 'Lead');
+                `}}
+            />
             {/* <Script
                 strategy="afterInteractive"
                 id="facebook-track-submit-application"
