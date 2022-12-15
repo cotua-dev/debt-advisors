@@ -54,6 +54,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 }
             }
 
+            /*
             if (email !== null) {
                 let gtagEmailScript = document.getElementById('google-tag-conversion-data');
                 let gtagEnhancedDataScript = document.getElementById('google-tag-enhanced-data');
@@ -82,8 +83,8 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     bodyEl.append(gtagEmailScript);
                 }
             }
+            */
 
-            /*
             // Only add the pixel script if we have its lead data in localStorage
             if (
                 email !== null &&
@@ -105,6 +106,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 // const stateHash = SHA256(state);
                 // const countryHash = SHA256("us");
 
+                /*
                 // Send lead event
                 (window as any).fbq('track', 'Lead', {
                     em: emailHash.toString(),
@@ -137,6 +139,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     st: stateHash.toString(),
                     country: countryHash.toString(),
                 }, { eventID: `submit_app_${new Date().getTime()}` });
+                */
 
                 // if (pixelScript !== null) {
                 //     pixelScript = document.createElement('script');
@@ -155,12 +158,11 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 // Send data off to Google
                 (window as any).dataLayer.push({
                     email: emailHash.toString(),
-                    phone_number: phoneHash.toString(),
-                    first_name: firstNameHash.toString(),
-                    last_name: lastNameHash.toString(),
+                    // phone_number: phoneHash.toString(),
+                    // first_name: firstNameHash.toString(),
+                    // last_name: lastNameHash.toString(),
                 });
             }
-            */
         }
     });
 
