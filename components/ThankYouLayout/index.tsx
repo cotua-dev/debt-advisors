@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import Script from 'next/script';
-// import { SHA256 } from 'crypto-js';
+import { SHA256 } from 'crypto-js';
 import { ThankYouLayoutProps } from './ThankYouLayout.interfaces';
 
 export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
-    /*
     const parsePhoneNumber = (phone: string): string => {
         let parsedPhoneNumber = '';
 
@@ -13,7 +12,6 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
 
         return parsedPhoneNumber;
     }
-    */
 
     /**
      * We needed to pass the unsecured debt amount to the google tag conversion script
@@ -28,12 +26,12 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
 
         // Grab data from localStorage
         const amount: string | null = localStorage.getItem('amount');
-        // const email: string | null = localStorage.getItem('email');
-        // const phone: string | null = localStorage.getItem('phone');
-        // const firstName: string | null = localStorage.getItem('firstName');
-        // const lastName: string | null = localStorage.getItem('lastName');
-        // const city: string | null = localStorage.getItem('city');
-        // const state: string | null = localStorage.getItem('state');
+        const email: string | null = localStorage.getItem('email');
+        const phone: string | null = localStorage.getItem('phone');
+        const firstName: string | null = localStorage.getItem('firstName');
+        const lastName: string | null = localStorage.getItem('lastName');
+        const city: string | null = localStorage.getItem('city');
+        const state: string | null = localStorage.getItem('state');
 
         // Make sure we have the body element
         if (bodyEl !== null) {
@@ -56,8 +54,8 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 }
             }
 
-            // Only add the pixel script if we have its lead data in localStorage
             /*
+            // Only add the pixel script if we have its lead data in localStorage
             if (
                 email !== null &&
                 phone !== null &&
@@ -74,9 +72,9 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 const phoneHash = SHA256(parsedPhoneNumber);
                 const firstNameHash = SHA256(firstName);
                 const lastNameHash = SHA256(lastName);
-                const cityHash = SHA256(city);
-                const stateHash = SHA256(state);
-                const countryHash = SHA256("us");
+                // const cityHash = SHA256(city);
+                // const stateHash = SHA256(state);
+                // const countryHash = SHA256("us");
 
                 // Send lead event
                 (window as any).fbq('track', 'Lead', {
@@ -139,6 +137,24 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
 
     return (
         <>
+            <Script
+                strategy="afterInteractive"
+                id="google-tag-enhanced-data"
+                dangerouslySetInnerHTML={{__html: `
+                    var enhanced_conversion_data = {
+                        "email": ${SHA256(localStorage.getItem('email'))}
+                    };
+                `}}
+            />
+            <Script
+                strategy="afterInteractive"
+                id="google-tag-conversion"
+                dangerouslySetInnerHTML={{__html: `
+                    gtag('event', 'conversion', {
+                        'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_THANK_YOU}'
+                    });
+                `}}
+            />
             {/* <Script
                 strategy="afterInteractive"
                 id="google-tag-conversion"
