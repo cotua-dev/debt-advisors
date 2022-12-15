@@ -142,7 +142,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 id="google-tag-enhanced-data"
                 dangerouslySetInnerHTML={{__html: `
                     var enhanced_conversion_data = {
-                        "email": ${SHA256(localStorage.getItem('email'))}
+                        "email": ${SHA256(localStorage.getItem('email') || '')}
                     };
                 `}}
             />
