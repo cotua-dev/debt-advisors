@@ -157,7 +157,8 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
 
                 // Send data off to Google
                 (window as any).dataLayer.push({
-                    email: emailHash.toString(),
+                    email: email,
+                    // email: emailHash.toString(),
                     // phone_number: phoneHash.toString(),
                     // first_name: firstNameHash.toString(),
                     // last_name: lastNameHash.toString(),
