@@ -54,6 +54,35 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 }
             }
 
+            if (email !== null) {
+                let gtagEmailScript = document.getElementById('google-tag-conversion-data');
+                let gtagEnhancedDataScript = document.getElementById('google-tag-enhanced-data');
+
+                if (gtagEnhancedDataScript === null) {
+                    gtagEnhancedDataScript = document.createElement('script');
+                    gtagEnhancedDataScript.id = 'google-tag-enhanced-data';
+                    gtagEnhancedDataScript.append(`
+                        var enhanced_conversion_data = {
+                            "email": ${SHA256(email).toString()}
+                        };
+                    `);
+
+                    bodyEl.append(gtagEnhancedDataScript);
+                }
+
+                if (gtagEmailScript === null) {
+                    gtagEmailScript = document.createElement('script');
+                    gtagEmailScript.id = 'google-tag-conversion-data';
+                    gtagEmailScript.append(`
+                        gtag('event', 'conversion', {
+                            'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_THANK_YOU}'
+                        });
+                    `);
+
+                    bodyEl.append(gtagEmailScript);
+                }
+            }
+
             /*
             // Only add the pixel script if we have its lead data in localStorage
             if (
@@ -137,7 +166,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
 
     return (
         <>
-            <Script
+            {/* <Script
                 strategy="afterInteractive"
                 id="google-tag-enhanced-data"
                 dangerouslySetInnerHTML={{__html: `
@@ -154,7 +183,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                         'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_THANK_YOU}'
                     });
                 `}}
-            />
+            /> */}
             {/* <Script
                 strategy="afterInteractive"
                 id="google-tag-conversion"
