@@ -164,6 +164,13 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     // last_name: lastNameHash.toString(),
                 });
             }
+
+            if (!(window as any).ttq) {
+                throw new Error("TikTok pixel does not appear to exist");
+            } else {
+                (window as any).ttq.instance(`${process.env.NEXT_PUBLIC_TIK_TOK}`);
+                (window as any).ttq.track("SubmitForm");
+            }
         }
     });
 
