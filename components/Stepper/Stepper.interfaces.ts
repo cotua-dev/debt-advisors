@@ -46,7 +46,18 @@ export interface StepperModel extends Partial<MailerModel> {
     isMailer: boolean;
 };
 
-export interface ParsedStepperModel extends Partial<MailerModel> {
+export interface AdsFields {
+    utm_medium?: string;
+    utm_term?: string;
+    utm_content?: string;
+    utm_source?: string;
+    utm_campaign?: string;
+    gclid?: string;
+    fbclid?: string;
+    placement?: string;
+};
+
+export interface ParsedStepperModel extends Partial<MailerModel>, Partial<AdsFields> {
     userPurpose: UserPurpose;
     debtType: DebtType;
     behindPaymentsType: BehindPaymentsType;
