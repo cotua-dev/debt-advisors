@@ -1,14 +1,15 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+// import { useEffect } from 'react';
+// import { useRouter } from 'next/router';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
 import { Navigation } from '../Navigation';
 import { LayoutProps } from './Layout.interfaces';
 
 export function Layout(props: LayoutProps = { title: 'Debt Advisors', children: [] }): JSX.Element {
-    const router = useRouter();
-    const { query } = router;
+    // const router = useRouter();
+    // const { query } = router;
 
+    /*
     useEffect(() => {
         localStorage.clear();
 
@@ -49,6 +50,7 @@ export function Layout(props: LayoutProps = { title: 'Debt Advisors', children: 
             localStorage.setItem("utm_term", query.utm_term as string);
         }
     }, [query]);
+    */
 
     return (
         <>
