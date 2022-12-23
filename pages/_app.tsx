@@ -5,7 +5,6 @@ const CustomApp = ({ Component, pageProps }: AppContext & AppInitialProps): JSX.
     return (
         <>
             <Component {...pageProps}/>
-            {/* <input type="hidden" id="gclid_field" name="gclid_field" value=""/> */}
         </>
     );
 };
