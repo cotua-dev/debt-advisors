@@ -5,7 +5,7 @@ function StepperPage(): JSX.Element {
     return (
         <Layout title="Stepper - Debt Advisors">
             <Stepper stepper-type="full"/>
-            <input type="hidden" id="gclid_field" name="gclid_field" value=""/>
+            {/* <input type="hidden" id="gclid_field" name="gclid_field" value=""/> */}
         </Layout>
     );
 }
