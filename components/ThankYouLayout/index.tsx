@@ -55,9 +55,9 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                         };
                     `);
 
-                    document.querySelector('head')?.append(enhancedConversionDataScript);
+                    // document.querySelector('head')?.append(enhancedConversionDataScript);
 
-                    // bodyEl.append(enhancedConversionDataScript);
+                    bodyEl.append(enhancedConversionDataScript);
                 }
             }
 
@@ -182,7 +182,6 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 // }
 
                 // Send data off to Google
-                /*
                 (window as any).dataLayer.push({
                     email: email,
                     // email: emailHash.toString(),
@@ -190,7 +189,6 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     // first_name: firstNameHash.toString(),
                     // last_name: lastNameHash.toString(),
                 });
-                */
             }
 
             if (!(window as any).ttq) {
