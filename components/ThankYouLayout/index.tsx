@@ -172,28 +172,19 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 });
             }
 
-            if (
-                amount !== null &&
-                utm_source !== null &&
-                utm_medium !== null &&
-                utm_campaign !== null &&
-                utm_term !== null &&
-                utm_content !== null
-            ) {
-                if (!(window as any).ttq) {
-                    throw new Error("TikTok pixel does not appear to exist");
-                } else {
-                    (window as any).ttq.instance(`${process.env.NEXT_PUBLIC_TIK_TOK}`);
-                    (window as any).ttq.track("SubmitForm", {
-                        value: Number(amount),
-                        currency: 'USD',
-                        utm_source,
-                        utm_medium,
-                        utm_campaign,
-                        utm_term,
-                        utm_content,
-                    });
-                }
+            if (!(window as any).ttq) {
+                throw new Error("TikTok pixel does not appear to exist");
+            } else {
+                (window as any).ttq.instance(`${process.env.NEXT_PUBLIC_TIK_TOK}`);
+                (window as any).ttq.track("SubmitForm", {
+                    value: Number(amount),
+                    currency: 'USD',
+                    utm_source,
+                    utm_medium,
+                    utm_campaign,
+                    utm_term,
+                    utm_content,
+                });
             }
         }
     });

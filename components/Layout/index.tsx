@@ -10,7 +10,7 @@ export function Layout(props: LayoutProps = { title: 'Debt Advisors', children: 
     const { query } = router;
 
     useEffect(() => {
-        localStorage.clear();
+        // localStorage.clear();
 
         // if (query.gclid !== undefined) {
         //     localStorage.setItem("gclid", query.gclid as string);
