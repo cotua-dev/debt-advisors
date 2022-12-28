@@ -33,6 +33,13 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
         const city: string | null = localStorage.getItem('city');
         const state: string | null = localStorage.getItem('state');
 
+        // UTM values
+        const utm_source: string | null = localStorage.getItem('utm_source');
+        const utm_medium: string | null = localStorage.getItem('utm_medium');
+        const utm_campaign: string | null = localStorage.getItem('utm_campaign');
+        const utm_term: string | null = localStorage.getItem('utm_term');
+        const utm_content: string | null = localStorage.getItem('utm_content');
+
         // Make sure we have the body element
         if (bodyEl !== null) {
             // Only add the conversion script if we have an amount in localStorage
@@ -165,11 +172,28 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 });
             }
 
-            if (!(window as any).ttq) {
-                throw new Error("TikTok pixel does not appear to exist");
-            } else {
-                (window as any).ttq.instance(`${process.env.NEXT_PUBLIC_TIK_TOK}`);
-                (window as any).ttq.track("SubmitForm");
+            if (
+                amount !== null &&
+                utm_source !== null &&
+                utm_medium !== null &&
+                utm_campaign !== null &&
+                utm_term !== null &&
+                utm_content !== null
+            ) {
+                if (!(window as any).ttq) {
+                    throw new Error("TikTok pixel does not appear to exist");
+                } else {
+                    (window as any).ttq.instance(`${process.env.NEXT_PUBLIC_TIK_TOK}`);
+                    (window as any).ttq.track("SubmitForm", {
+                        value: Number(amount),
+                        currency: 'USD',
+                        utm_source,
+                        utm_medium,
+                        utm_campaign,
+                        utm_term,
+                        utm_content,
+                    });
+                }
             }
         }
     });
