@@ -33,6 +33,13 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
         const city: string | null = localStorage.getItem('city');
         const state: string | null = localStorage.getItem('state');
 
+        // UTM values
+        const utm_source: string | null = localStorage.getItem('utm_source');
+        const utm_medium: string | null = localStorage.getItem('utm_medium');
+        const utm_campaign: string | null = localStorage.getItem('utm_campaign');
+        const utm_term: string | null = localStorage.getItem('utm_term');
+        const utm_content: string | null = localStorage.getItem('utm_content');
+
         // Make sure we have the body element
         if (bodyEl !== null) {
             // Add enhanced conversion data to a variable
@@ -175,8 +182,8 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 // Send data off to Google
                 /*
                 (window as any).dataLayer.push({
-                    // email: email,
-                    email: emailHash.toString(),
+                    email: email,
+                    // email: emailHash.toString(),
                     // phone_number: phoneHash.toString(),
                     // first_name: firstNameHash.toString(),
                     // last_name: lastNameHash.toString(),
@@ -188,7 +195,18 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 throw new Error("TikTok pixel does not appear to exist");
             } else {
                 (window as any).ttq.instance(`${process.env.NEXT_PUBLIC_TIK_TOK}`);
-                (window as any).ttq.track("SubmitForm");
+                (window as any).ttq.track("SubmitForm", {
+                    value: Number(amount),
+                    currency: 'USD',
+                    content_type: 'product',
+                    content_id: '1',
+                    content_name: 'stepper',
+                    // utm_source,
+                    // utm_medium,
+                    // utm_campaign,
+                    // utm_term,
+                    // utm_content,
+                });
             }
         }
     });
