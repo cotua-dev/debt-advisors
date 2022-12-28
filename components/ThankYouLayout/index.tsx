@@ -179,11 +179,14 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 (window as any).ttq.track("SubmitForm", {
                     value: Number(amount),
                     currency: 'USD',
-                    utm_source,
-                    utm_medium,
-                    utm_campaign,
-                    utm_term,
-                    utm_content,
+                    content_type: 'product',
+                    content_id: '1',
+                    content_name: 'stepper',
+                    // utm_source,
+                    // utm_medium,
+                    // utm_campaign,
+                    // utm_term,
+                    // utm_content,
                 });
             }
         }
