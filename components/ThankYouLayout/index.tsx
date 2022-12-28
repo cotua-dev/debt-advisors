@@ -55,7 +55,9 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                         };
                     `);
 
-                    bodyEl.append(enhancedConversionDataScript);
+                    document.querySelector('head')?.append(enhancedConversionDataScript);
+
+                    // bodyEl.append(enhancedConversionDataScript);
                 }
             }
 
