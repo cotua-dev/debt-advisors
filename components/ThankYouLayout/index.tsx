@@ -35,6 +35,23 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
 
         // Make sure we have the body element
         if (bodyEl !== null) {
+            // Add enhanced conversion data to a variable
+            if (email !== null) {
+                let enhancedConversionDataScript: HTMLElement | null = document.getElementById('google-tag-conversion-data');
+
+                if (enhancedConversionDataScript === null) {
+                    enhancedConversionDataScript = document.createElement('script');
+                    enhancedConversionDataScript.id = 'google-tag-conversion-data';
+                    enhancedConversionDataScript.append(`
+                        const enhanced_conversion_data = {
+                            "email": "${email}",
+                        };
+                    `);
+
+                    bodyEl.append(enhancedConversionDataScript);
+                }
+            }
+
             // Only add the conversion script if we have an amount in localStorage
             if (amount !== null) {
                 let conversionScript: HTMLElement | null = document.getElementById('google-tag-conversion');
@@ -156,6 +173,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 // }
 
                 // Send data off to Google
+                /*
                 (window as any).dataLayer.push({
                     // email: email,
                     email: emailHash.toString(),
@@ -163,6 +181,7 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     // first_name: firstNameHash.toString(),
                     // last_name: lastNameHash.toString(),
                 });
+                */
             }
 
             if (!(window as any).ttq) {
@@ -176,6 +195,15 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
 
     return (
         <>
+            {/* <Script
+                id="google-tag-data"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{__html: `
+                    const enhanced_conversion_data = {
+                        "email": ${localStorage.getItem('email') || ''},
+                    }
+                `}}
+            ></Script> */}
             {/* <Script
                 strategy="afterInteractive"
                 id="google-tag-enhanced-data"
