@@ -107,6 +107,11 @@ export function parsePhoneNumber(unparsedPhoneNumber: string): string {
  * @returns Object containing equivalent acceptable values
  */
 export function parseModel(unparsedModel: StepperModel): ParsedStepperModel {
+    const utm_campaign = localStorage.getItem("utm_campaign") ?? "",
+        utm_term = localStorage.getItem("utm_term") ?? "",
+        utm_content = localStorage.getItem("utm_content") ?? "",
+        utm_medium = localStorage.getItem("utm_medium") ?? "",
+        utm_source = localStorage.getItem("utm_source") ?? "";
     // const utm_campaign = localStorage.getItem("utm_campaign") ?? "",
     //     utm_term = localStorage.getItem("utm_term") ?? "",
     //     utm_content = localStorage.getItem("utm_content") ?? "",
@@ -130,11 +135,11 @@ export function parseModel(unparsedModel: StepperModel): ParsedStepperModel {
         phone: parsePhoneNumber(unparsedModel.phone),
         site: window.location.href,
         isMailer: unparsedModel.isMailer,
-        // utm_campaign,
-        // utm_term,
-        // utm_content,
-        // utm_medium,
-        // utm_source,
+        utm_campaign,
+        utm_term,
+        utm_content,
+        utm_medium,
+        utm_source,
         // gclid,
         // fbclid,
         // placement,
