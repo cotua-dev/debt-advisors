@@ -185,7 +185,7 @@ export default function Document() {
                         ]
                     }
                 `}}></script>
-                <script dangerouslySetInnerHTML={{__html: `
+                <script id="click-cease" dangerouslySetInnerHTML={{__html: `
                 var script = document.createElement('script');
                 script.async = true; script.type = 'text/javascript';
                 var target = 'https://www.clickcease.com/monitor/stat.js';
@@ -197,7 +197,7 @@ export default function Document() {
                 <Main/>
                 <NextScript/>
                 {process.env.NEXT_PUBLIC_GTM &&
-                    <noscript>
+                    <noscript id="google-tag-manager-noscript">
                         <iframe
                             src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM}`}
                             height="0"
@@ -207,7 +207,7 @@ export default function Document() {
                     </noscript>
                 }
                 {process.env.NEXT_PUBLIC_FBQ1 &&
-                    <noscript>
+                    <noscript id="facebook-pixel-noscript-1">
                         <img
                             height="1"
                             width="1"
@@ -218,7 +218,7 @@ export default function Document() {
                     </noscript>
                 }
                 {process.env.NEXT_PUBLIC_FBQ2 &&
-                    <noscript>
+                    <noscript id="facebook-pixel-noscript-2">
                         <img
                             height="1"
                             width="1"
@@ -229,7 +229,7 @@ export default function Document() {
                     </noscript>
                 }
                 {process.env.NEXT_PUBLIC_FBQ3 &&
-                    <noscript>
+                    <noscript id="facebook-pixel-noscript-3">
                         <img
                             height="1"
                             width="1"
@@ -239,7 +239,7 @@ export default function Document() {
                         />
                     </noscript>
                 }
-                <noscript>
+                <noscript id="click-cease-noscript">
                     <a href="https://www.clickcease.com" rel="nofollow">
                         <img src="https://monitor.clickcease.com/stats/stats.aspx" alt="ClickCease"/>
                     </a>

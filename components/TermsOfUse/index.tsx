@@ -10,14 +10,14 @@ export function TermsOfUse(): JSX.Element {
             <h1>{`Binding Effect`}</h1>
             <p>
                 {`These Terms of Use constitute a legally binding agreement made between Debt Resolution Direct, LLC d/b/a Debt Advisors of America Company and you, the person accessing `}
-                <Link href="/"><a>{homeURL}</a></Link>
+                <Link href="/">{homeURL}</Link>
                 {`, including any content, functionality and services offered on or through `}
-                <Link href="/"><a>{homeURL}</a></Link>
+                <Link href="/">{homeURL}</Link>
                 {` and any of its affiliated websites (collectively, “Website”) whether personally or on behalf of an entity (“you” or “your”). These Terms of Use are in addition to any other agreements between you and Company, including any customer or account agreements and any other agreements that govern your use of the Website and information provided by Company (collectively, “Agreements”).`}
             </p>
             <p>
                 {`Please read the Terms of Use carefully before you start to use the Website. By using the Website, you accept and agree to be bound and abide by these Terms of Use and our Privacy Policy, found at `}
-                <Link href="/privacy-policy"><a>{`${homeURL}/privacy-policy`}</a></Link>
+                <Link href="/privacy-policy">{`${homeURL}/privacy-policy`}</Link>
                 {` and incorporated herein by reference.`}
             </p>
             <p>

@@ -4,6 +4,7 @@ import { Footer } from '../Footer';
 import { Header } from '../Header';
 import { Navigation } from '../Navigation';
 import { LayoutProps } from './Layout.interfaces';
+import { CookieBanner } from '../CookieBanner';
 
 export function Layout(props: LayoutProps = { title: 'Debt Advisors', children: [] }): JSX.Element {
     const router = useRouter();
@@ -52,6 +53,7 @@ export function Layout(props: LayoutProps = { title: 'Debt Advisors', children: 
 
     return (
         <>
+            <CookieBanner/>
             <Header title={props.title}/>
             <Navigation/>
             <main role="main">
