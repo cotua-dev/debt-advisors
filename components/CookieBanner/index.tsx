@@ -27,7 +27,7 @@ export function CookieBanner() {
     }
 
     return (
-        <div className={`fixed bottom-0 left-0 border p-4 flex flex-col items-center justify-center bg-daa-purple text-white lg:rounded-lg lg:drop-shadow-lg text-sm lg:max-w-[300px] lg:mb-4 lg:mx-4 ${!showBanner && 'hidden'}`}>
+        <div className={`fixed bottom-0 left-0 lg:border p-4 flex flex-col items-center justify-center bg-daa-purple text-white lg:rounded-lg lg:drop-shadow-lg text-sm lg:max-w-[300px] lg:mb-4 lg:mx-4 ${!showBanner && 'hidden'}`}>
             <p className="mb-4 text-center">
                 {`This website uses cookies and other tracking technologies. We share information about your use of our site with social media and analytics partners in accordance with our `}
                 <Link href="/privacy-policy" className="underline">
