@@ -17,8 +17,34 @@ export function insertTrackingScripts() {
             facebookTrackScript = document.createElement("script");
             facebookTrackScript.id = "facebook-track-script";
             facebookTrackScript.append(
-                `fbq("track", "SubmitApplication");
-                fbq("track", "Lead", {
+                `fbq("trackSingle", "1011657849590069", "SubmitApplication");
+                fbq("trackSingle", "5736031759798138", "SubmitApplication");
+                fbq("trackSingle", "722608354594685", "SubmitApplication");
+                fbq("trackSingle", "1011657849590069", "Lead", {
+                    content_category: "product",
+                    content_name: "stepper",
+                    currency: "USD",
+                    value: ${Number(amount) || 0},
+                    em: "${email !== null ? SHA256(email).toString() : ""}",
+                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
+                    fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
+                    ln: "${lastName !== null ? SHA256(lastName).toString() : ""}",
+                    ct: "${city !== null ? SHA256(city).toString() : ""}",
+                    st: "${state !== null ? SHA256(state).toString() : ""}",
+                }, { eventID: "lead_${new Date().getTime()}" });
+                fbq("trackSingle", "5736031759798138", "Lead", {
+                    content_category: "product",
+                    content_name: "stepper",
+                    currency: "USD",
+                    value: ${Number(amount) || 0},
+                    em: "${email !== null ? SHA256(email).toString() : ""}",
+                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
+                    fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
+                    ln: "${lastName !== null ? SHA256(lastName).toString() : ""}",
+                    ct: "${city !== null ? SHA256(city).toString() : ""}",
+                    st: "${state !== null ? SHA256(state).toString() : ""}",
+                }, { eventID: "lead_${new Date().getTime()}" });
+                fbq("trackSingle", "722608354594685", "Lead", {
                     content_category: "product",
                     content_name: "stepper",
                     currency: "USD",
