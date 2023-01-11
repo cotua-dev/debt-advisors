@@ -6,12 +6,17 @@ export function Header(props: HeaderProps) {
 
     return (
         <Head>
-            <title>{props.title ? props.title : 'Debt Advisors – America'}</title>
+            <title>{props.title ? props.title : 'Debt Advisors - America'}</title>
             <meta charSet="utf-8"/>
             <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
             <meta name="theme-color" content="#2B2F73"/>
             <meta name="description" content={props.description ? props.description : description}/>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <meta property="og:type" content="website"/>
+            <meta property="og:locale" content="en_US"/>
+            <meta property="og:site_name" content={props.title || "Debt Advisors - America"}/>
+            <meta property="og:title" content={props.title || "Debt Advisors - America"}/>
+            <meta property="og:description" content={props.description || description}/>
             <link rel="icon" type="image/png" sizes="32x32" href="/images/logo32x32.png"/>
             <link rel="icon" type="image/png" sizes="180x180" href="/images/logo180x180.png"/>
             <link rel="apple-touch-icon" href="/images/logo192x192.png"/>

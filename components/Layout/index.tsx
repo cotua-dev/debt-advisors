@@ -4,6 +4,7 @@ import { Footer } from '../Footer';
 import { Header } from '../Header';
 import { Navigation } from '../Navigation';
 import { LayoutProps } from './Layout.interfaces';
+import { initialize3rdParty } from './Layout.utilities';
 
 export function Layout(props: LayoutProps = { title: 'Debt Advisors', children: [] }): JSX.Element {
     const router = useRouter();
@@ -49,6 +50,10 @@ export function Layout(props: LayoutProps = { title: 'Debt Advisors', children: 
             localStorage.setItem("utm_term", query.utm_term as string);
         }
     }, [query]);
+
+    useEffect(() => {
+        initialize3rdParty();
+    }, []);
 
     return (
         <>

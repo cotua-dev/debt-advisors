@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Script from 'next/script';
 import { SHA256 } from 'crypto-js';
 import { ThankYouLayoutProps } from './ThankYouLayout.interfaces';
+import { insertTrackingScripts } from './ThankYouLayout.utilities';
 
 export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
     const parsePhoneNumber = (phone: string): string => {
@@ -43,42 +44,42 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
         // Make sure we have the body element
         if (bodyEl !== null) {
             // Add enhanced conversion data to a variable
-            if (email !== null) {
-                let enhancedConversionDataScript: HTMLElement | null = document.getElementById('google-tag-conversion-data');
+            // if (email !== null) {
+            //     let enhancedConversionDataScript: HTMLElement | null = document.getElementById('google-tag-conversion-data');
 
-                if (enhancedConversionDataScript === null) {
-                    enhancedConversionDataScript = document.createElement('script');
-                    enhancedConversionDataScript.id = 'google-tag-conversion-data';
-                    enhancedConversionDataScript.append(`
-                        const enhanced_conversion_data = {
-                            "email": "${email}",
-                        };
-                    `);
+            //     if (enhancedConversionDataScript === null) {
+            //         enhancedConversionDataScript = document.createElement('script');
+            //         enhancedConversionDataScript.id = 'google-tag-conversion-data';
+            //         enhancedConversionDataScript.append(`
+            //             const enhanced_conversion_data = {
+            //                 "email": "${email}",
+            //             };
+            //         `);
 
-                    // document.querySelector('head')?.append(enhancedConversionDataScript);
+            //         // document.querySelector('head')?.append(enhancedConversionDataScript);
 
-                    bodyEl.append(enhancedConversionDataScript);
-                }
-            }
+            //         bodyEl.append(enhancedConversionDataScript);
+            //     }
+            // }
 
             // Only add the conversion script if we have an amount in localStorage
-            if (amount !== null) {
-                let conversionScript: HTMLElement | null = document.getElementById('google-tag-conversion');
+            // if (amount !== null) {
+            //     let conversionScript: HTMLElement | null = document.getElementById('google-tag-conversion');
 
-                if (conversionScript === null) {
-                    conversionScript = document.createElement('script');
-                    conversionScript.id = 'google-tag-conversion';
-                    conversionScript.append(`
-                        gtag('event', 'conversion', {
-                            'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_THANK_YOU}',
-                            'value': ${Number(amount)},
-                            'currency': 'USD'
-                        });
-                    `);
+            //     if (conversionScript === null) {
+            //         conversionScript = document.createElement('script');
+            //         conversionScript.id = 'google-tag-conversion';
+            //         conversionScript.append(`
+            //             gtag('event', 'conversion', {
+            //                 'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_THANK_YOU}',
+            //                 'value': ${Number(amount)},
+            //                 'currency': 'USD'
+            //             });
+            //         `);
 
-                    bodyEl.append(conversionScript);
-                }
-            }
+            //         bodyEl.append(conversionScript);
+            //     }
+            // }
 
             /*
             if (email !== null) {
@@ -182,34 +183,38 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 // }
 
                 // Send data off to Google
-                (window as any).dataLayer.push({
-                    email: email,
-                    // email: emailHash.toString(),
-                    // phone_number: phoneHash.toString(),
-                    // first_name: firstNameHash.toString(),
-                    // last_name: lastNameHash.toString(),
-                });
+                // (window as any).dataLayer.push({
+                //     email: email,
+                //     // email: emailHash.toString(),
+                //     // phone_number: phoneHash.toString(),
+                //     // first_name: firstNameHash.toString(),
+                //     // last_name: lastNameHash.toString(),
+                // });
             }
 
-            if (!(window as any).ttq) {
-                throw new Error("TikTok pixel does not appear to exist");
-            } else {
-                (window as any).ttq.instance(`${process.env.NEXT_PUBLIC_TIK_TOK}`);
-                (window as any).ttq.track("SubmitForm", {
-                    value: Number(amount),
-                    currency: 'USD',
-                    content_type: 'product',
-                    content_id: '1',
-                    content_name: 'stepper',
-                    // utm_source,
-                    // utm_medium,
-                    // utm_campaign,
-                    // utm_term,
-                    // utm_content,
-                });
-            }
+            // if (!(window as any).ttq) {
+            //     throw new Error("TikTok pixel does not appear to exist");
+            // } else {
+            //     (window as any).ttq.instance(`${process.env.NEXT_PUBLIC_TIK_TOK}`);
+            //     (window as any).ttq.track("SubmitForm", {
+            //         value: Number(amount),
+            //         currency: 'USD',
+            //         content_type: 'product',
+            //         content_id: '1',
+            //         content_name: 'stepper',
+            //         // utm_source,
+            //         // utm_medium,
+            //         // utm_campaign,
+            //         // utm_term,
+            //         // utm_content,
+            //     });
+            // }
         }
     });
+
+    useEffect(() => {
+        insertTrackingScripts();
+    }, []);
 
     return (
         <>
@@ -251,14 +256,14 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     });
                 `}}
             /> */}
-            <Script
+            {/* <Script
                 strategy="afterInteractive"
                 id="facebook-track-submit-application"
                 dangerouslySetInnerHTML={{__html: `
                     fbq('track', 'SubmitApplication');
                     fbq('track', 'Lead');
                 `}}
-            />
+            /> */}
             {/* <Script
                 strategy="afterInteractive"
                 id="facebook-track-submit-application"
