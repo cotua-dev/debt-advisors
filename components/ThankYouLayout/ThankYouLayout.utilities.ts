@@ -17,14 +17,11 @@ export function insertTrackingScripts() {
             facebookTrackScript = document.createElement("script");
             facebookTrackScript.id = "facebook-track-script";
             facebookTrackScript.append(
-                `fbq("trackSingle", "1011657849590069", "SubmitApplication");
-                fbq("trackSingle", "5736031759798138", "SubmitApplication");
-                fbq("trackSingle", "722608354594685", "SubmitApplication");
-                fbq("trackSingle", "1011657849590069", "Lead", {
+                `fbq("trackSingle", "1011657849590069", "Lead", {
                     content_category: "product",
                     content_name: "stepper",
                     currency: "USD",
-                    value: ${Number(amount) || 0},
+                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00},
                     em: "${email !== null ? SHA256(email).toString() : ""}",
                     ph: "${phone !== null ? SHA256(phone).toString() : ""}",
                     fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
@@ -36,7 +33,7 @@ export function insertTrackingScripts() {
                     content_category: "product",
                     content_name: "stepper",
                     currency: "USD",
-                    value: ${Number(amount) || 0},
+                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00}},
                     em: "${email !== null ? SHA256(email).toString() : ""}",
                     ph: "${phone !== null ? SHA256(phone).toString() : ""}",
                     fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
@@ -48,7 +45,7 @@ export function insertTrackingScripts() {
                     content_category: "product",
                     content_name: "stepper",
                     currency: "USD",
-                    value: ${Number(amount) || 0},
+                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00}},
                     em: "${email !== null ? SHA256(email).toString() : ""}",
                     ph: "${phone !== null ? SHA256(phone).toString() : ""}",
                     fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
@@ -67,7 +64,7 @@ export function insertTrackingScripts() {
             tikTokTrackScript = document.createElement("script");
             tikTokTrackScript.id = "tik-tok-track-script";
             tikTokTrackScript.append(
-                `ttq.instance("");
+                `ttq.instance("CEHM5CBC77UDF9719OR0");
                 ttq.track("SubmitForm", {
                     value: ${Number(amount) || 0},
                     currency: "USD",
