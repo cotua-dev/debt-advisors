@@ -1,3 +1,7 @@
+function onThankYouPages(): boolean {
+    return window.location.pathname === "/thanks" || window.location.pathname === "/thank-you";
+}
+
 export function initialize3rdParty() {
     const headEl: HTMLHeadElement | null = document.querySelector("head");
     if (headEl !== null) {
@@ -36,7 +40,7 @@ export function initialize3rdParty() {
 
         // Add Facebook pixel script
         let facebookPixelScript: HTMLElement | null = document.getElementById("facebook-script");
-        if (facebookPixelScript === null) {
+        if (facebookPixelScript === null && !onThankYouPages()) {
             facebookPixelScript = document.createElement("script");
             facebookPixelScript.id = "facebook-script";
             facebookPixelScript.append(`
