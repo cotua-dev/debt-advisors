@@ -11,67 +11,6 @@ export function insertTrackingScripts() {
 
     const bodyEl: HTMLBodyElement | null = document.querySelector("body");
     if (bodyEl !== null) {
-        // Add Facebook track script
-        let facebookTrackScript: HTMLElement | null = document.getElementById("facebook-track-script");
-        if (facebookTrackScript === null) {
-            facebookTrackScript = document.createElement("script");
-            facebookTrackScript.id = "facebook-track-script";
-            facebookTrackScript.append(
-                `
-                fbq("trackSingle", "1011657849590069", "Lead", {
-                    content_category: "product",
-                    content_name: "stepper",
-                    currency: "USD",
-                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00},
-                    em: "${email !== null ? SHA256(email).toString() : ""}",
-                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
-                    fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
-                    ln: "${lastName !== null ? SHA256(lastName).toString() : ""}",
-                    ct: "${city !== null ? SHA256(city).toString() : ""}",
-                    st: "${state !== null ? SHA256(state).toString() : ""}",
-                }, { eventID: "lead_${new Date().getTime()}" });
-                fbq("trackSingleCustom", "1011657849590069", "ClickCeaseInvalidUsersLive", {
-                    em: "${email !== null ? SHA256(email).toString() : ""}",
-                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
-                });
-                fbq("trackSingle", "5736031759798138", "Lead", {
-                    content_category: "product",
-                    content_name: "stepper",
-                    currency: "USD",
-                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00},
-                    em: "${email !== null ? SHA256(email).toString() : ""}",
-                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
-                    fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
-                    ln: "${lastName !== null ? SHA256(lastName).toString() : ""}",
-                    ct: "${city !== null ? SHA256(city).toString() : ""}",
-                    st: "${state !== null ? SHA256(state).toString() : ""}",
-                }, { eventID: "lead_${new Date().getTime()}" });
-                fbq("trackSingleCustom", "5736031759798138", "ClickCeaseInvalidUsersLive", {
-                    em: "${email !== null ? SHA256(email).toString() : ""}",
-                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
-                });
-                fbq("trackSingle", "722608354594685", "Lead", {
-                    content_category: "product",
-                    content_name: "stepper",
-                    currency: "USD",
-                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00},
-                    em: "${email !== null ? SHA256(email).toString() : ""}",
-                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
-                    fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
-                    ln: "${lastName !== null ? SHA256(lastName).toString() : ""}",
-                    ct: "${city !== null ? SHA256(city).toString() : ""}",
-                    st: "${state !== null ? SHA256(state).toString() : ""}",
-                }, { eventID: "lead_${new Date().getTime()}" });
-                fbq("trackSingleCustom", "722608354594685", "ClickCeaseInvalidUsersLive", {
-                    em: "${email !== null ? SHA256(email).toString() : ""}",
-                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
-                });
-                `
-            );
-
-            bodyEl.append(facebookTrackScript);
-        }
-
         // Add Tiktok track script
         let tikTokTrackScript: HTMLElement | null = document.getElementById("tik-tok-track-script");
         if (tikTokTrackScript === null) {
@@ -94,6 +33,80 @@ export function insertTrackingScripts() {
 
     const headEl: HTMLHeadElement | null = document.querySelector("head");
     if (headEl !== null) {
+        // Add Facebook Pixel script
+        let facebookPixelScript: HTMLElement | null = document.getElementById("facebook-script");
+        if (facebookPixelScript === null) {
+            facebookPixelScript = document.createElement("script");
+            facebookPixelScript.id = "facebook-script";
+            facebookPixelScript.append(`
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '1011657849590069');
+                fbq("trackSingle", "1011657849590069", "Lead", {
+                    content_category: "product",
+                    content_name: "stepper",
+                    currency: "USD",
+                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00},
+                    em: "${email !== null ? SHA256(email).toString() : ""}",
+                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
+                    fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
+                    ln: "${lastName !== null ? SHA256(lastName).toString() : ""}",
+                    ct: "${city !== null ? SHA256(city).toString() : ""}",
+                    st: "${state !== null ? SHA256(state).toString() : ""}",
+                }, { eventID: "lead_${new Date().getTime()}" });
+                fbq("trackSingleCustom", "1011657849590069", "ClickCeaseInvalidUsersLive", {
+                    em: "${email !== null ? SHA256(email).toString() : ""}",
+                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
+                }, { eventID: "click_cease_invalid_users_live_${new Date().getTime()}" });
+
+                fbq('init', '5736031759798138');
+                fbq("trackSingle", "5736031759798138", "Lead", {
+                    content_category: "product",
+                    content_name: "stepper",
+                    currency: "USD",
+                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00},
+                    em: "${email !== null ? SHA256(email).toString() : ""}",
+                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
+                    fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
+                    ln: "${lastName !== null ? SHA256(lastName).toString() : ""}",
+                    ct: "${city !== null ? SHA256(city).toString() : ""}",
+                    st: "${state !== null ? SHA256(state).toString() : ""}",
+                }, { eventID: "lead_${new Date().getTime()}" });
+                fbq("trackSingleCustom", "5736031759798138", "ClickCeaseInvalidUsersLive", {
+                    em: "${email !== null ? SHA256(email).toString() : ""}",
+                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
+                }, { eventID: "click_cease_invalid_users_live_${new Date().getTime()}" });
+
+                fbq('init', '722608354594685');
+                fbq("trackSingle", "722608354594685", "Lead", {
+                    content_category: "product",
+                    content_name: "stepper",
+                    currency: "USD",
+                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00},
+                    em: "${email !== null ? SHA256(email).toString() : ""}",
+                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
+                    fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
+                    ln: "${lastName !== null ? SHA256(lastName).toString() : ""}",
+                    ct: "${city !== null ? SHA256(city).toString() : ""}",
+                    st: "${state !== null ? SHA256(state).toString() : ""}",
+                }, { eventID: "lead_${new Date().getTime()}" });
+                fbq("trackSingleCustom", "722608354594685", "ClickCeaseInvalidUsersLive", {
+                    em: "${email !== null ? SHA256(email).toString() : ""}",
+                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
+                }, { eventID: "click_cease_invalid_users_live_${new Date().getTime()}" });
+
+                fbq('track', 'PageView');
+            `);
+
+            headEl.append(facebookPixelScript);
+        }
+
         // Add Google Enhanced Conversions data
         let enhancedConversionDataScript: HTMLElement | null = document.getElementById("google-enhanced-conversions-data-script");
         if (enhancedConversionDataScript === null) {
@@ -128,5 +141,22 @@ export function insertTrackingScripts() {
 
             headEl.append(googleTagConversionScript);
         }
+    }
+}
+
+export function setFacebookPixelScript() {
+    const amount: string | null = localStorage.getItem('amount');
+    const email: string | null = localStorage.getItem('email');
+    const phone: string | null = localStorage.getItem('phone');
+    const firstName: string | null = localStorage.getItem('firstName');
+    const lastName: string | null = localStorage.getItem('lastName');
+    const city: string | null = localStorage.getItem('city');
+    const state: string | null = localStorage.getItem('state');
+
+    const headEl: HTMLHeadElement | null = document.querySelector("head");
+
+    if (headEl !== null) {
+        // Fetch facebook tracking script
+        const oldFacebookTrackingScript = document.getElementById("facebook-script");
     }
 }
