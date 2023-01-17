@@ -17,7 +17,8 @@ export function insertTrackingScripts() {
             facebookTrackScript = document.createElement("script");
             facebookTrackScript.id = "facebook-track-script";
             facebookTrackScript.append(
-                `fbq("trackSingle", "1011657849590069", "Lead", {
+                `
+                fbq("trackSingle", "1011657849590069", "Lead", {
                     content_category: "product",
                     content_name: "stepper",
                     currency: "USD",
@@ -29,11 +30,15 @@ export function insertTrackingScripts() {
                     ct: "${city !== null ? SHA256(city).toString() : ""}",
                     st: "${state !== null ? SHA256(state).toString() : ""}",
                 }, { eventID: "lead_${new Date().getTime()}" });
+                fbq("trackSingleCustom", "1011657849590069", "ClickCeaseInvalidUsersLive", {
+                    em: "${email !== null ? SHA256(email).toString() : ""}",
+                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
+                });
                 fbq("trackSingle", "5736031759798138", "Lead", {
                     content_category: "product",
                     content_name: "stepper",
                     currency: "USD",
-                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00}},
+                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00},
                     em: "${email !== null ? SHA256(email).toString() : ""}",
                     ph: "${phone !== null ? SHA256(phone).toString() : ""}",
                     fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
@@ -41,18 +46,27 @@ export function insertTrackingScripts() {
                     ct: "${city !== null ? SHA256(city).toString() : ""}",
                     st: "${state !== null ? SHA256(state).toString() : ""}",
                 }, { eventID: "lead_${new Date().getTime()}" });
+                fbq("trackSingleCustom", "5736031759798138", "ClickCeaseInvalidUsersLive", {
+                    em: "${email !== null ? SHA256(email).toString() : ""}",
+                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
+                });
                 fbq("trackSingle", "722608354594685", "Lead", {
                     content_category: "product",
                     content_name: "stepper",
                     currency: "USD",
-                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00}},
+                    value: ${amount !== null ? Number(parseFloat(amount).toFixed(2)) : 0.00},
                     em: "${email !== null ? SHA256(email).toString() : ""}",
                     ph: "${phone !== null ? SHA256(phone).toString() : ""}",
                     fn: "${firstName !== null ? SHA256(firstName).toString() : ""}",
                     ln: "${lastName !== null ? SHA256(lastName).toString() : ""}",
                     ct: "${city !== null ? SHA256(city).toString() : ""}",
                     st: "${state !== null ? SHA256(state).toString() : ""}",
-                }, { eventID: "lead_${new Date().getTime()}" });`
+                }, { eventID: "lead_${new Date().getTime()}" });
+                fbq("trackSingleCustom", "722608354594685", "ClickCeaseInvalidUsersLive", {
+                    em: "${email !== null ? SHA256(email).toString() : ""}",
+                    ph: "${phone !== null ? SHA256(phone).toString() : ""}",
+                });
+                `
             );
 
             bodyEl.append(facebookTrackScript);
