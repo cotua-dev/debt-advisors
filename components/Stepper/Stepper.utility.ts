@@ -225,3 +225,23 @@ export async function addBitrixContactDeal(data: ParsedStepperModel): Promise<Re
         throw new Error(addBitrixContactDealError as string);
     }
 }
+
+/**
+ * Send request to send a conversion to Facebook
+ * @param data Object containing already parsed data
+ * @returns Promise containing the response object or undefined
+ */
+export async function sendFacebookConversion(data: ParsedStepperModel): Promise<Response | undefined> {
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/DAAFacebookConversion`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        });
+
+        return response;
+    } catch (sendFacebookConversion: unknown) {
+        console.error({ sendFacebookConversion });
+        throw new Error(sendFacebookConversion as string);
+    }
+}
