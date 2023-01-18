@@ -113,9 +113,6 @@ export function Stepper(props: StepperProps): JSX.Element {
         if (props['stepper-type'] === 'short') {
             const bitrixResponse: Response | undefined = await addBitrixContactDeal(data);
 
-            // Keep going even if this does not succeed
-            await sendFacebookConversion(data);
-
             if (bitrixResponse !== undefined && bitrixResponse.status === 200) {
                 sendThankYouPage(data.unsecuredDebtAmount);
             } else {

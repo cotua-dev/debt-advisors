@@ -218,6 +218,8 @@ export async function addBitrixContactDeal(data: ParsedStepperModel): Promise<Re
             body: JSON.stringify(data),
         });
 
+        await sendFacebookConversion(data);
+
         // Return the response object
         return response;
     } catch(addBitrixContactDealError: unknown) {
