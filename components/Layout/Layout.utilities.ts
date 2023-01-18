@@ -54,7 +54,6 @@ export function initialize3rdParty() {
                 'https://connect.facebook.net/en_US/fbevents.js');
                 fbq('init', '1011657849590069');
                 fbq('init', '5736031759798138');
-                fbq('init', '722608354594685');
                 fbq('track', 'PageView');
             `);
 
@@ -135,28 +134,6 @@ export function initialize3rdParty() {
         // Add Facebook pixel noscripts
         let facebookPixelNoscript1: HTMLElement | null = document.getElementById("facebook-pixel-noscript-1");
         let facebookPixelNoscript2: HTMLElement | null = document.getElementById("facebook-pixel-noscript-2");
-        let facebookPixelNoscript3: HTMLElement | null = document.getElementById("facebook-pixel-noscript-3");
-
-        if (facebookPixelNoscript3 === null) {
-            facebookPixelNoscript3 = document.createElement("noscript");
-            facebookPixelNoscript3.id = "facebook-pixel-noscript-3";
-
-            // const facebookPixelNoscript3Img = document.createElement("img");
-            // facebookPixelNoscript3Img.height = 1;
-            // facebookPixelNoscript3Img.width = 1;
-            // facebookPixelNoscript3Img.style.display = "none";
-            // facebookPixelNoscript3Img.style.visibility = "hidden";
-            // facebookPixelNoscript3Img.alt = "Facebook Img"
-            // facebookPixelNoscript3Img.src = "https://www.facebook.com/tr?id=722608354594685&ev=PageView&noscript=1";
-
-            // facebookPixelNoscript3.append(facebookPixelNoscript3Img);
-
-            facebookPixelNoscript3.append(
-                `<img height="1" width="1" style="display:none;visibility:hidden;" alt="Facebook Img"
-                src="https://www.facebook.com/tr?id=722608354594685&ev=PageView&noscript=1"/>`
-            );
-            bodyEl.prepend(facebookPixelNoscript3);
-        }
         
         if (facebookPixelNoscript2 === null) {
             facebookPixelNoscript2 = document.createElement("noscript");
