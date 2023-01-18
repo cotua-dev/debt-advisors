@@ -5,7 +5,7 @@ import { faAngleRight, faAngleLeft, faCircleNotch } from '@fortawesome/free-soli
 import styles from './Stepper.module.scss';
 import { ParsedStepperModel, Step, StepperModel, StepperProps } from './Stepper.interfaces';
 import { initialNoUserSteps, initialStepperModel, initialSteps } from './Stepper.initial';
-import { addBitrixContactDeal, parseCurrencyValue, parseModel, sendSMS, verifySMSCode } from './Stepper.utility';
+import { addBitrixContactDeal, parseCurrencyValue, parseModel, sendFacebookConversion, sendSMS, verifySMSCode } from './Stepper.utility';
 import { Questions } from './Stepper.enums';
 import { MultipleChoiceField } from '../fields/MultipleChoice';
 import { Currency } from '../fields/Currency';
@@ -112,6 +112,9 @@ export function Stepper(props: StepperProps): JSX.Element {
 
         if (props['stepper-type'] === 'short') {
             const bitrixResponse: Response | undefined = await addBitrixContactDeal(data);
+
+            // Keep going even if this does not succeed
+            await sendFacebookConversion(data);
 
             if (bitrixResponse !== undefined && bitrixResponse.status === 200) {
                 sendThankYouPage(data.unsecuredDebtAmount);
