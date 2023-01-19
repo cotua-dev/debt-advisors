@@ -17,6 +17,7 @@ export function Header(props: HeaderProps) {
             <meta property="og:site_name" content={props.title || "Debt Advisors - America"}/>
             <meta property="og:title" content={props.title || "Debt Advisors - America"}/>
             <meta property="og:description" content={props.description || description}/>
+            <meta name="trustpilot-one-time-domain-verification-id" content="7a0c412b-dddc-4691-b431-f13f97ee89d6"/>
             <link rel="icon" type="image/png" sizes="32x32" href="/images/logo32x32.png"/>
             <link rel="icon" type="image/png" sizes="180x180" href="/images/logo180x180.png"/>
             <link rel="apple-touch-icon" href="/images/logo192x192.png"/>
