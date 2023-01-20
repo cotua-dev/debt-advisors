@@ -219,6 +219,7 @@ export async function addBitrixContactDeal(data: ParsedStepperModel): Promise<Re
         });
 
         await sendFacebookConversion(data);
+        await sendCotuaDAAConversion(data);
 
         // Return the response object
         return response;
@@ -242,8 +243,28 @@ export async function sendFacebookConversion(data: ParsedStepperModel): Promise<
         });
 
         return response;
-    } catch (sendFacebookConversion: unknown) {
-        console.error({ sendFacebookConversion });
-        throw new Error(sendFacebookConversion as string);
+    } catch (sendFacebookConversionException: unknown) {
+        console.error({ sendFacebookConversionException });
+        throw new Error(sendFacebookConversionException as string);
+    }
+}
+
+/**
+ * Send request to send a conversion to Facebook
+ * @param data Object containing already parsed data
+ * @returns Promise containing the response object or undefined
+ */
+export async function sendCotuaDAAConversion(data: ParsedStepperModel): Promise<Response | undefined> {
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/CotuaDAAConversion`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        });
+
+        return response;
+    } catch (sendCotuaDAAConversionException: unknown) {
+        console.error({ sendCotuaDAAConversionException });
+        throw new Error(sendCotuaDAAConversionException as string);
     }
 }
