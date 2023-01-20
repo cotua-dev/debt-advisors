@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import styles from './Stepper.module.scss';
@@ -68,36 +69,39 @@ export function Stepper(props: StepperProps): JSX.Element {
     }
 
     function sendThankYouPage(unsecuredDebtAmount: number) {
-        // let thankYouRoute = `${window.location.origin}/thank-you`;
         const debtLessThan10k = unsecuredDebtAmount >= minimumDebtAmount && unsecuredDebtAmount < 10000;
 
         switch (router.pathname) {
             case '/ohio':
-                window.location.href = `${window.location.origin}/ohio/thank-you`;
+                router.push({ pathname: '/ohio/thank-you', query: { id: uuidv4() } });
                 break;
             case '/new-jersey':
-                window.location.href = `${window.location.origin}/new-jersey/thank-you`;
+                router.push({ pathname: '/new-jersey/thank-you', query: { id: uuidv4() } });
                 break;
             case '/colorado':
-                window.location.href = `${window.location.origin}/colorado/thank-you`;
+                router.push({ pathname: '/colorado/thank-you', query: { id: uuidv4() } });
                 break;
             case '/credit-card':
-                window.location.href = `${window.location.origin}/credit-card/thank-you`;
+                router.push({ pathname: '/credit-card/thank-you', query: { id: uuidv4() } });
                 break;
             case '/debt':
-                window.location.href = `${window.location.origin}/debt/thank-you`;
+                router.push({ pathname: '/debt/thank-you', query: { id: uuidv4() } });
                 break;
             case '/medical':
-                window.location.href = `${window.location.origin}/medical/thank-you`;
+                router.push({ pathname: '/medical/thank-you', query: { id: uuidv4() } });
                 break;
             case '/personal':
-                window.location.href = `${window.location.origin}/personal/thank-you`;
+                router.push({ pathname: '/personal/thank-you', query: { id: uuidv4() } });
                 break;
             case '/student-loan':
-                window.location.href = `${window.location.origin}/student-loan/thank-you`;
+                router.push({ pathname: '/student-loan/thank-you', query: { id: uuidv4() } });
                 break;
             default:
-                window.location.href = debtLessThan10k ? `${window.location.origin}/thanks` : `${window.location.origin}/thank-you`;
+                const thankYouRoute = debtLessThan10k ? '/thanks' : '/thank-you';
+                router.push({ pathname: thankYouRoute, query: { id: uuidv4() } });
+                // debtLessThan10k ?
+                //     router.push({ pathname: '/thanks', query: { id: uuidv4() } }) :
+                //     router.push({ pathname: '/thank-you', query: { id: uuidv4() } });
                 break;
         }
     }
