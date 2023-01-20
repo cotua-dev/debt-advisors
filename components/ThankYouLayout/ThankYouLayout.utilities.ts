@@ -48,6 +48,7 @@ export function insertTrackingScripts() {
                 s.parentNode.insertBefore(t,s)}(window, document,'script',
                 'https://connect.facebook.net/en_US/fbevents.js');
                 fbq('init', '1011657849590069');
+                fbq("trackSingle", "1011657849590069", "SubmitApplication");
                 fbq("trackSingle", "1011657849590069", "Lead", {
                     content_category: "product",
                     content_name: "stepper",
