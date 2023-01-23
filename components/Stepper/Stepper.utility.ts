@@ -140,6 +140,7 @@ export function parseModel(unparsedModel: StepperModel): ParsedStepperModel {
         utm_content,
         utm_medium,
         utm_source,
+        thankYouId: "",
         // gclid,
         // fbclid,
         // placement,
