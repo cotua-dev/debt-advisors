@@ -22,6 +22,7 @@ export function Header(props: HeaderProps) {
             <link rel="icon" type="image/png" sizes="180x180" href="/images/logo180x180.png"/>
             <link rel="apple-touch-icon" href="/images/logo192x192.png"/>
             <link rel="manifest" href="/manifest.json"/>
+            <script type="text/javascript" src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
         </Head>
     );
 };
