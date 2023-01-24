@@ -78,3 +78,16 @@ export function addGclid(): void {
         (currGclidFormField as HTMLInputElement).value = gclid.value;
     }
 }
+
+export function onThankYouPages(): boolean {
+    return window.location.pathname === "/thanks" ||
+        window.location.pathname === "/thank-you" ||
+        window.location.pathname === "/colorado/thank-you" ||
+        window.location.pathname === "/credit-card/thank-you" ||
+        window.location.pathname === "/debt/thank-you" ||
+        window.location.pathname === "/medical/thank-you" ||
+        window.location.pathname === "/new-jersey/thank-you" ||
+        window.location.pathname === "/ohio/thank-you" ||
+        window.location.pathname === "/personal/thank-you" ||
+        window.location.pathname === "/student-loan/thank-you";
+}
