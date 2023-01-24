@@ -3,8 +3,11 @@ import Script from 'next/script';
 import { SHA256 } from 'crypto-js';
 import { ThankYouLayoutProps } from './ThankYouLayout.interfaces';
 import { insertTrackingScripts } from './ThankYouLayout.utilities';
+import { Header } from '../Header';
+import { Navigation } from '../Navigation';
+import { Footer } from '../Footer';
 
-export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
+export function ThankYouLayout({ children, title }: ThankYouLayoutProps = { title: "Debt Advisors", children: [] }): JSX.Element {
     const parsePhoneNumber = (phone: string): string => {
         let parsedPhoneNumber = '';
 
@@ -218,66 +221,12 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
 
     return (
         <>
-            {/* <Script
-                id="google-tag-data"
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{__html: `
-                    const enhanced_conversion_data = {
-                        "email": ${localStorage.getItem('email') || ''},
-                    }
-                `}}
-            ></Script> */}
-            {/* <Script
-                strategy="afterInteractive"
-                id="google-tag-enhanced-data"
-                dangerouslySetInnerHTML={{__html: `
-                    var enhanced_conversion_data = {
-                        "email": ${SHA256(localStorage.getItem('email') || '')}
-                    };
-                `}}
-            />
-            <Script
-                strategy="afterInteractive"
-                id="google-tag-conversion"
-                dangerouslySetInnerHTML={{__html: `
-                    gtag('event', 'conversion', {
-                        'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_THANK_YOU}'
-                    });
-                `}}
-            /> */}
-            {/* <Script
-                strategy="afterInteractive"
-                id="google-tag-conversion"
-                dangerouslySetInnerHTML={{__html: `
-                    gtag('event', 'conversion', {
-                        'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_THANK_YOU}',
-                        'value': ${conversionValue},
-                        'currency': 'USD'
-                    });
-                `}}
-            /> */}
-            {/* <Script
-                strategy="afterInteractive"
-                id="facebook-track-submit-application"
-                dangerouslySetInnerHTML={{__html: `
-                    fbq('track', 'SubmitApplication');
-                    fbq('track', 'Lead');
-                `}}
-            /> */}
-            {/* <Script
-                strategy="afterInteractive"
-                id="facebook-track-submit-application"
-                dangerouslySetInnerHTML={{__html: `
-                    fbq('track', 'SubmitApplication');
-                    fbq('track', 'Lead', {
-                        em: '',
-                        ph: '',
-                        fn: '',
-                        ln: '',
-                    });
-                `}}
-            /> */}
-            {children}
+            <Header title={title}/>
+            <Navigation/>
+            <main role="main">
+                {children}
+            </main>
+            <Footer/>
         </>
     );
 }
