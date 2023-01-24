@@ -51,9 +51,9 @@ export function Layout(props: LayoutProps = { title: 'Debt Advisors', children: 
         }
     }, [query]);
 
-    useEffect(() => {
-        initialize3rdParty();
-    }, []);
+    // useEffect(() => {
+    //     initialize3rdParty();
+    // }, []);
 
     return (
         <>
