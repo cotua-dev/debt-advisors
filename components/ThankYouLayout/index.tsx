@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Script from 'next/script';
 import { SHA256 } from 'crypto-js';
 import { ThankYouLayoutProps } from './ThankYouLayout.interfaces';
@@ -212,9 +212,9 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
         }
     });
 
-    useEffect(() => {
-        insertTrackingScripts();
-    }, []);
+    // useEffect(() => {
+    //     insertTrackingScripts();
+    // }, []);
 
     return (
         <>
@@ -257,13 +257,38 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                 `}}
             /> */}
             {/* <Script
+                id="tik-tok-track-script"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{__html: `
+                    ttq.instance("CEHM5CBC77UDF9719OR0");
+                    ttq.track("SubmitForm", {
+                        value: 0,
+                        currency: "USD",
+                        content_type: "product",
+                        content_id: "1",
+                        content_name: "stepper",
+                    });
+                `}}
+            ></Script>
+            <Script
+                id="google-tag-conversion"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{__html: `
+                    gtag("event", "conversion", {
+                        send_to: "AW-315822587/eO1NCPPzzPQCEPujzJYB",
+                        value: 0,
+                        currency: "USD",
+                    });
+                `}}
+            ></Script> */}
+            <Script
                 strategy="afterInteractive"
                 id="facebook-track-submit-application"
                 dangerouslySetInnerHTML={{__html: `
                     fbq('track', 'SubmitApplication');
                     fbq('track', 'Lead');
                 `}}
-            /> */}
+            />
             {/* <Script
                 strategy="afterInteractive"
                 id="facebook-track-submit-application"
