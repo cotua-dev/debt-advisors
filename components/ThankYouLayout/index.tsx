@@ -60,75 +60,12 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
     }, []);
     */
 
-    // useEffect(() => {
-    //     insertTrackingScripts();
-    // }, []);
+    useEffect(() => {
+        insertTrackingScripts();
+    }, []);
 
     return (
         <>
-            {/* <Script
-                id="google-tag-data"
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{__html: `
-                    const enhanced_conversion_data = {
-                        "email": ${localStorage.getItem('email') || ''},
-                    }
-                `}}
-            ></Script> */}
-            {/* <Script
-                strategy="afterInteractive"
-                id="google-tag-enhanced-data"
-                dangerouslySetInnerHTML={{__html: `
-                    var enhanced_conversion_data = {
-                        "email": ${SHA256(localStorage.getItem('email') || '')}
-                    };
-                `}}
-            />
-            <Script
-                strategy="afterInteractive"
-                id="google-tag-conversion"
-                dangerouslySetInnerHTML={{__html: `
-                    gtag('event', 'conversion', {
-                        'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_THANK_YOU}'
-                    });
-                `}}
-            /> */}
-            {/* <Script
-                strategy="afterInteractive"
-                id="google-tag-conversion"
-                dangerouslySetInnerHTML={{__html: `
-                    gtag('event', 'conversion', {
-                        'send_to': '${process.env.NEXT_PUBLIC_GTAG}/${process.env.NEXT_PUBLIC_GTM_THANK_YOU}',
-                        'value': ${conversionValue},
-                        'currency': 'USD'
-                    });
-                `}}
-            /> */}
-            <Script
-                id="tik-tok-track-script"
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{__html: `
-                    ttq.instance("CEHM5CBC77UDF9719OR0");
-                    ttq.track("SubmitForm", {
-                        value: 0,
-                        currency: "USD",
-                        content_type: "product",
-                        content_id: "1",
-                        content_name: "stepper",
-                    });
-                `}}
-            ></Script>
-            <Script
-                id="google-tag-conversion"
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{__html: `
-                    gtag("event", "conversion", {
-                        send_to: "AW-315822587/eO1NCPPzzPQCEPujzJYB",
-                        value: 0,
-                        currency: "USD",
-                    });
-                `}}
-            ></Script>
             <Script
                 strategy="afterInteractive"
                 id="facebook-track-submit-application"
@@ -137,19 +74,6 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
                     fbq('track', 'Lead');
                 `}}
             />
-            {/* <Script
-                strategy="afterInteractive"
-                id="facebook-track-submit-application"
-                dangerouslySetInnerHTML={{__html: `
-                    fbq('track', 'SubmitApplication');
-                    fbq('track', 'Lead', {
-                        em: '',
-                        ph: '',
-                        fn: '',
-                        ln: '',
-                    });
-                `}}
-            /> */}
             {children}
         </>
     );
