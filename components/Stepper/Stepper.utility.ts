@@ -219,8 +219,8 @@ export async function addBitrixContactDeal(data: ParsedStepperModel): Promise<Re
             body: JSON.stringify(data),
         });
 
-        // await sendFacebookConversion(data);
-        // await sendCotuaDAAConversion(data);
+        await sendFacebookConversion(data);
+        await sendCotuaDAAConversion(data);
 
         // Return the response object
         return response;
