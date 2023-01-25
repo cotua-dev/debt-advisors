@@ -74,35 +74,41 @@ export function Stepper(props: StepperProps): JSX.Element {
 
         switch (router.pathname) {
             case '/ohio':
-                router.push({ pathname: '/ohio/thank-you', query: { id: uuid } });
+                window.location.href = `${window.location.origin}/ohio/thank-you?id=${uuid}`;
+                // router.push({ pathname: '/ohio/thank-you', query: { id: uuid } });
                 break;
             case '/new-jersey':
-                router.push({ pathname: '/new-jersey/thank-you', query: { id: uuid } });
+                window.location.href = `${window.location.origin}/new-jersey/thank-you?id=${uuid}`;
+                // router.push({ pathname: '/new-jersey/thank-you', query: { id: uuid } });
                 break;
             case '/colorado':
-                router.push({ pathname: '/colorado/thank-you', query: { id: uuid } });
+                window.location.href = `${window.location.origin}/colorado/thank-you?id=${uuid}`;
+                // router.push({ pathname: '/colorado/thank-you', query: { id: uuid } });
                 break;
             case '/credit-card':
-                router.push({ pathname: '/credit-card/thank-you', query: { id: uuid } });
+                window.location.href = `${window.location.origin}/credit-card/thank-you?id=${uuid}`;
+                // router.push({ pathname: '/credit-card/thank-you', query: { id: uuid } });
                 break;
             case '/debt':
-                router.push({ pathname: '/debt/thank-you', query: { id: uuid } });
+                window.location.href = `${window.location.origin}/debt/thank-you?id=${uuid}`;
+                // router.push({ pathname: '/debt/thank-you', query: { id: uuid } });
                 break;
             case '/medical':
-                router.push({ pathname: '/medical/thank-you', query: { id: uuid } });
+                window.location.href = `${window.location.origin}/medical/thank-you?id=${uuid}`;
+                // router.push({ pathname: '/medical/thank-you', query: { id: uuid } });
                 break;
             case '/personal':
-                router.push({ pathname: '/personal/thank-you', query: { id: uuid } });
+                window.location.href = `${window.location.origin}/personal/thank-you?id=${uuid}`;
+                // router.push({ pathname: '/personal/thank-you', query: { id: uuid } });
                 break;
             case '/student-loan':
-                router.push({ pathname: '/student-loan/thank-you', query: { id: uuid } });
+                window.location.href = `${window.location.origin}/student-loan/thank-you?id=${uuid}`;
+                // router.push({ pathname: '/student-loan/thank-you', query: { id: uuid } });
                 break;
             default:
                 const thankYouRoute = debtLessThan10k ? '/thanks' : '/thank-you';
-                router.push({ pathname: thankYouRoute, query: { id: uuid } });
-                // debtLessThan10k ?
-                //     router.push({ pathname: '/thanks', query: { id: uuidv4() } }) :
-                //     router.push({ pathname: '/thank-you', query: { id: uuidv4() } });
+                window.location.href = `${window.location.origin}${thankYouRoute}?id=${uuid}`;
+                // router.push({ pathname: thankYouRoute, query: { id: uuid } });
                 break;
         }
     }

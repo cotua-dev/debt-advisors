@@ -34,6 +34,7 @@ export function insertTrackingScripts() {
     const headEl: HTMLHeadElement | null = document.querySelector("head");
     if (headEl !== null) {
         // Add Facebook Pixel script
+        /*
         let facebookPixelScript: HTMLElement | null = document.getElementById("facebook-script");
         if (facebookPixelScript === null) {
             facebookPixelScript = document.createElement("script");
@@ -108,6 +109,7 @@ export function insertTrackingScripts() {
 
             headEl.append(facebookPixelScript);
         }
+        */
 
         // Add Google Enhanced Conversions data
         let enhancedConversionDataScript: HTMLElement | null = document.getElementById("google-enhanced-conversions-data-script");
