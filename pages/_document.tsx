@@ -21,7 +21,7 @@ export default function Document() {
                         gtag('config', 'G-6G04CZNE90');
                     `}}
                 ></Script> */}
-                <Script
+                {/* <Script
                     id="google-tag-manager"
                     strategy="afterInteractive"
                     dangerouslySetInnerHTML={{__html: `
@@ -47,7 +47,7 @@ export default function Document() {
                         gtag('js', new Date());
                         gtag('config','AW-315822587', {'allow_enhanced_conversions':true});
                     `}}
-                ></Script>
+                ></Script> */}
                 <Script
                     id="facebook-script"
                     strategy="afterInteractive"
@@ -65,7 +65,7 @@ export default function Document() {
                         fbq('track', 'PageView');
                     `}}
                 ></Script>
-                <Script
+                {/* <Script
                     id="tik-tok-pixel"
                     strategy="afterInteractive"
                     dangerouslySetInnerHTML={{__html: `
@@ -87,7 +87,7 @@ export default function Document() {
                         var target = 'https://www.clickcease.com/monitor/stat.js';
                         script.src = target;var elem = document.head;elem.appendChild(script);
                     `}}
-                ></Script>
+                ></Script> */}
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
@@ -143,7 +143,7 @@ export default function Document() {
             <body>
                 <Main/>
                 <NextScript/>
-                <noscript>
+                {/* <noscript>
                     <iframe
                         src="https://www.googletagmanager.com/ns.html?id=GTM-5ZWB77B"
                         height="0"
@@ -173,7 +173,7 @@ export default function Document() {
                     <a href="https://www.clickcease.com" rel="nofollow">
                         <img src="https://monitor.clickcease.com/stats/stats.aspx" alt="ClickCease"/>
                     </a>
-                </noscript>
+                </noscript> */}
             </body>
         </Html>
     );
