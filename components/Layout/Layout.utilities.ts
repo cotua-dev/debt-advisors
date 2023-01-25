@@ -48,6 +48,7 @@ export function initialize3rdParty() {
         }
 
         // Add Facebook pixel script
+        /*
         let facebookPixelScript: HTMLElement | null = document.getElementById("facebook-script");
         if (facebookPixelScript === null && !onThankYouPages()) {
             facebookPixelScript = document.createElement("script");
@@ -68,6 +69,7 @@ export function initialize3rdParty() {
 
             headEl.prepend(facebookPixelScript);
         }
+        */
 
         // Add Google Tag setup script
         let googleTagCustomScript: HTMLElement | null = document.getElementById("google-tag-custom");
