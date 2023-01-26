@@ -48,7 +48,7 @@ export default function Document() {
                         gtag('config','AW-315822587', {'allow_enhanced_conversions':true});
                     `}}
                 ></Script> */}
-                <Script
+                {/* <Script
                     id="facebook-script"
                     strategy="afterInteractive"
                     dangerouslySetInnerHTML={{__html: `
@@ -64,7 +64,7 @@ export default function Document() {
                         fbq('init', '5736031759798138');
                         fbq('track', 'PageView');
                     `}}
-                ></Script>
+                ></Script> */}
                 {/* <Script
                     id="tik-tok-pixel"
                     strategy="afterInteractive"
