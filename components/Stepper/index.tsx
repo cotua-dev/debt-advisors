@@ -188,6 +188,11 @@ export function Stepper(props: StepperProps): JSX.Element {
         // Grab needed properties from the current step
         const { validity, question } = steps[currentStep];
 
+        // Check for the first questions
+        if (question === Questions.UserPurpose) {
+            localStorage.setItem("uuid", uuid);
+        }
+
         // Check if we passed the unsecured debt field
         if (question === Questions.UnsecuredDebtAmount) {
             // Parse the unsecured debt amount into a number
