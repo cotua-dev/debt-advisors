@@ -66,14 +66,14 @@ export function ThankYouLayout({ children }: ThankYouLayoutProps): JSX.Element {
 
     return (
         <>
-            <Script
+            {/* <Script
                 strategy="afterInteractive"
                 id="facebook-track-submit-application"
                 dangerouslySetInnerHTML={{__html: `
                     fbq('track', 'SubmitApplication');
                     fbq('track', 'Lead');
                 `}}
-            />
+            /> */}
             {children}
         </>
     );
