@@ -1,0 +1,102 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+
+section.debt-advisors-stepper {
+    @include mixins.base-section;
+    @include mixins.flexify(center, center, column);
+    height: 550px;
+    padding: 10px;
+
+    @include mixins.mobile {
+        height: 100%;
+        padding: 0 10px 50px;
+    }
+
+    div.steps-wrapper {
+        div.step {
+            text-align: center;
+            margin: 50px 10px;
+
+            @include mixins.custom(767px) {
+                margin: 20px 10px;
+            }
+
+            &.hidden {
+                display: none;
+            }
+
+            strong.question {
+                @include mixins.main-heading;
+
+                @include mixins.mobile {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+
+    small.error {
+        font-size: 14px;
+        font-weight: 700;
+        color: variables.$secondary-color;
+    }
+
+    div.stepper-controls-wrapper {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+
+        @include mixins.mobile {
+            width: 100%;
+        }
+
+        button.previous-button,
+        button.next-button {
+            cursor: pointer;
+            border: 0;
+            border-radius: 10px;
+            padding: 10px 0;
+            color: #FFFFFF;
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            @include mixins.flexify(center, center, row);
+
+            &:disabled {
+                cursor: not-allowed;
+            }
+
+            .caret {
+                height: 20px;
+                width: 20px;
+            }
+        }
+
+        button.previous-button {
+            width: 80px;
+            background-color: variables.$secondary-color;
+
+            &:disabled {
+                background-color: lighten(variables.$secondary-color, 20%);
+            }
+        }
+
+        button.next-button {
+            width: 300px;
+            background-color: variables.$primary-color;
+            margin-left: 20px;
+
+            &:disabled {
+                background-color: lighten(variables.$primary-color, 20%);
+            }
+
+            @include mixins.mobile {
+                width: 100%;
+            }
+
+            .caret {
+                margin-left: 10px;
+            }
+        }
+    }
+}
