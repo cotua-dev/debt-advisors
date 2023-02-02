@@ -6,7 +6,7 @@
 		"start": "astro dev",
 		"check": "astro check",
 		"build": "astro build",
-		"preview": "astro preview --port 1938"
+		"preview": "astro preview"
 	},
 	"dependencies": {
 		"@fontsource/montserrat": "^4.5.14",
