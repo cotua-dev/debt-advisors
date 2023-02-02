@@ -96,6 +96,7 @@ export interface ParsedStepperModel extends Partial<MailerModel>, Partial<AdsFie
     phone: string;
     site: string;
     isMailer: boolean;
+    thankYouId: string;
 };
 
 export interface Step {
