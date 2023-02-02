@@ -1,0 +1,12 @@
+---
+import Base from "../../layouts/Base.astro";
+import { Stepper } from "../../components/Stepper";
+---
+
+<Base title="Personal Stepper - Debt Advisors">
+    <Stepper stepper-type="full" client:load/>
+    <script>
+        import { setCookieValues } from "../../scripts/cookie";
+        setCookieValues();
+    </script>
+</Base>

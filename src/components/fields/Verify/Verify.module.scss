@@ -1,0 +1,22 @@
+@use "../../../styles/variables";
+@use "../../../styles/mixins";
+
+div.code-field-wrapper {
+    @include mixins.flexify(center, center, column);
+
+    input.code-field {
+        @include mixins.base-field;
+    }
+
+    small.error {
+        @include mixins.error;
+    }
+
+    small.note {
+        @include mixins.note;
+
+        a {
+            color: variables.$secondary-color;
+        }
+    }
+}
